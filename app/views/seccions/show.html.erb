@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @seccion.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @seccion.nombre %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @seccion.activo %>
+</p>
+
+<%= link_to 'Edit', edit_seccion_path(@seccion) %> |
+<%= link_to 'Back', seccions_path %>

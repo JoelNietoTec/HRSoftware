@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HRSoftware</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="navbar navbar-inverse navbar-top">
+                <div class="navbar-header">
+                    <%= link_to root_url, :class=> "navbar-brand" do %>
+                    <i class="fa fa-home"></i> HRSoft
+                    <% end %>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 left-sidebar">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-cogs"></i>  Mantenimiento</a>
+                                    </h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="collapseOne">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><%= link_to "Sucursales", sucursals_path %></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href=""></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href=""></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href=""></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href=""></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="collapseTwo">
+                                    <div class="panel-body">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href=""></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="collapseOne">
+                                    <div class="panel-body"></div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href=""></a></h4>
+                                </div>
+                                <div class="panel-collapse collapse" id="collapseOne">
+                                    <div class="panel-body"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 main-container">
+                        <%= yield %>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
