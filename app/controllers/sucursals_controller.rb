@@ -1,10 +1,11 @@
 class SucursalsController < ApplicationController
   before_action :set_sucursal, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Sucursales", :sucursals_path
   # GET /sucursals
   # GET /sucursals.json
   def index
     @sucursals = Sucursal.all
+    add_breadcrumb "Listado", :sucursals_path
   end
 
   # GET /sucursals/1
@@ -15,10 +16,12 @@ class SucursalsController < ApplicationController
   # GET /sucursals/new
   def new
     @sucursal = Sucursal.new
+    add_breadcrumb "Nuevo", new_sucursal_path
   end
 
   # GET /sucursals/1/edit
   def edit
+      add_breadcrumb "Editar", edit_sucursal_path()
   end
 
   # POST /sucursals

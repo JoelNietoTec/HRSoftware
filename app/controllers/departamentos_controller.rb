@@ -1,24 +1,29 @@
 class DepartamentosController < ApplicationController
   before_action :set_departamento, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Departamentos", :departamentos_path
 
   # GET /departamentos
   # GET /departamentos.json
   def index
+      add_breadcrumb "Listado", :departamentos_path
     @departamentos = Departamento.all
   end
 
   # GET /departamentos/1
   # GET /departamentos/1.json
   def show
+      add_breadcrumb "Detalles", @departamentos
   end
 
   # GET /departamentos/new
   def new
+      add_breadcrumb "Nuevo", new_departamento_path
     @departamento = Departamento.new
   end
 
   # GET /departamentos/1/edit
   def edit
+      add_breadcrumb "Editar", edit_departamento_path
   end
 
   # POST /departamentos

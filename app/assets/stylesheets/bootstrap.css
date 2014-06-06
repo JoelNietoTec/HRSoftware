@@ -1,5 +1,4 @@
-@import url("//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700");
-/*!
+@import url("//fonts.googleapis.com/css?family=Lato:300,400,700");/*!
  * Bootswatch v3.1.1
  * Homepage: http://bootswatch.com
  * Copyright 2012-2014 Thomas Park
@@ -273,7 +272,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.42857143;
   color: #222222;
@@ -362,7 +361,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: inherit;
   font-weight: 300;
   line-height: 1.1;
   color: inherit;
@@ -401,7 +400,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 21px;
+  margin-top: 5px;
   margin-bottom: 10.5px;
 }
 h1 small,
@@ -4110,6 +4109,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 21px;
+    margin-left: 15px;
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 0;
@@ -4934,7 +4934,7 @@ a.list-group-item-danger.active:focus {
   overflow: hidden;
 }
 .panel-group .panel + .panel {
-  margin-top: 5px;
+  margin-top: 0px;
 }
 .panel-group .panel-heading {
   border-bottom: 0;

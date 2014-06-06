@@ -1,24 +1,28 @@
 class CargosController < ApplicationController
   before_action :set_cargo, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Cargos", :cargos_path
   # GET /cargos
   # GET /cargos.json
   def index
     @cargos = Cargo.all
+    add_breadcrumb "Listado", :cargos_path
   end
 
   # GET /cargos/1
   # GET /cargos/1.json
   def show
+      add_breadcrumb "Detalles", @cargos
   end
 
   # GET /cargos/new
   def new
     @cargo = Cargo.new
+    add_breadcrumb "Nuevo", new_cargo_path()
   end
 
   # GET /cargos/1/edit
   def edit
+      add_breadcrumb "Editar", edit_cargos_path()
   end
 
   # POST /cargos

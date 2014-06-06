@@ -33,13 +33,13 @@
                                                     <td><%= link_to "Sucursales", sucursals_path %></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href=""></a></td>
+                                                    <td><%= link_to "Departamentos", departamentos_path %></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href=""></a></td>
+                                                    <td><%= link_to "Centros De Costos", centro_costos_path %></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href=""></a></td>
+                                                    <td><%= link_to "Cargos", cargos_path %></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="panel-collapse collapse" id="collapseTwo">
                                     <div class="panel-body">
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -75,6 +75,11 @@
                         </div>
                     </div>
                     <div class="col-md-10 main-container">
+                        <div class="row">
+                            <ul class="breadcrumb col-md-4">
+                                <%= render_breadcrumbs :tag => :li, :separator => "" %>
+                            </ul>
+                        </div>
                         <%= yield %>
                     </div>
 

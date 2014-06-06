@@ -1,24 +1,28 @@
 class CentroCostosController < ApplicationController
   before_action :set_centro_costo, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Centros de Costos", :centro_costos_path
   # GET /centro_costos
   # GET /centro_costos.json
   def index
+      add_breadcrumb "Listado", :centro_costos_path
     @centro_costos = CentroCosto.all
   end
 
   # GET /centro_costos/1
   # GET /centro_costos/1.json
   def show
+      add_breadcrumb "Detalles", @centro_costos
   end
 
   # GET /centro_costos/new
   def new
+    add_breadcrumb "Nuevo", new_centro_costo_path
     @centro_costo = CentroCosto.new
   end
 
   # GET /centro_costos/1/edit
   def edit
+      add_breadcrumb "Editar", edit_centro_costo_path
   end
 
   # POST /centro_costos

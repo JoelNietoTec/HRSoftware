@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+    $('#datagrid').dataTable();
+});
+
+$(document).ready(function() {
+    $('.upper').blur(function() {
+        $(this).val($(this).val().toUpperCase());
+    });
+});
