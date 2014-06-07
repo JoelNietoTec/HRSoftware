@@ -43,3 +43,5 @@ gem 'paperclip', '~> 4.1'
 gem 'nested_form'
 
 gem 'breadcrumbs_on_rails'
+
+gem 'jquery-turbolinks'
