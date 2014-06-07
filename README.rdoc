@@ -1,6 +1,7 @@
 == README
 
-Para ejecutar correctamente, <br>
+Para ejecutar correctamente
+
 <tt> bundle install </tt>
 
 <tt> rake db:migrate </tt>
