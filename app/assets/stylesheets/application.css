@@ -46,5 +46,14 @@ wrapper {
     text-decoration: none;
 }
 panel a {
-    font-weight: bold;
+    font-weight: bolder;
+}
+
+.centered {
+    text-align: center;
+}
+
+thead > tr > th {
+text-align: center;
+
 }

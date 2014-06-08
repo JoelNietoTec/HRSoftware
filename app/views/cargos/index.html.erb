@@ -1,16 +1,15 @@
 <h1>Cargos</h1>
 <div class="row">
     <div class="col-md-10">
-        <table id="datagrid" class="table table-condensed table-hover">
+        <table id="datagrid" class="table table-condensed table-hover table-striped">
             <thead>
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th>Activo</th>
                     <th>Departamento</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Activo</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
 
@@ -19,11 +18,22 @@
                 <tr>
                     <td><%= cargo.codigo %></td>
                     <td><%= cargo.nombre %></td>
-                    <td><%= cargo.activo %></td>
                     <td><%= Departamento.find(cargo.departamento).nombre %></td>
-                    <td><%= link_to 'Show', cargo %></td>
-                    <td><%= link_to 'Edit', edit_cargo_path(cargo) %></td>
-                    <td><%= link_to 'Destroy', cargo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class="centered"><% if cargo.activo %>
+                    <i class="fa fa-check-square-o"></i>
+                    <% else %>
+                    <i class="fa fa-square-o"></i>
+                    <% end %>
+                    </td>
+                    <td class="centered"><%= link_to edit_cargo_path(cargo) do %>
+                    <i class="fa fa-pencil-square-o"></i>
+                    <% end %>
+                    </td>
+                    <td class="centered">
+                    <%= link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                    <i class="fa fa-trash-o"></i>
+                    <% end %>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>

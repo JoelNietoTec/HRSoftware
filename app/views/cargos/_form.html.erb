@@ -30,24 +30,26 @@
                 <div class="field form-group">
                     <%= f.label :departamento_id, :class=> "control-label col-md-2" %>
                     <div class="col-md-8">
-                        <%= f.collection_select :departamento_id, departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"} %>
+                        <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"} %>
                     </div>
-
                 </div>
-
-                <div class="field">
-                    <%= f.label :nombre %><br>
-                    <%= f.text_field :nombre %>
+                <div class="field form-group">
+                    <%= f.label :nombre, :class=> "control-label col-md-2" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :nombre, :class=> "form-control input-sm" %>
+                    </div>
                 </div>
-                <div class="field">
-                    <%= f.label :activo %><br>
-                    <%= f.check_box :activo %>
+                <div class="field form-group">
+                    <div class="col-md-2"></div>
+                    <div class="field checkbox col-md-10">
+                        <%= f.label :activo %>
+                        <%= f.check_box :activo %>
+                    </div>
                 </div>
-
             </div>
             <div class="panel-footer">
                 <div class="actions">
-                    <%= f.submit %>
+                    <%= f.submit "Guardar Cargos", :class=> "btn btn-sm btn-primary" %>
                 </div>
             </div>
         </div>

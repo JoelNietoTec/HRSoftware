@@ -1,10 +1,11 @@
 class SeccionsController < ApplicationController
   before_action :set_seccion, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Secciones", :seccions_path
   # GET /seccions
   # GET /seccions.json
   def index
     @seccions = Seccion.all
+    add_breadcrumb "Listado", :seccions_path
   end
 
   # GET /seccions/1
@@ -15,10 +16,12 @@ class SeccionsController < ApplicationController
   # GET /seccions/new
   def new
     @seccion = Seccion.new
+      add_breadcrumb "Nuevo", new_seccion_path()
   end
 
   # GET /seccions/1/edit
   def edit
+      add_breadcrumb "Editar", edit_seccion_path()
   end
 
   # POST /seccions
@@ -28,7 +31,7 @@ class SeccionsController < ApplicationController
 
     respond_to do |format|
       if @seccion.save
-        format.html { redirect_to @seccion, notice: 'Seccion was successfully created.' }
+        format.html { redirect_to seccions_path, notice: 'Seccion was successfully created.' }
         format.json { render :show, status: :created, location: @seccion }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class SeccionsController < ApplicationController
   def update
     respond_to do |format|
       if @seccion.update(seccion_params)
-        format.html { redirect_to @seccion, notice: 'Seccion was successfully updated.' }
+        format.html { redirect_to seccions_path, notice: 'Seccion was successfully updated.' }
         format.json { render :show, status: :ok, location: @seccion }
       else
         format.html { render :edit }

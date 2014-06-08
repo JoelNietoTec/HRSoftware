@@ -1,10 +1,12 @@
 class ProyectosController < ApplicationController
   before_action :set_proyecto, only: [:show, :edit, :update, :destroy]
+    add_breadcrumb "Proyectos", :proyectos_path
 
   # GET /proyectos
   # GET /proyectos.json
   def index
     @proyectos = Proyecto.all
+    add_breadcrumb "Listado", :proyectos_path
   end
 
   # GET /proyectos/1
@@ -15,10 +17,12 @@ class ProyectosController < ApplicationController
   # GET /proyectos/new
   def new
     @proyecto = Proyecto.new
+    add_breadcrumb "Nuevo", new_proyecto_path
   end
 
   # GET /proyectos/1/edit
   def edit
+      add_breadcrumb "Editar", edit_proyecto_path
   end
 
   # POST /proyectos
@@ -28,7 +32,7 @@ class ProyectosController < ApplicationController
 
     respond_to do |format|
       if @proyecto.save
-        format.html { redirect_to @proyecto, notice: 'Proyecto was successfully created.' }
+        format.html { redirect_to proyectos_path, notice: 'Proyecto was successfully created.' }
         format.json { render :show, status: :created, location: @proyecto }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class ProyectosController < ApplicationController
   def update
     respond_to do |format|
       if @proyecto.update(proyecto_params)
-        format.html { redirect_to @proyecto, notice: 'Proyecto was successfully updated.' }
+        format.html { redirect_to proyectos_path, notice: 'Proyecto was successfully updated.' }
         format.json { render :show, status: :ok, location: @proyecto }
       else
         format.html { render :edit }

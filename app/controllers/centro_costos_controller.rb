@@ -32,7 +32,7 @@ class CentroCostosController < ApplicationController
 
     respond_to do |format|
       if @centro_costo.save
-        format.html { redirect_to @centro_costo, notice: 'Centro costo was successfully created.' }
+        format.html { redirect_to centro_costos_path, notice: 'Centro costo was successfully created.' }
         format.json { render :show, status: :created, location: @centro_costo }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CentroCostosController < ApplicationController
   def update
     respond_to do |format|
       if @centro_costo.update(centro_costo_params)
-        format.html { redirect_to @centro_costo, notice: 'Centro costo was successfully updated.' }
+        format.html { redirect_to centro_costo_path, notice: 'Centro costo was successfully updated.' }
         format.json { render :show, status: :ok, location: @centro_costo }
       else
         format.html { render :edit }

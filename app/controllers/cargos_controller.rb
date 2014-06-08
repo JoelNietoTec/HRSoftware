@@ -22,7 +22,7 @@ class CargosController < ApplicationController
 
   # GET /cargos/1/edit
   def edit
-      add_breadcrumb "Editar", edit_cargos_path()
+      add_breadcrumb "Editar", edit_cargo_path()
   end
 
   # POST /cargos
@@ -32,7 +32,7 @@ class CargosController < ApplicationController
 
     respond_to do |format|
       if @cargo.save
-        format.html { redirect_to @cargo, notice: 'Cargo was successfully created.' }
+        format.html { redirect_to cargos_path, notice: 'Cargo was successfully created.' }
         format.json { render :show, status: :created, location: @cargo }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class CargosController < ApplicationController
   def update
     respond_to do |format|
       if @cargo.update(cargo_params)
-        format.html { redirect_to @cargo, notice: 'Cargo was successfully updated.' }
+        format.html { redirect_to cargos_path, notice: 'Cargo was successfully updated.' }
         format.json { render :show, status: :ok, location: @cargo }
       else
         format.html { render :edit }

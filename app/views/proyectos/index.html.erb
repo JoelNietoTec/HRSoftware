@@ -1,29 +1,34 @@
-<h1>Listing proyectos</h1>
+<h1>Proyectos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Codigo</th>
-      <th>Nombre</th>
-      <th>Activo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @proyectos.each do |proyecto| %>
-      <tr>
-        <td><%= proyecto.codigo %></td>
-        <td><%= proyecto.nombre %></td>
-        <td><%= proyecto.activo %></td>
-        <td><%= link_to 'Show', proyecto %></td>
-        <td><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
-        <td><%= link_to 'Destroy', proyecto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+    <div class="col-md-10">
+        <table id="datagrid" class="table table-condensed table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th colspan="3"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @proyectos.each do |proyecto| %>
+                <tr>
+                    <td><%= proyecto.codigo %></td>
+                    <td><%= proyecto.nombre %></td>
+                    <td><%= proyecto.activo %></td>
+                    <td><%= link_to 'Show', proyecto %></td>
+                    <td><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
+                    <td><%= link_to 'Destroy', proyecto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <br>
 
-<%= link_to 'New Proyecto', new_proyecto_path %>
+<%= link_to new_proyecto_path, :class=> "btn btn-sm btn-primary" do %>
+<i class="fa fa-plus text-success"></i> Nuevo Proyecto
+<% end %>
