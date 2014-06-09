@@ -1,8 +1,8 @@
-<h1>Sucursales</h1>
+<h1>Fases</h1>
 
 <div class="row">
     <div class="col-md-10">
-        <table id="datagrid" class="table table-condensed table-hover table-striped">
+        <table id="datagrid" class="table table-responsve table-striped table-condensed table-hover">
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -14,24 +14,24 @@
             </thead>
 
             <tbody>
-                <% @sucursals.each do |sucursal| %>
+                <% @fases.each do |fase| %>
                 <tr>
-                    <td><%= sucursal.codigo %></td>
-                    <td><%= sucursal.nombre %></td>
+                    <td><%= fase.codigo %></td>
+                    <td><%= fase.nombre %></td>
                     <td class="centered">
-                        <% if sucursal.activo %>
+                        <% if fase.activo %>
                         <i class="fa fa-check-square-o"></i>
                         <% else %>
                         <i class="fa fa-square-o"></i>
                         <% end %>
                     </td>
                     <td class="centered">
-                        <%= link_to edit_sucursal_path(sucursal) do %>
+                        <%= link_to edit_fase_path(fase) do %>
                         <i class="fa fa-pencil"></i>
                         <% end %>
                     </td>
                     <td class="centered">
-                        <%= link_to sucursal, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                        <%= link_to fase, method: :delete, data: { confirm: 'Estás seguro?' } do %>
                         <i class="fa fa-trash-o"></i>
                         <% end %>
                     </td>
@@ -39,12 +39,13 @@
                 <% end %>
             </tbody>
         </table>
+
     </div>
 </div>
 
 
 <br>
 
-<%= link_to new_sucursal_path, :class=> "btn btn-primary btn-sm" do %>
-<i class="fa fa-plus text-success"></i> Nueva Sucursal
+<%= link_to 'new_fase_path', :class=> "btn btn-primary btn-sm" do %>
+<i class="fa fa-plus text-success"></i> Nueva Fase
 <% end %>

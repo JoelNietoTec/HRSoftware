@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codigo:</strong>
+  <%= @fase.codigo %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @fase.nombre %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @fase.activo %>
+</p>
+
+<%= link_to 'Edit', edit_fase_path(@fase) %> |
+<%= link_to 'Back', fases_path %>

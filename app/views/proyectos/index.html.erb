@@ -8,9 +8,8 @@
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Activo</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,10 +17,23 @@
                 <tr>
                     <td><%= proyecto.codigo %></td>
                     <td><%= proyecto.nombre %></td>
-                    <td><%= proyecto.activo %></td>
-                    <td><%= link_to 'Show', proyecto %></td>
-                    <td><%= link_to 'Edit', edit_proyecto_path(proyecto) %></td>
-                    <td><%= link_to 'Destroy', proyecto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class="centered">
+                        <% if proyecto.activo %>
+                        <i class="fa fa-check-square-o"></i>
+                        <% else %>
+                        <i class="fa fa-square-o"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to edit_proyecto_path(proyecto) do %>
+                        <i class="fa fa-pencil"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to proyecto, method: :delete, data: { confirm: 'Está seguro?' } do %>
+                        <i class="fa fa-trash-o"></i>
+                        <% end %>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>

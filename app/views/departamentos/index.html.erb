@@ -8,9 +8,8 @@
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Activo</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
 
@@ -19,10 +18,23 @@
                 <tr>
                     <td><%= departamento.codigo %></td>
                     <td><%= departamento.nombre %></td>
-                    <td><%= departamento.activo %></td>
-                    <td><%= link_to 'Show', departamento %></td>
-                    <td><%= link_to 'Edit', edit_departamento_path(departamento) %></td>
-                    <td><%= link_to 'Destroy', departamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class="centered">
+                        <% if departamento.activo %>
+                        <i class="fa fa-check-square-o"></i>
+                        <% else %>
+                        <i class="fa fa-square-o"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to edit_departamento_path(departamento) do %>
+                        <i class="fa fa-pencil"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to departamento, method: :delete, data: { confirm: 'Está seguro?' } do %>
+                        <i class="fa fa-trash-o"></i>
+                        <% end %>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>

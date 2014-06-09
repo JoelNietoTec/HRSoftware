@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :fases
+
   resources :seccions
 
   resources :centro_costos

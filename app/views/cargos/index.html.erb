@@ -19,20 +19,21 @@
                     <td><%= cargo.codigo %></td>
                     <td><%= cargo.nombre %></td>
                     <td><%= Departamento.find(cargo.departamento).nombre %></td>
-                    <td class="centered"><% if cargo.activo %>
-                    <i class="fa fa-check-square-o"></i>
-                    <% else %>
-                    <i class="fa fa-square-o"></i>
-                    <% end %>
+                    <td class="centered">
+                        <% if cargo.activo %>
+                        <i class="fa fa-check-square-o"></i>
+                        <% else %>
+                        <i class="fa fa-square-o"></i>
+                        <% end %>
                     </td>
                     <td class="centered"><%= link_to edit_cargo_path(cargo) do %>
-                    <i class="fa fa-pencil-square-o"></i>
-                    <% end %>
+                        <i class="fa fa-pencil"></i>
+                        <% end %>
                     </td>
                     <td class="centered">
-                    <%= link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
-                    <i class="fa fa-trash-o text-danger"></i>
-                    <% end %>
+                        <%= link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                        <i class="fa fa-trash-o"></i>
+                        <% end %>
                     </td>
                 </tr>
                 <% end %>

@@ -7,9 +7,8 @@
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Activo</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
 
@@ -18,10 +17,23 @@
                 <tr>
                     <td><%= seccion.codigo %></td>
                     <td><%= seccion.nombre %></td>
-                    <td><%= seccion.activo %></td>
-                    <td><%= link_to 'Show', seccion %></td>
-                    <td><%= link_to 'Edit', edit_seccion_path(seccion) %></td>
-                    <td><%= link_to 'Destroy', seccion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td class="centered">
+                        <% if seccion.activo %>
+                        <i class="fa fa-check-square-o"></i>
+                        <% else %>
+                        <i class="fa fa-square-o"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to edit_seccion_path(seccion) do %>
+                        <i class="fa fa-pencil"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to seccion, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                        <i class="fa fa-trash-o"></i>
+                        <% end %>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>
