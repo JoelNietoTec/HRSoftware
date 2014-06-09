@@ -57,3 +57,7 @@ thead > tr > th {
 text-align: center;
 
 }
+
+#accordion {
+    border: 0;
+}

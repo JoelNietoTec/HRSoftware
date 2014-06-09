@@ -26,3 +26,12 @@ $(document).ready(function() {
         $(this).val($(this).val().toUpperCase());
     });
 });
+
+$(document).ready(function() {
+    /* swap open/close side menu icons */
+    $('[data-toggle=collapse]').click(function(){
+        // toggle icon
+        $(this).find("i").toggleClass("fa-chevron-right fa-chevron-down");
+    });
+});
+

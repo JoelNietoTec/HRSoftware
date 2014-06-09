@@ -20,52 +20,32 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 left-sidebar">
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-cogs"></i>  Mantenimiento</a>
-                                </h4>
-                            </div>
-                            <div class="panel-collapse collapse" id="collapseOne">
-                                <div class="panel-body">
-                                    <ul class="nav nav-pills nav-stacked">
-                                        <li><%= link_to "Sucursales", sucursals_path %></li>
-                                        <li><%= link_to "Departamentos", departamentos_path %></li>
-                                        <li><%= link_to "Centros De Costos", centro_costos_path %></li>
-                                        <li><%= link_to "Cargos", cargos_path %></li>
-                                        <li><%= link_to "Secciones", seccions_path %></li>
-                                        <li><%= link_to "Proyectos", proyectos_path %></li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <br>
+                    <div id="accordion" class="well">
+                        <h4>
+                            <strong>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
+                                </a>
+                            </strong>
+                        </h4>
+                        <div class="panel-collapse collapse in" id="collapseOne">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><%= link_to "Sucursales", sucursals_path %></li>
+                                <li><%= link_to "Departamentos", departamentos_path %></li>
+                                <li><%= link_to "Centros De Costos", centro_costos_path %></li>
+                                <li><%= link_to "Cargos", cargos_path %></li>
+                                <li><%= link_to "Secciones", seccions_path %></li>
+                                <li><%= link_to "Proyectos", proyectos_path %></li>
+                            </ul>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href=""></a></h4>
-                            </div>
-                            <div class="panel-collapse collapse" id="collapseTwo">
-                                <div class="panel-body">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href=""></a></h4>
-                            </div>
-                            <div class="panel-collapse collapse" id="collapseOne">
-                                <div class="panel-body"></div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title"><a href=""></a></h4>
-                            </div>
-                            <div class="panel-collapse collapse" id="collapseOne">
-                                <div class="panel-body"></div>
-                            </div>
-                        </div>
+                        <hr>
+                        <h4><strong>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <i class="fa fa-users"></i>
+                                Empleados </a>
+                            </strong>
+                        </h4>
                     </div>
                 </div>
                 <div class="col-md-10 main-container">
@@ -79,6 +59,7 @@
 
             </div>
         </div>
-
     </body>
 </html>
+
+
