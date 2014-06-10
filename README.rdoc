@@ -1,0 +1,12 @@
+== README
+
+Para ejecutar correctamente
+
+<tt> bundle install </tt>
+
+<tt> rake db:migrate </tt>
+
+<tt> rake db:seed </tt>
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

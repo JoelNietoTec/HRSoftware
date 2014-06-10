@@ -1,0 +1,48 @@
+<h1>Secciones</h1>
+<div class="row">
+    <div class="col-md-10">
+        <table id="datagrid" class="table table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th>Editar</th>
+                    <th>Borrar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @seccions.each do |seccion| %>
+                <tr>
+                    <td><%= seccion.codigo %></td>
+                    <td><%= seccion.nombre %></td>
+                    <td class="centered">
+                        <% if seccion.activo %>
+                        <i class="fa fa-check-square-o"></i>
+                        <% else %>
+                        <i class="fa fa-square-o"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to edit_seccion_path(seccion) do %>
+                        <i class="fa fa-pencil"></i>
+                        <% end %>
+                    </td>
+                    <td class="centered">
+                        <%= link_to seccion, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                        <i class="fa fa-trash-o"></i>
+                        <% end %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<br>
+
+<%= link_to new_seccion_path, :class=> "btn btn-sm btn-primary" do %>
+<i class="fa fa-plus text-success"></i> Nueva Sección
+<% end %>
