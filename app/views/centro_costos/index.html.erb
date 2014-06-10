@@ -8,8 +8,7 @@
                     <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Activo</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,20 +18,18 @@
                     <td><%= centro_costo.nombre %></td>
                     <td class="centered">
                         <% if centro_costo.activo %>
-                        <i class="fa fa-check-square-o"></i>
+                        <i class="fa fa-check-square-o btn btn-xs btn-success"></i>
                         <% else %>
-                        <i class="fa fa-square-o"></i>
+                        <i class="fa fa-square-o btn btn-xs btn-default"></i>
                         <% end %>
                     </td>
                     <td class="centered">
-                    <%= link_to edit_centro_costo_path(centro_costo) do %>
-                    <i class="fa fa-pencil"></i>
-                    <% end %>
-                    </td>
-                    <td class="centered">
-                    <%= link_to centro_costo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
-                    <i class="fa fa-trash-o"></i>
-                    <% end %>
+                        <%= link_to edit_centro_costo_path(centro_costo) do %>
+                        <i class="fa fa-pencil btn btn-xs btn-primary" title="Editar"></i>
+                        <%= link_to centro_costo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
+                        <i class="fa fa-trash-o btn btn-xs btn-danger" title="Borrar"></i>
+                        <% end %>
+                        <% end %>
                     </td>
                 </tr>
                 <% end %>

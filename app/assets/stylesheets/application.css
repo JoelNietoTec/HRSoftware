@@ -62,3 +62,26 @@ text-align: center;
     padding: 20px;
     margin-top: 10px;
 }
+
+#accordion {
+    margin-top: 20px;
+}
+
+.aside-title {
+    margin-left: 10px;
+}
+
+.panel-collapse {
+    margin-left: 15px;
+}
+
+
+
+.hora {
+    font-size: 13px;
+    padding: 1px;
+}
+
+.horario {
+    padding: 1px;
+}

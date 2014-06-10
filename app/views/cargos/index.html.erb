@@ -8,8 +8,7 @@
                     <th>Nombre</th>
                     <th>Departamento</th>
                     <th>Activo</th>
-                    <th>Editar</th>
-                    <th>Borrar</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
 
@@ -21,18 +20,16 @@
                     <td><%= Departamento.find(cargo.departamento).nombre %></td>
                     <td class="centered">
                         <% if cargo.activo %>
-                        <i class="fa fa-check-square-o"></i>
+                        <i class="fa fa-check-square-o btn-xs btn-success"></i>
                         <% else %>
-                        <i class="fa fa-square-o"></i>
+                        <i class="fa fa-square-o btn-xs btn-default"></i>
                         <% end %>
                     </td>
                     <td class="centered"><%= link_to edit_cargo_path(cargo) do %>
-                        <i class="fa fa-pencil"></i>
+                        <i class="fa fa-pencil btn btn-xs btn-primary" title="Editar"></i>
                         <% end %>
-                    </td>
-                    <td class="centered">
                         <%= link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do %>
-                        <i class="fa fa-trash-o"></i>
+                        <i class="fa fa-trash-o btn btn-xs btn-danger" title="Borrar"></i>
                         <% end %>
                     </td>
                 </tr>
