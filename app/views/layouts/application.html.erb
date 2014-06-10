@@ -22,13 +22,13 @@
                 <div class="col-md-2 left-sidebar">
                     <br>
                     <div id="accordion" class="well">
-                        <h4>
+                        <h5>
                             <strong>
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                     <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
                                 </a>
                             </strong>
-                        </h4>
+                        </h5>
                         <div class="panel-collapse collapse in" id="collapseOne">
                             <ul class="nav nav-pills nav-stacked">
                                 <li><%= link_to "Sucursales", sucursals_path %></li>
@@ -51,12 +51,15 @@
                     </div>
                 </div>
                 <div class="col-md-10 main-container">
-                    <div class="row">
-                        <ul class="breadcrumb col-md-4">
-                            <%= render_breadcrumbs :tag => :li, :separator => "" %>
-                        </ul>
+                    <div id="center-container" class="well">
+                        <div class="row">
+                            <ul class="breadcrumb col-md-4">
+                                <%= render_breadcrumbs :tag => :li, :separator => "" %>
+                            </ul>
+                        </div>
+                        <%= yield %>
                     </div>
-                    <%= yield %>
+
                 </div>
 
             </div>
