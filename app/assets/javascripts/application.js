@@ -16,10 +16,13 @@
 //= require_tree
 //= require jquery.turbolinks.
 
-
 $(document).ready(function() {
-    $('#datagrid').dataTable();
-});
+    var table = $('#datagrid').DataTable( {
+        scrollX:        true,
+        scrollCollapse: true
+    } );
+    new $.fn.dataTable.FixedColumns( table );
+} );
 
 $(document).ready(function() {
     $('.upper').blur(function() {
