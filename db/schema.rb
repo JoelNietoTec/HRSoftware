@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610192001) do
+ActiveRecord::Schema.define(version: 20140611173154) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -127,11 +127,13 @@ ActiveRecord::Schema.define(version: 20140610192001) do
   end
 
   create_table "turnos", force: true do |t|
+    t.string   "codigo"
     t.string   "nombre"
     t.time     "entrada"
     t.time     "inicio_descanso"
     t.time     "fin_descanso"
     t.time     "salida"
+    t.boolean  "descanso"
     t.boolean  "activo"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -35,3 +35,29 @@ $(document).ready(function() {
     });
 });
 
+$(function() {
+    $(".datepicker" ).datepicker({
+        changeMonth: true,
+        changeYear: true
+    });
+});
+
+$(function() {
+    $(".timepicker" ).timepicker({
+        showPeriod: true,
+        showLeadingZero: true
+    });
+});
+
+
+$(document).ready(function() {
+    $("#turno_descanso").change(function() {
+        if ($('#turno_descanso').prop('checked') === true)   {
+            $("#turno_inicio_descanso").removeAttr("disabled");
+            $("#turno_fin_descanso").removeAttr("disabled");
+        } else {
+            $("#turno_inicio_descanso").attr("disabled", true);
+            $("#turno_fin_descanso").attr("disabled", true);
+        }
+    });
+});

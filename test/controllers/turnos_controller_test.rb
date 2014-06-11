@@ -18,7 +18,7 @@ class TurnosControllerTest < ActionController::TestCase
 
   test "should create turno" do
     assert_difference('Turno.count') do
-      post :create, turno: { activo: @turno.activo, entrada: @turno.entrada, fin_descanso: @turno.fin_descanso, inicio_descanso: @turno.inicio_descanso, nombre: @turno.nombre, salida: @turno.salida }
+      post :create, turno: { activo: @turno.activo, codigo: @turno.codigo, descanso: @turno.descanso, entrada: @turno.entrada, fin_descanso: @turno.fin_descanso, inicio_descanso: @turno.inicio_descanso, nombre: @turno.nombre, salida: @turno.salida }
     end
 
     assert_redirected_to turno_path(assigns(:turno))
@@ -35,7 +35,7 @@ class TurnosControllerTest < ActionController::TestCase
   end
 
   test "should update turno" do
-    patch :update, id: @turno, turno: { activo: @turno.activo, entrada: @turno.entrada, fin_descanso: @turno.fin_descanso, inicio_descanso: @turno.inicio_descanso, nombre: @turno.nombre, salida: @turno.salida }
+    patch :update, id: @turno, turno: { activo: @turno.activo, codigo: @turno.codigo, descanso: @turno.descanso, entrada: @turno.entrada, fin_descanso: @turno.fin_descanso, inicio_descanso: @turno.inicio_descanso, nombre: @turno.nombre, salida: @turno.salida }
     assert_redirected_to turno_path(assigns(:turno))
   end
 

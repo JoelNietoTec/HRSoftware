@@ -69,17 +69,19 @@ text-align: center;
 
 .aside-title {
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .panel-collapse {
     margin-left: 15px;
 }
 
-
+body {
+    background-image: url(/assets/retina_wood.png);
+}
 
 .hora {
-    font-size: 13px;
-    padding: 1px;
+    padding-top: 0;
 }
 
 .horario {
