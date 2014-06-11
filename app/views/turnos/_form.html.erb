@@ -1,0 +1,65 @@
+<%= form_for(@turno) do |f| %>
+<% if @turno.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
+
+    <ul>
+        <% @turno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Turno</h4>
+            </div>
+            <div class="panel-body form-horizontal">
+                <div class="field form-group">
+                    <%= f.label :nombre, :class=> "control-label col-md-2" %>
+                    <div class="col-md-8">
+                        <%= f.text_field :nombre, :class=> "form-control input-sm" %>
+                    </div>
+                </div>
+                <div class="field form-group ">
+                    <%= f.label :entrada, :class=> "control-label col-md-2" %>
+                    <div class="col-md-10">
+                        <%= f.time_select :entrada, {ampm: true}, :class=> "hora"  %>
+                    </div>
+                </div>
+                <div class="field form-group col-md-6">
+                    <%= f.label :inicio_descanso, :class=> "control-label col-md-6" %>
+                    <div class="col-md-6 horario">
+                        <%= f.time_select :inicio_descanso, {ampm: true}, :class=> "hora" %>
+                    </div>
+                </div>
+                <div class="field form-group col-md-6">
+                    <%= f.label :fin_descanso, :class=> "control-label col-md-6" %>
+                    <div class="col-md-6 horario">
+                        <%= f.time_select :fin_descanso, {ampm: true}, :class=> "hora" %>
+                    </div>
+                </div>
+                <div class="field form-group col-md-8">
+                    <%= f.label :salida, :class=> "control-label col-md-2" %><br>
+                    <%= f.time_select :salida, {ampm: true}, :class=> "hora" %>
+                </div>
+                <div class="field">
+                    <%= f.label :activo, :class=> "control-label" %><br>
+                    <%= f.check_box :activo %>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="actions">
+                    <%= f.submit %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<% end %>

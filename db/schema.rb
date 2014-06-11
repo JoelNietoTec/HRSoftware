@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609205211) do
+ActiveRecord::Schema.define(version: 20140610192001) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(version: 20140609205211) do
 
   create_table "tipo_salarios", force: true do |t|
     t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "turnos", force: true do |t|
+    t.string   "nombre"
+    t.time     "entrada"
+    t.time     "inicio_descanso"
+    t.time     "fin_descanso"
+    t.time     "salida"
+    t.boolean  "activo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

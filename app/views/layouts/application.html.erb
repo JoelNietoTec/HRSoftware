@@ -8,27 +8,27 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <header class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <%= link_to root_url, :class=> "navbar-brand" do %>
                     <i class="fa fa-home"></i> HRSoft
                     <% end %>
                 </div>
+
             </div>
-        </nav>
+        </header>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-2 left-sidebar">
-                    <br>
-                    <div id="accordion" class="well">
-                        <h4>
+                <aside class="col-md-2 left-sidebar">
+                    <nav id="accordion" class="well" role="navigation">
+                        <h5 class="aside-title">
                             <strong>
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="">
+                                    <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-minus"></i>
                                 </a>
                             </strong>
-                        </h4>
+                        </h5>
                         <div class="panel-collapse collapse in" id="collapseOne">
                             <ul class="nav nav-pills nav-stacked">
                                 <li><%= link_to "Sucursales", sucursals_path %></li>
@@ -38,6 +38,7 @@
                                 <li><%= link_to "Secciones", seccions_path %></li>
                                 <li><%= link_to "Proyectos", proyectos_path %></li>
                                 <li><%= link_to "Fases", fases_path %></li>
+                                <li><%= link_to "Turnos", turnos_path %></li>
                             </ul>
                         </div>
                         <hr>
@@ -48,15 +49,18 @@
                                 </a>
                             </strong>
                         </h4>
-                    </div>
-                </div>
+                    </nav>
+                </aside>
                 <div class="col-md-10 main-container">
-                    <div class="row">
-                        <ul class="breadcrumb col-md-4">
-                            <%= render_breadcrumbs :tag => :li, :separator => "" %>
-                        </ul>
+                    <div id="center-container" class="well">
+                        <div class="row">
+                            <ul class="breadcrumb col-md-4">
+                                <%= render_breadcrumbs :tag => :li, :separator => "" %>
+                            </ul>
+                        </div>
+                        <%= yield %>
                     </div>
-                    <%= yield %>
+
                 </div>
 
             </div>
