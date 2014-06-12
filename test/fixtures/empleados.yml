@@ -1,0 +1,67 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  nombres: MyString
+  apellidos: MyString
+  cedula: MyString
+  seguro_social: MyString
+  dv: MyString
+  clave_isr: MyString
+  grupo_pago_id: 1
+  status_id: 1
+  tipo_salario_id: 1
+  tipo_empleado_id: 1
+  salario_pactado: 1.5
+  horas_base: 1.5
+  fecha_ingreso: 2014-06-12
+  fecha_liquidacion: 2014-06-12
+  sucursal_id: 1
+  departamento_id: 1
+  centro_costo_id: 1
+  proyecto_id: 1
+  fase_id: 1
+  seccion_id: 1
+  fecha_nacimiento: 2014-06-12
+  nacionalidad_id: 1
+  cargo_id: 1
+  direccion: MyString
+  email: MyString
+  telefono: MyString
+  sexo_id: 1
+  estado_civil_id: 1
+  forma_pago_id: 1
+  sector_id: 1
+
+two:
+  codigo: MyString
+  nombres: MyString
+  apellidos: MyString
+  cedula: MyString
+  seguro_social: MyString
+  dv: MyString
+  clave_isr: MyString
+  grupo_pago_id: 1
+  status_id: 1
+  tipo_salario_id: 1
+  tipo_empleado_id: 1
+  salario_pactado: 1.5
+  horas_base: 1.5
+  fecha_ingreso: 2014-06-12
+  fecha_liquidacion: 2014-06-12
+  sucursal_id: 1
+  departamento_id: 1
+  centro_costo_id: 1
+  proyecto_id: 1
+  fase_id: 1
+  seccion_id: 1
+  fecha_nacimiento: 2014-06-12
+  nacionalidad_id: 1
+  cargo_id: 1
+  direccion: MyString
+  email: MyString
+  telefono: MyString
+  sexo_id: 1
+  estado_civil_id: 1
+  forma_pago_id: 1
+  sector_id: 1

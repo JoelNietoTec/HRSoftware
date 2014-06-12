@@ -1,0 +1,141 @@
+<%= form_for(@empleado) do |f| %>
+  <% if @empleado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
+
+      <ul>
+      <% @empleado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codigo %><br>
+    <%= f.text_field :codigo %>
+  </div>
+  <div class="field">
+    <%= f.label :nombres %><br>
+    <%= f.text_field :nombres %>
+  </div>
+  <div class="field">
+    <%= f.label :apellidos %><br>
+    <%= f.text_field :apellidos %>
+  </div>
+  <div class="field">
+    <%= f.label :cedula %><br>
+    <%= f.text_field :cedula %>
+  </div>
+  <div class="field">
+    <%= f.label :seguro_social %><br>
+    <%= f.text_field :seguro_social %>
+  </div>
+  <div class="field">
+    <%= f.label :dv %><br>
+    <%= f.text_field :dv %>
+  </div>
+  <div class="field">
+    <%= f.label :clave_isr %><br>
+    <%= f.text_field :clave_isr %>
+  </div>
+  <div class="field">
+    <%= f.label :grupo_pago_id %><br>
+    <%= f.number_field :grupo_pago_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status_id %><br>
+    <%= f.number_field :status_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_salario_id %><br>
+    <%= f.number_field :tipo_salario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_empleado_id %><br>
+    <%= f.number_field :tipo_empleado_id %>
+  </div>
+  <div class="field">
+    <%= f.label :salario_pactado %><br>
+    <%= f.text_field :salario_pactado %>
+  </div>
+  <div class="field">
+    <%= f.label :horas_base %><br>
+    <%= f.text_field :horas_base %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ingreso %><br>
+    <%= f.date_select :fecha_ingreso %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_liquidacion %><br>
+    <%= f.date_select :fecha_liquidacion %>
+  </div>
+  <div class="field">
+    <%= f.label :sucursal_id %><br>
+    <%= f.number_field :sucursal_id %>
+  </div>
+  <div class="field">
+    <%= f.label :departamento_id %><br>
+    <%= f.number_field :departamento_id %>
+  </div>
+  <div class="field">
+    <%= f.label :centro_costo_id %><br>
+    <%= f.number_field :centro_costo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :proyecto_id %><br>
+    <%= f.number_field :proyecto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fase_id %><br>
+    <%= f.number_field :fase_id %>
+  </div>
+  <div class="field">
+    <%= f.label :seccion_id %><br>
+    <%= f.number_field :seccion_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_nacimiento %><br>
+    <%= f.date_select :fecha_nacimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :nacionalidad_id %><br>
+    <%= f.number_field :nacionalidad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo_id %><br>
+    <%= f.number_field :cargo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo_id %><br>
+    <%= f.number_field :sexo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_civil_id %><br>
+    <%= f.number_field :estado_civil_id %>
+  </div>
+  <div class="field">
+    <%= f.label :forma_pago_id %><br>
+    <%= f.number_field :forma_pago_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sector_id %><br>
+    <%= f.number_field :sector_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

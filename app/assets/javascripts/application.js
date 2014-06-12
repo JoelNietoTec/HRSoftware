@@ -21,7 +21,6 @@ $(document).ready(function() {
         scrollX:        true,
         scrollCollapse: true
     } );
-    new $.fn.dataTable.FixedColumns( table );
 } );
 
 $(document).ready(function() {
