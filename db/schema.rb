@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612225800) do
+ActiveRecord::Schema.define(version: 20140613184528) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20140612225800) do
     t.integer  "fase_id"
     t.integer  "seccion_id"
     t.date     "fecha_nacimiento"
-    t.integer  "nacionalidad_id"
+    t.string   "nacionalidad_id"
     t.integer  "cargo_id"
     t.string   "direccion"
     t.string   "email"

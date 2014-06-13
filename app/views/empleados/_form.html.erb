@@ -65,11 +65,11 @@
   </div>
   <div class="field">
     <%= f.label :fecha_ingreso %><br>
-    <%= f.date_select :fecha_ingreso %>
+    <%= f.text_field :fecha_ingreso, :class=> "datepicker" %>
   </div>
   <div class="field">
     <%= f.label :fecha_liquidacion %><br>
-    <%= f.date_select :fecha_liquidacion %>
+    <%= f.text_field :fecha_liquidacion, :class=> "datepicker" %>
   </div>
   <div class="field">
     <%= f.label :sucursal_id %><br>
@@ -97,11 +97,11 @@
   </div>
   <div class="field">
     <%= f.label :fecha_nacimiento %><br>
-    <%= f.date_select :fecha_nacimiento %>
+    <%= f.text_field :fecha_nacimiento, :class=> "datepicker" %>
   </div>
   <div class="field">
     <%= f.label :nacionalidad_id %><br>
-    <%= f.number_field :nacionalidad_id %>
+    <%= f.country_select :nacionalidad_id, ["Panamá"], {:locale => "es"} %>
   </div>
   <div class="field">
     <%= f.label :cargo_id %><br>

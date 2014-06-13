@@ -17,49 +17,36 @@
 //= require jquery.turbolinks.
 
 $(document).ready(function() {
-    var table = $('#datagrid').DataTable( {
-        scrollX:        true,
-        scrollCollapse: true
-    } );
+  var table = $('#datagrid').DataTable( {
+    scrollX:        true,
+    scrollCollapse: true
+  } );
 } );
 
 $(document).ready(function() {
-    $('.upper').blur(function() {
-        $(this).val($(this).val().toUpperCase());
-    });
+  $('.upper').blur(function() {
+    $(this).val($(this).val().toUpperCase());
+  });
 });
 
 $(document).ready(function() {
-    /* swap open/close side menu icons */
-    $('[data-toggle=collapse]').click(function(){
-        // toggle icon
-        $(this).find("i").toggleClass("fa-plus fa-minus");
-    });
+  /* swap open/close side menu icons */
+  $('[data-toggle=collapse]').click(function(){
+    // toggle icon
+    $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
+  });
 });
 
 $(function() {
-    $(".datepicker" ).datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
+  $(".datepicker" ).datepicker({
+    changeMonth: true,
+    changeYear: true
+  });
 });
 
 $(function() {
-    $(".timepicker" ).timepicker({
-        showPeriod: true,
-        showLeadingZero: true
-    });
-});
-
-
-$(document).ready(function() {
-    $("#turno_descanso").change(function() {
-        if ($('#turno_descanso').prop('checked') === true)   {
-            $("#turno_inicio_descanso").removeAttr("disabled");
-            $("#turno_fin_descanso").removeAttr("disabled");
-        } else {
-            $("#turno_inicio_descanso").attr("disabled", true);
-            $("#turno_fin_descanso").attr("disabled", true);
-        }
-    });
+  $(".timepicker" ).timepicker({
+    showPeriod: true,
+    showLeadingZero: true
+  });
 });
