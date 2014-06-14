@@ -88,3 +88,13 @@ body {
 .horario {
     padding: 1px;
 }
+
+.nav-stacked > li > a:hover,
+.nav-stacked > li > a:focus,
+.nav-stacked > li > a:focus
+{
+
+  border-bottom: 4px solid #008cba;
+  background-color: transparent;
+  -webkit-transform: scale(1);
+}

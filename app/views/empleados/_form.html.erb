@@ -41,19 +41,19 @@
   </div>
   <div class="field">
     <%= f.label :grupo_pago_id %><br>
-    <%= f.number_field :grupo_pago_id %>
+    <%= f.collection_select :grupo_pago_id, GrupoPago.select("id, nombre").all, :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :status_id %><br>
-    <%= f.number_field :status_id %>
+    <%= f.collection_select :status_id, Estatus.select("id, nombre").all, :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :tipo_salario_id %><br>
-    <%= f.number_field :tipo_salario_id %>
+    <%= f.collection_select :tipo_salario_id, TipoSalario.select("id, nombre").all, :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :tipo_empleado_id %><br>
-    <%= f.number_field :tipo_empleado_id %>
+    <%= f.collection_select :tipo_empleado_id, TipoEmpleado.select("id, nombre").all, :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :salario_pactado %><br>
@@ -73,23 +73,23 @@
   </div>
   <div class="field">
     <%= f.label :sucursal_id %><br>
-    <%= f.number_field :sucursal_id %>
+    <%= f.collection_select :sucursal_id, Sucursal.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :departamento_id %><br>
-    <%= f.number_field :departamento_id %>
+    <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :centro_costo_id %><br>
-    <%= f.number_field :centro_costo_id %>
+    <%= f.collection_select :centro_costo_id, CentroCosto.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :proyecto_id %><br>
-    <%= f.number_field :proyecto_id %>
+    <%= f.collection_select :proyecto_id, Proyecto.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :fase_id %><br>
-    <%= f.number_field :fase_id %>
+    <%= f.collection_select :fase_id, Fase.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :seccion_id %><br>
@@ -103,9 +103,9 @@
     <%= f.label :nacionalidad_id %><br>
     <%= f.country_select :nacionalidad_id, ["Panamá"], {:locale => "es"} %>
   </div>
-  <div class="field">
+  <div class="field" id="cargo_field">
     <%= f.label :cargo_id %><br>
-    <%= f.number_field :cargo_id %>
+    <%= f.collection_select :cargo_id, Cargo.select("id, nombre").where(:activo=> true), :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :direccion %><br>
@@ -113,11 +113,11 @@
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.email_field :email %>
   </div>
   <div class="field">
     <%= f.label :telefono %><br>
-    <%= f.text_field :telefono %>
+    <%= f.phone_field :telefono %>
   </div>
   <div class="field">
     <%= f.label :sexo_id %><br>
