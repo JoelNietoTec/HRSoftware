@@ -3,6 +3,8 @@ class EmpleadosController < ApplicationController
 
   # GET /empleados
   # GET /empleados.json
+
+
   def index
     @empleados = Empleado.all
   end
@@ -62,13 +64,13 @@ class EmpleadosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_empleado
-      @empleado = Empleado.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_empleado
+    @empleado = Empleado.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def empleado_params
-      params.require(:empleado).permit(:codigo, :nombres, :apellidos, :cedula, :seguro_social, :dv, :clave_isr, :grupo_pago_id, :status_id, :tipo_salario_id, :tipo_empleado_id, :salario_pactado, :horas_base, :fecha_ingreso, :fecha_liquidacion, :sucursal_id, :departamento_id, :centro_costo_id, :proyecto_id, :fase_id, :seccion_id, :fecha_nacimiento, :nacionalidad_id, :cargo_id, :direccion, :email, :telefono, :sexo_id, :estado_civil_id, :forma_pago_id, :sector_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def empleado_params
+    params.require(:empleado).permit(:codigo, :nombres, :apellidos, :cedula, :seguro_social, :dv, :clave_isr, :grupo_pago_id, :status_id, :tipo_salario_id, :tipo_empleado_id, :salario_pactado, :horas_base, :fecha_ingreso, :fecha_liquidacion, :sucursal_id, :departamento_id, :centro_costo_id, :proyecto_id, :fase_id, :seccion_id, :fecha_nacimiento, :nacionalidad_id, :cargo_id, :direccion, :email, :telefono, :sexo_id, :estado_civil_id, :forma_pago_id, :sector_id)
+  end
 end

@@ -105,7 +105,7 @@
   </div>
   <div class="field" id="cargo_field">
     <%= f.label :cargo_id %><br>
-    <%= f.collection_select :cargo_id, Cargo.select("id, nombre").where(:activo=> true), :id, :nombre %>
+    <%= f.grouped_collection_select :cargo_id, Departamento.order(:id).where(:activo=> true), :cargos, :nombre, :id, :nombre %>
   </div>
   <div class="field">
     <%= f.label :direccion %><br>

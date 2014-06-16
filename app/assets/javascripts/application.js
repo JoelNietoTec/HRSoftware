@@ -50,3 +50,18 @@ $(function() {
     showLeadingZero: true
   });
 });
+
+jQuery(document).ready(function() {
+
+  jQuery('#empleado_departamento_id').change(function() {
+
+    var data=$('#empleado_departamento_id').val();
+
+    $.ajax({
+      type: "POST",
+      url: "http://"+location.host+"cargos_dinamicos/"+data,
+      data: data,
+
+    });
+  });
+});
