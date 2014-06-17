@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613184528) do
+ActiveRecord::Schema.define(version: 20140617161317) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -74,6 +74,10 @@ ActiveRecord::Schema.define(version: 20140613184528) do
     t.integer  "sector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "estado_civils", force: true do |t|
