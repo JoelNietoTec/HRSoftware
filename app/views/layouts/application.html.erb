@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HRSoftware</title>
-        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-        <%= csrf_meta_tags %>
-    </head>
-    <body>
-
-        <header class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <%= link_to root_url, :class=> "navbar-brand" do %>
-                    <i class="fa fa-home"></i> HRSoft
-                    <% end %>
-                </div>
-
-            </div>
-        </header>
-        <div class="container-fluid">
-            <div class="row">
-                <aside class="col-md-2 left-sidebar">
-                    <nav id="accordion" class="well" role="navigation">
-                        <h5 class="aside-title">
-                            <strong>
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="">
-                                    <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-minus"></i>
-                                </a>
-                            </strong>
-                        </h5>
-                        <div class="panel-collapse collapse in" id="collapseOne">
-                            <ul class="nav nav-pills nav-stacked">
-                                <li><%= link_to "Sucursales", sucursals_path %></li>
-                                <li><%= link_to "Departamentos", departamentos_path %></li>
-                                <li><%= link_to "Centros De Costos", centro_costos_path %></li>
-                                <li><%= link_to "Cargos", cargos_path %></li>
-                                <li><%= link_to "Secciones", seccions_path %></li>
-                                <li><%= link_to "Proyectos", proyectos_path %></li>
-                                <li><%= link_to "Fases", fases_path %></li>
-                                <li><%= link_to "Turnos", turnos_path %></li>
-                            </ul>
-                        </div>
-                        <hr>
-                        <h4>
-                            <strong>
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                    <i class="fa fa-users"></i>  Empleados
-                                </a>
-                            </strong>
-                        </h4>
-                    </nav>
-                </aside>
-                <div class="col-md-10 main-container">
-                    <div id="center-container" class="well">
-                        <div class="row">
-                            <ul class="breadcrumb col-md-4">
-                                <%= render_breadcrumbs :tag => :li, :separator => "" %>
-                            </ul>
-                        </div>
-                        <%= yield %>
-                    </div>
-
-                </div>
-
-            </div>
+  <head>
+    <title>HRSoftware</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to root_url, :class=> "navbar-brand" do %>
+          <i class="fa fa-home"></i> HRSoft
+          <% end %>
         </div>
-    </body>
+      </div>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-md-2 left-sidebar">
+          <nav id="accordion" class="well" role="navigation">
+            <h5 class="aside-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                <i class="fa fa-users"></i>  Empleados  <i class="fa fa-chevron-down"></i>
+              </a>
+            </h5>
+            <div class="panel-collapse collapse" id="collapseOne">
+              <ul class="nav nav-pills nav-stacked">
+                <li>
+                  <%= link_to empleados_path do %>
+                  <i class="fa fa-list"></i> Listar
+                  <% end %>
+                </li>
+                <li><%= link_to "Nuevo", new_empleado_path %></li>
+              </ul>
+            </div>
+            <hr>
+            <h5 class="aside-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
+              </a>
+            </h5>
+            <div class="panel-collapse collapse" id="collapseTwo">
+              <ul class="nav nav-pills nav-stacked">
+                <li>
+                  <%= link_to sucursals_path do %>
+                  <i class="fa fa-database"></i> Sucursales
+                  <% end %>
+                </li>
+                <li><%= link_to "Departamentos", departamentos_path %></li>
+                <li><%= link_to "Centros De Costos", centro_costos_path %></li>
+                <li><%= link_to "Cargos", cargos_path %></li>
+                <li><%= link_to "Secciones", seccions_path %></li>
+                <li><%= link_to "Proyectos", proyectos_path %></li>
+                <li><%= link_to "Fases", fases_path %></li>
+                <li><%= link_to "Turnos", turnos_path %></li>
+              </ul>
+            </div>
+          </nav>
+        </aside>
+        <div class="col-md-10 main-container">
+          <div id="center-container" class="well">
+            <div class="row">
+              <ul class="breadcrumb col-md-4">
+                <%= render_breadcrumbs :tag => :li, :separator => "" %>
+              </ul>
+            </div>
+            <%= yield %>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </body>
 </html>
 
 

@@ -1,10 +1,11 @@
 class TurnosController < ApplicationController
   before_action :set_turno, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Turnos", :turnos_path
   # GET /turnos
   # GET /turnos.json
   def index
     @turnos = Turno.all
+    add_breadcrumb "Listado", :turnos_path
   end
 
   # GET /turnos/1
@@ -14,11 +15,13 @@ class TurnosController < ApplicationController
 
   # GET /turnos/new
   def new
+    add_breadcrumb "Nuevo", new_turno_path
     @turno = Turno.new
   end
 
   # GET /turnos/1/edit
   def edit
+    add_breadcrumb "Editar", edit_turno_path()
   end
 
   # POST /turnos
@@ -28,8 +31,9 @@ class TurnosController < ApplicationController
 
     respond_to do |format|
       if @turno.save
-        format.html { redirect_to @turno, notice: 'Turno was successfully created.' }
+        format.html { redirect_to turnos_path, notice: 'Turno was successfully created.' }
         format.json { render :show, status: :created, location: @turno }
+        flash.now[:alert] = "Turno Creado"
       else
         format.html { render :new }
         format.json { render json: @turno.errors, status: :unprocessable_entity }
@@ -42,7 +46,7 @@ class TurnosController < ApplicationController
   def update
     respond_to do |format|
       if @turno.update(turno_params)
-        format.html { redirect_to @turno, notice: 'Turno was successfully updated.' }
+        format.html { redirect_to turnos_path, notice: 'Turno was successfully updated.' }
         format.json { render :show, status: :ok, location: @turno }
       else
         format.html { render :edit }
@@ -62,13 +66,13 @@ class TurnosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_turno
-      @turno = Turno.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_turno
+    @turno = Turno.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def turno_params
-      params.require(:turno).permit(:nombre, :entrada, :inicio_descanso, :fin_descanso, :salida, :activo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def turno_params
+    params.require(:turno).permit(:codigo, :nombre, :entrada, :inicio_descanso, :fin_descanso, :salida, :descanso, :activo)
+  end
 end

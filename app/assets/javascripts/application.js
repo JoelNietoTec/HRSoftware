@@ -16,22 +16,52 @@
 //= require_tree
 //= require jquery.turbolinks.
 
+$(document).ready(function() {
+  var table = $('#datagrid').DataTable( {
+    scrollX:        true,
+    scrollCollapse: true
+  } );
+} );
 
 $(document).ready(function() {
-    $('#datagrid').dataTable();
+  $('.upper').blur(function() {
+    $(this).val($(this).val().toUpperCase());
+  });
 });
 
 $(document).ready(function() {
-    $('.upper').blur(function() {
-        $(this).val($(this).val().toUpperCase());
+  /* swap open/close side menu icons */
+  $('[data-toggle=collapse]').click(function(){
+    // toggle icon
+    $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
+  });
+});
+
+$(function() {
+  $(".datepicker" ).datepicker({
+    changeYear: true,
+    changeMonth: true
+  });
+});
+
+$(function() {
+  $(".timepicker" ).timepicker({
+    showPeriod: true,
+    showLeadingZero: true
+  });
+});
+
+jQuery(document).ready(function() {
+
+  jQuery('#empleado_departamento_id').change(function() {
+
+    var data=$('#empleado_departamento_id').val();
+
+    $.ajax({
+      type: "POST",
+      url: "http://"+location.host+"cargos_dinamicos/"+data,
+      data: data,
+
     });
+  });
 });
-
-$(document).ready(function() {
-    /* swap open/close side menu icons */
-    $('[data-toggle=collapse]').click(function(){
-        // toggle icon
-        $(this).find("i").toggleClass("fa-plus fa-minus");
-    });
-});
-

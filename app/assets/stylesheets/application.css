@@ -10,8 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
+ *= require font-awesome
  */
 
 
@@ -69,19 +70,31 @@ text-align: center;
 
 .aside-title {
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .panel-collapse {
     margin-left: 15px;
 }
 
-
+body {
+    background-image: url(/assets/retina_wood.png);
+}
 
 .hora {
-    font-size: 13px;
-    padding: 1px;
+    padding-top: 0;
 }
 
 .horario {
     padding: 1px;
+}
+
+.nav-stacked > li > a:hover,
+.nav-stacked > li > a:focus,
+.nav-stacked > li > a:focus
+{
+
+  border-bottom: 4px solid #008cba;
+  background-color: transparent;
+  -webkit-transform: scale(1);
 }

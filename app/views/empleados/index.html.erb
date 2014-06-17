@@ -1,0 +1,85 @@
+<h1>Empleados</h1>
+
+<table id="datagrid" class="table table-condensed table-hover table-striped table-responsive">
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Cédula</th>
+      <th>Seguro Social</th>
+      <th>D.V.</th>
+      <th>Clave ISR</th>
+      <th>Grupo Pago</th>
+      <th>Status</th>
+      <th>Tipo Salario</th>
+      <th>Tipo Empleado</th>
+      <th>Salario Pactado</th>
+      <th>Horas Base</th>
+      <th>Fecha Ingreso</th>
+      <th>Fecha Liquidacion</th>
+      <th>Sucursal</th>
+      <th>Departamento</th>
+      <th>Centro Costos</th>
+      <th>Proyecto</th>
+      <th>Fase</th>
+      <th>Sección</th>
+      <th>Fecha Nacimiento</th>
+      <th>Nacionalidad</th>
+      <th>Cargo</th>
+      <th>Dirección</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Sexo</th>
+      <th>Estado Civil</th>
+      <th>Forma Pago</th>
+      <th>Sector</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empleados.each do |empleado| %>
+      <tr>
+        <td><%= empleado.codigo %></td>
+        <td><%= empleado.nombres %></td>
+        <td><%= empleado.apellidos %></td>
+        <td><%= empleado.cedula %></td>
+        <td><%= empleado.seguro_social %></td>
+        <td><%= empleado.dv %></td>
+        <td><%= empleado.clave_isr %></td>
+        <td><%= empleado.grupo_pago_id %></td>
+        <td><%= empleado.status_id %></td>
+        <td><%= empleado.tipo_salario_id %></td>
+        <td><%= empleado.tipo_empleado_id %></td>
+        <td><%= empleado.salario_pactado %></td>
+        <td><%= empleado.horas_base %></td>
+        <td><%= empleado.fecha_ingreso %></td>
+        <td><%= empleado.fecha_liquidacion %></td>
+        <td><%= empleado.sucursal_id %></td>
+        <td><%= empleado.departamento_id %></td>
+        <td><%= empleado.centro_costo_id %></td>
+        <td><%= empleado.proyecto_id %></td>
+        <td><%= empleado.fase_id %></td>
+        <td><%= empleado.seccion_id %></td>
+        <td><%= empleado.fecha_nacimiento %></td>
+        <td><%= empleado.nacionalidad_id %></td>
+        <td><%= empleado.cargo_id %></td>
+        <td><%= empleado.direccion %></td>
+        <td><%= empleado.email %></td>
+        <td><%= empleado.telefono %></td>
+        <td><%= empleado.sexo_id %></td>
+        <td><%= empleado.estado_civil_id %></td>
+        <td><%= empleado.forma_pago_id %></td>
+        <td><%= empleado.sector_id %></td>
+        <td><%= link_to 'Show', empleado %></td>
+        <td><%= link_to 'Edit', edit_empleado_path(empleado) %></td>
+        <td><%= link_to 'Destroy', empleado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empleado', new_empleado_path %>

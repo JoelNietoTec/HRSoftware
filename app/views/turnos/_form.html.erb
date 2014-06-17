@@ -1,63 +1,83 @@
 <%= form_for(@turno) do |f| %>
 <% if @turno.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
+  <h2><%= pluralize(@turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
 
-    <ul>
-        <% @turno.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
+  <ul>
+    <% @turno.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 </div>
 <% end %>
 
 <div class="row">
-    <div class="col-md-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">Turno</h4>
-            </div>
-            <div class="panel-body form-horizontal">
-                <div class="field form-group">
-                    <%= f.label :nombre, :class=> "control-label col-md-2" %>
-                    <div class="col-md-8">
-                        <%= f.text_field :nombre, :class=> "form-control input-sm" %>
-                    </div>
-                </div>
-                <div class="field form-group ">
-                    <%= f.label :entrada, :class=> "control-label col-md-2" %>
-                    <div class="col-md-10">
-                        <%= f.time_select :entrada, {ampm: true}, :class=> "hora"  %>
-                    </div>
-                </div>
-                <div class="field form-group col-md-6">
-                    <%= f.label :inicio_descanso, :class=> "control-label col-md-6" %>
-                    <div class="col-md-6 horario">
-                        <%= f.time_select :inicio_descanso, {ampm: true}, :class=> "hora" %>
-                    </div>
-                </div>
-                <div class="field form-group col-md-6">
-                    <%= f.label :fin_descanso, :class=> "control-label col-md-6" %>
-                    <div class="col-md-6 horario">
-                        <%= f.time_select :fin_descanso, {ampm: true}, :class=> "hora" %>
-                    </div>
-                </div>
-                <div class="field form-group col-md-8">
-                    <%= f.label :salida, :class=> "control-label col-md-2" %><br>
-                    <%= f.time_select :salida, {ampm: true}, :class=> "hora" %>
-                </div>
-                <div class="field">
-                    <%= f.label :activo, :class=> "control-label" %><br>
-                    <%= f.check_box :activo %>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <div class="actions">
-                    <%= f.submit %>
-                </div>
-            </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Datos del Turno
+        </h4>
+      </div>
+      <div class="panel-body form-horizontal">
+        <div class="field form-group">
+          <%= f.label :codigo, :class=> "control-label col-md-2" %>
+          <div class="col-md-6">
+            <%= f.text_field :codigo, :class=> "form-control input-sm upper" %>
+          </div>
         </div>
+        <div class="field form-group">
+          <%= f.label :nombre, :class=> "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.text_field :nombre, :class=> "form-control input-sm" %>
+          </div>
+        </div>
+        <div class="field form-group col-md-6">
+          <%= f.label :entrada, :class=> "control-label col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :entrada, :class=> "form-control input-sm timepicker", :value=> (f.object.entrada.strftime("%I:%M %p") if f.object.entrada) %>
+          </div>
+        </div>
+        <div class="field form-group col-md-6">
+          <%= f.label :salida, :class=> "control-label col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :salida, :class=> "form-control input-sm timepicker", :value=> (f.object.salida.strftime("%I:%M %p") if f.object.salida) %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <div class="col-md-2"></div>
+          <div class="field checkbox col-md-10">
+            <%= f.label :descanso %>
+            <%= f.check_box :descanso %>
+          </div>
+        </div>
+        <div class="field form-group col-md-6">
+          <%= f.label :inicio_descanso, :class=> "hora col-md-4" %>
+          <div class="col-md-8">
+            <%= f.text_field :inicio_descanso, :class=> "form-control input-sm timepicker", :value=> (f.object.inicio_descanso.strftime("%I:%M %p") if f.object.inicio_descanso)  %>
+          </div>
+        </div>
+        <div class="field form-group col-md-6">
+          <%= f.label :fin_descanso, :class=> "col-md-4 hora" %>
+          <div class="col-md-8">
+            <%= f.text_field :fin_descanso, :class=> "form-control input-sm timepicker", :value=> (f.object.fin_descanso.strftime("%I:%M %p") if f.object.fin_descanso) %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <div class="col-md-2"></div>
+          <div class="field checkbox col-md-10">
+            <%= f.label :activo %>
+            <%= f.check_box :activo %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="actions">
+          <%= f.submit "Guardar Turno", :class=> "btn btn-sm btn-primary" %>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
