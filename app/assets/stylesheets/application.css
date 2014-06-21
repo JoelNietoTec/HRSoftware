@@ -98,3 +98,11 @@ body {
   background-color: transparent;
   -webkit-transform: scale(1);
 }
+
+.tab-pane > .form-horizontal > .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+
+
