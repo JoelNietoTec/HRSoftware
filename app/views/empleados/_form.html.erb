@@ -76,6 +76,14 @@
       <div class="tab-pane fade" id="Laboral">
         <div class="form-horizontal">
           <div class="form-group col-md-4">
+            <%= f.label :departamento_id, :class=> "control-label" %><br>
+            <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-4" id="cargo_field">
+            <%= f.label :cargo_id, :class=> "control-label" %><br>
+            <%= f.grouped_collection_select :cargo_id, Departamento.order(:id).where(:activo=> true), :cargos, :nombre, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-4">
             <%= f.label :grupo_pago_id, :class=> "control-label" %><br>
             <%= f.collection_select :grupo_pago_id, GrupoPago.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
@@ -112,10 +120,6 @@
             <%= f.collection_select :sucursal_id, Sucursal.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-4">
-            <%= f.label :departamento_id, :class=> "control-label" %><br>
-            <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-4">
             <%= f.label :centro_costo_id, :class=> "control-label" %><br>
             <%= f.collection_select :centro_costo_id, CentroCosto.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
@@ -130,10 +134,6 @@
           <div class="form-group col-md-4">
             <%= f.label :seccion_id, :class=> "control-label" %><br>
             <%= f.collection_select :seccion_id, Seccion.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-4" id="cargo_field">
-            <%= f.label :cargo_id, :class=> "control-label" %><br>
-            <%= f.grouped_collection_select :cargo_id, Departamento.order(:id).where(:activo=> true), :cargos, :nombre, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-4">
             <%= f.label :forma_pago_id, :class=> "control-label" %><br>
