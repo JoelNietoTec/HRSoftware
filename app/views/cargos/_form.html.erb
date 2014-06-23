@@ -1,59 +1,61 @@
 <%= form_for(@cargo) do |f| %>
 <% if @cargo.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(@cargo.errors.count, "error") %> prohibited this cargo from being saved:</h2>
-
-    <ul>
+<div class="row">
+  <div class="col-md-6">
+    <div class="alert alert-danger">
+      <strong>Cargo no puede guardarse. <%= pluralize(@cargo.errors.count, "error") %>:</strong>
+      <ul>
         <% @cargo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
         <% end %>
-    </ul>
+      </ul>
+    </div>
+  </div>
 </div>
 <% end %>
 
-
 <div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    Datos del Cargo
-                </h4>
-            </div>
-            <div class="panel-body form-horizontal">
-                <div class="field form-group">
-                    <%= f.label :codigo, :class=> "control-label col-md-2" %>
-                    <div class="col-md-6">
-                        <%= f.text_field :codigo, :class=> "form-control input-sm upper" %>
-                    </div>
-                </div>
-                <div class="field form-group">
-                    <%= f.label :departamento_id, :class=> "control-label col-md-2" %>
-                    <div class="col-md-8">
-                        <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"} %>
-                    </div>
-                </div>
-                <div class="field form-group">
-                    <%= f.label :nombre, :class=> "control-label col-md-2" %>
-                    <div class="col-md-8">
-                        <%= f.text_field :nombre, :class=> "form-control input-sm" %>
-                    </div>
-                </div>
-                <div class="field form-group">
-                    <div class="col-md-2"></div>
-                    <div class="field checkbox col-md-10">
-                        <%= f.label :activo %>
-                        <%= f.check_box :activo %>
-                    </div>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <div class="actions">
-                    <%= f.submit "Guardar Cargo", :class=> "btn btn-sm btn-primary" %>
-                </div>
-            </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Datos del Cargo
+        </h4>
+      </div>
+      <div class="panel-body form-horizontal">
+        <div class="field form-group">
+          <%= f.label :codigo, :class=> "control-label col-md-2" %>
+          <div class="col-md-6">
+            <%= f.text_field :codigo, :class=> "form-control input-sm upper" %>
+          </div>
         </div>
+        <div class="field form-group">
+          <%= f.label :departamento_id, :class=> "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"} %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <%= f.label :nombre, :class=> "control-label col-md-2" %>
+          <div class="col-md-8">
+            <%= f.text_field :nombre, :class=> "form-control input-sm" %>
+          </div>
+        </div>
+        <div class="field form-group">
+          <div class="col-md-2"></div>
+          <div class="field checkbox col-md-10">
+            <%= f.label :activo %>
+            <%= f.check_box :activo %>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="actions">
+          <%= f.submit "Guardar Cargo", :class=> "btn btn-sm btn-primary" %>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <% end %>
