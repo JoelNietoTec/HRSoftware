@@ -106,3 +106,11 @@ body {
 }
 
 
+
+.container-show {
+  padding: 10px;
+}
+
+.form-show {
+  padding-bottom: 10px;
+}
