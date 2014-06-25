@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
+  $("#turno_descanso").prop("checked", true)
   $("#turno_descanso").change ->
     if $("#turno_descanso").prop("checked") is true
       $("#turno_inicio_descanso").removeAttr "disabled"

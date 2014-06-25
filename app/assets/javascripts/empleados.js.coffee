@@ -12,4 +12,4 @@ jQuery ->
     if options
       $('#empleado_cargo_id').html(options)
     else
-      $('#empleado_cargo_id').empty
+      $('#empleado_cargo_id').html("No Disponible")
