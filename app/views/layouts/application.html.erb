@@ -15,14 +15,32 @@
           <% end %>
         </div>
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Login", "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login" %>
+          <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-user"></i> <%= current_user.username %>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to logout_path do %>
+                <i class="fa fa-sign-out"></i> Cerrar Sesión
+                <% end %>
+              </li>
+            </ul>
           </li>
+          <% else %>
+          <li>
+            <%= link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login" do %>
+            Abrir Sesión <i class="fa fa-sign-in"></i>
+            <% end %>
+          </li>
+          <% end %>
         </ul>
       </div>
     </header>
-    <%= render  '/shared/flash_message' %>
     <div class="container-fluid">
+      <% if current_user %>
       <div class="row">
         <aside class="col-md-2 left-sidebar">
           <nav id="accordion" class="well" role="navigation">
@@ -76,6 +94,19 @@
           </div>
         </div>
       </div>
+      <% else %>
+      <div class="row">
+        <div class="jumbotron">
+          <h1>RH Software</h1>
+          <p class="text-primary">Software de Gestión de Recursos Humanos</p>
+          <p>
+            <%= link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do %>
+            Abrir Sesión <i class="fa fa-sign-in"></i>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <% end %>
     </div>
     <div class="modal fade" id="modal_login">
       <div class="modal-dialog modal-sm">
@@ -83,7 +114,7 @@
           <%= form_for :sessions, :url=> "sessions", :html=> {:class=> "form-horizontal"} do |f| %>
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Iniciar Sesión</h4>
+            <h4 class="modal-title text-primary"><i class="fa fa-user"></i> <strong>Iniciar Sesión</strong></h4>
           </div>
           <div class="modal-body">
             <div class="modal-container">
@@ -95,14 +126,18 @@
               </div>
               <div class="form-group">
                 <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-key"></i>
+                  </span>
                   <%= f.password_field :password, {:class=> "form-control", :placeholder=>"Password"} %>
-                  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                  <span class="input-group-btn">
+                    <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                    <i class="fa fa-arrow-right"></i>
+                    <% end %>
+                  </span>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <%= f.submit "Login", :class=> "btn btn-primary" %>
           </div>
           <% end %>
         </div><!-- /.modal-content -->

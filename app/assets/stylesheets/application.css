@@ -1,92 +1,92 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree
- *= require_self
- *= require font-awesome
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree
+*= require_self
+*= require font-awesome
+*/
 
 
 wrapper {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 .left-sidebar {
-    padding-left: 0px;
-    padding-right: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .container {
-    max-width: 100%;
-    width: 100%;
+  max-width: 100%;
+  width: 100%;
 }
 
 .navbar-top {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
 }
 
 .main-container {
-    padding: 10px;
-    margin: 0px;
+  padding: 10px;
+  margin: 0px;
 }
 
 #accordion a:hover, a:visited, a:link, a:active {
-    text-decoration: none;
+  text-decoration: none;
 }
 panel a {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .centered {
-    text-align: center;
+  text-align: center;
 }
 
 thead > tr > th {
-text-align: center;
+  text-align: center;
 
 }
 
 #center-container {
-    padding: 20px;
-    margin-top: 10px;
+  padding: 20px;
+  margin-top: 10px;
 }
 
 #accordion {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .aside-title {
-    margin-left: 10px;
-    font-weight: bold;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 .panel-collapse {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 body {
-    background-image: url(/assets/light_wool.png);
+  background-image: url(/assets/light_wool.png);
 }
 
 .hora {
-    padding-top: 0;
+  padding-top: 0;
 }
 
 .horario {
-    padding: 1px;
+  padding: 1px;
 }
 
 .nav-stacked > li > a:hover,
@@ -106,7 +106,6 @@ body {
 }
 
 
-
 .container-show {
   padding: 10px;
 }
@@ -117,4 +116,7 @@ body {
 
 .modal-container {
   padding: 10px;
+}
+#advertencia {
+  margin: auto;
 }
