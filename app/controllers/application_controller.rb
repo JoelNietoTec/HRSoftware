@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def not_authenticated
-    redirect_to login_path, :alert => "Accesar"
+    redirect_to root_url, :alert => "Accesar"
   end
 end

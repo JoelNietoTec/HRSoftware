@@ -51,3 +51,5 @@ gem 'country_select'
 gem 'font-awesome-sass'
 
 gem 'sorcery'
+
+gem 'haml-rails', '~> 0.5.3'

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'usuario_sesion/new'
+
 
   resources :usuarios
 
-  resources :usuario_sesion
+  resources :sessions, :only => [:create, :destroy]
 
   resources :empleados
 
@@ -23,9 +23,10 @@ Rails.application.routes.draw do
 
   resources :sucursals
 
-  get 'login' => 'usuario_sesion#new', as: :login
+  get 'login' => 'sessions#create', as: :login
 
-  get 'logout' => 'usuario_sesion#destroy', as: :logout
+  get 'logout' => 'sessions#destroy', as: :logout
+
 
   get 'welcome/index'
 
