@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'usuario_sesion/new'
+
+  resources :usuarios
+
+  resources :usuario_sesion
+
   resources :empleados
 
   resources :turnos
@@ -16,6 +22,10 @@ Rails.application.routes.draw do
   resources :departamentos
 
   resources :sucursals
+
+  get 'login' => 'usuario_sesion#new', as: :login
+
+  get 'logout' => 'usuario_sesion#destroy', as: :logout
 
   get 'welcome/index'
 

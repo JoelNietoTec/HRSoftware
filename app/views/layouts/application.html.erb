@@ -14,6 +14,11 @@
           <i class="fa fa-home"></i> HRSoft
           <% end %>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Login", "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login" %>
+          </li>
+        </ul>
       </div>
     </header>
     <div class="container-fluid">
@@ -72,6 +77,37 @@
         </div>
 
       </div>
+    </div>
+    <div class="modal fade" id="modal_login">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <%= form_for :usuario_sesion, :url=> "usuario_sesion_path", :html=> {:class=> "form-horizontal"} do |f| %>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Iniciar Sesión</h4>
+          </div>
+          <div class="modal-body">
+            <div class="modal-container">
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.email_field :email, {:class=> "form-control", :placeholder=>"Email"} %>
+                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <%= f.password_field :password, {:class=> "form-control", :placeholder=>"Password"} %>
+                  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "Login", :class=> "btn btn-primary" %>
+          </div>
+          <% end %>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
     </div>
   </body>
 </html>

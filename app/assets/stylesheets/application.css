@@ -114,3 +114,7 @@ body {
 .form-show {
   padding-bottom: 10px;
 }
+
+.modal-container {
+  padding: 10px;
+}

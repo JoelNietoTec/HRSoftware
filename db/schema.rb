@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617161317) do
+ActiveRecord::Schema.define(version: 20140626005219) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -178,5 +178,23 @@ ActiveRecord::Schema.define(version: 20140617161317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "email",                           null: false
+    t.string   "crypted_password",                null: false
+    t.string   "salt",                            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
+    t.string   "username"
+  end
+
+  add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
+  add_index "usuarios", ["remember_me_token"], name: "index_usuarios_on_remember_me_token"
+  add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token"
 
 end
