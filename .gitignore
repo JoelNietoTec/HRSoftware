@@ -16,4 +16,4 @@
 /tmp
 
 # Ignorar fotos de empleados
-/public/system/empleados/avatars
+/public/system/empleados/avatars/

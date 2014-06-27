@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
   end
 
 
-  before_filter :require_login, :except => [:not_authenticated]
-
-  protected
-
-  def not_authenticated
-    redirect_to root_url, :alert => "Accesar"
-  end
+#  before_filter :require_login, :except => [:not_authenticated]
+#
+#  protected
+#
+#  def not_authenticated
+#    redirect_to root_url, :alert => "Accesar"
+#  end
 end
