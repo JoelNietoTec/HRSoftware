@@ -18,14 +18,11 @@
       </div>
       <div class="panel-body form-horizontal">
         <div class="field form-group">
-          <div class="col-md-12">
-            <div class="input-group">
-              <%= f.text_field :username, {:class=> "form-control", :placeholder=>"UserName"} %>
-              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            </div>
+          <%= f.label :username, "Nombre del Usuario", :class=> "control-label col-md-4" %>
+          <div class="col-md-6">
+            <%= f.text_field :username, :class=> "form-control input-sm" %>
           </div>
         </div>
-        <br>
         <div class="field form-group">
           <%= f.label :email, :class=> "control-label col-md-4" %>
           <div class="col-md-6">
@@ -33,13 +30,13 @@
           </div>
         </div>
         <div class="field form-group">
-          <%= f.label :password, :class=> "control-label col-md-4" %>
+          <%= f.label :password, "Contraseña", :class=> "control-label col-md-4" %>
           <div class="col-md-6">
-            <%= f.password_field :password, :class=> "form-control input-sm" %>
+            <%= f.password_field :password,  :class=> "form-control input-sm" %>
           </div>
         </div>
         <div class="field form-group">
-          <%= f.label :password_confirmation, :class=> "control-label col-md-4" %>
+          <%= f.label :password_confirmation, "Confimar Contraseña", :class=> "control-label col-md-4" %>
           <div class="col-md-6">
             <%= f.password_field :password_confirmation, :class=> "form-control input-sm" %>
           </div>

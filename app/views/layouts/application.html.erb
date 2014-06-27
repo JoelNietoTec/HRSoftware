@@ -22,9 +22,14 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+             <li>
+               <%= link_to usuarios_path do %>
+               <i class="fa fa-lock"></i>  Administrar Usuarios
+               <% end %>
+             </li>
               <li>
                 <%= link_to logout_path do %>
-                <i class="fa fa-sign-out"></i> Cerrar Sesión
+                <i class="fa fa-sign-out"></i>  Cerrar Sesión
                 <% end %>
               </li>
             </ul>
@@ -51,27 +56,19 @@
             </h5>
             <div class="panel-collapse collapse" id="collapseOne">
               <ul class="nav nav-pills nav-stacked">
-                <li>
-                  <%= link_to empleados_path do %>
-                  <i class="fa fa-list"></i> Listar
-                  <% end %>
-                </li>
+                <li><%= link_to "Listar", empleados_path %></li>
                 <li><%= link_to "Nuevo", new_empleado_path %></li>
               </ul>
             </div>
             <hr>
             <h5 class="aside-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                <i class="fa fa-cogs"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-database"></i>  Mantenimiento  <i class="fa fa-chevron-down"></i>
               </a>
             </h5>
             <div class="panel-collapse collapse" id="collapseTwo">
               <ul class="nav nav-pills nav-stacked">
-                <li>
-                  <%= link_to sucursals_path do %>
-                  <i class="fa fa-database"></i> Sucursales
-                  <% end %>
-                </li>
+                <li><%= link_to "Sucursales", sucursals_path %></li>
                 <li><%= link_to "Departamentos", departamentos_path %></li>
                 <li><%= link_to "Centros De Costos", centro_costos_path %></li>
                 <li><%= link_to "Cargos", cargos_path %></li>
