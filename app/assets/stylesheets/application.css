@@ -120,3 +120,8 @@ body {
 #advertencia {
   margin: auto;
 }
+
+#nav-container {
+  margin-left: 50px;
+  margin-right: 50px;
+}
