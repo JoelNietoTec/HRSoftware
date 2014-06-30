@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree
-//= require jquery.turbolinks.
+//= require jquery.turbolinks
+//= require toastr.
 
 $(document).ready(function() {
   var table = $('#datagrid').DataTable( {

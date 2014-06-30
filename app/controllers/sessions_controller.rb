@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
 
   def create
     if @user
-      redirect_back_or_to root_url , :notice => "Logged in!"
+      redirect_back_or_to root_url , :notice => "Sesion Iniciada"
     else
-      redirect_to root_url, :alert => "Email or password was invalid."
+      redirect_to root_url, :alert => "Email o password incorrecto"
     end
   end
   def destroy
     logout
-    redirect_to root_url, :notice => 'Logged out!'
+    redirect_to root_url, :notice => 'Sesion cerrada'
   end
 
   private
