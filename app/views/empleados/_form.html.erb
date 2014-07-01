@@ -1,8 +1,7 @@
 <%= form_for(@empleado) do |f| %>
 <% if @empleado.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
-
+  <h2><%= pluralize(@empleado.errors.count, "error") %> No es posible guardar la información debido a inconvenientes con los datos:</h2>
   <ul>
     <% @empleado.errors.full_messages.each do |message| %>
     <li><%= message %></li>
