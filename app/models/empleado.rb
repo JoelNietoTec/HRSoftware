@@ -2,8 +2,14 @@ class Empleado < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/:style/default_avatar.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-    # Validamos que el código de empelado cuente entre 6 a 10 caracteres
+    # Validamos la longitud de algunos campos
     validates :codigo, length: { in: 6..10 , message: "debe tener entre 6 y 10 caracteres"}
+    validates :nombres, length: { in: 3..60 , message: "debe tener entre 3 y 60 caracteres"}
+    validates :apellidos, length: { in: 3..60 , message: "debe tener entre 3 y 60 caracteres"}
+
+    # Validamos campos que deben ser únicos
+    validates :email, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}
+    validates :codigo, uniqueness: {case_sensitive: false, message: "ya esta registrado"}
 
     # Validamos los campos indispensables para poder guardar el registro
     validates :codigo, presence: {message: "es requerido"}

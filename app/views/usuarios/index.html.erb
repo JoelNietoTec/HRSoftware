@@ -7,7 +7,6 @@
         <tr>
           <th><i class="fa fa-user"></i> Nombre de Usuario</th>
           <th><i class="fa fa-envelope"></i> Email</th>
-          <th><i class="fa fa-lock"></i> Contraseña</th>
           <th>Acciones </th>
         </tr>
       </thead>
@@ -17,13 +16,12 @@
         <tr class="centered">
           <td><%= usuario.username %></td>
           <td><%= usuario.email %></td>
-          <td>*********</td>
           <td>
             <%= link_to edit_usuario_path(usuario) do %>
             <i class="fa fa-pencil btn btn-xs btn-primary" title="Editar"></i>
             <% end %>
 
-            <%= link_to usuario, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+            <%= link_to usuario, method: :delete, data: { confirm: '¿Está Seguro?' }  do %>
             <i class="fa fa-trash-o btn btn-xs btn-danger" title="Eliminar"></i>
             <% end %>
             </td>
