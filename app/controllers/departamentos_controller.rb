@@ -5,25 +5,25 @@ class DepartamentosController < ApplicationController
   # GET /departamentos
   # GET /departamentos.json
   def index
-      add_breadcrumb "Listado", :departamentos_path
+    add_breadcrumb "Listado", :departamentos_path
     @departamentos = Departamento.all
   end
 
   # GET /departamentos/1
   # GET /departamentos/1.json
   def show
-      add_breadcrumb "Detalles", @departamentos
+    add_breadcrumb "Detalles", @departamentos
   end
 
   # GET /departamentos/new
   def new
-      add_breadcrumb "Nuevo", new_departamento_path
+    add_breadcrumb "Nuevo", new_departamento_path
     @departamento = Departamento.new
   end
 
   # GET /departamentos/1/edit
   def edit
-      add_breadcrumb "Editar", edit_departamento_path
+    add_breadcrumb "Editar", edit_departamento_path
   end
 
   # POST /departamentos
@@ -67,13 +67,13 @@ class DepartamentosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_departamento
-      @departamento = Departamento.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_departamento
+    @departamento = Departamento.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def departamento_params
-      params.require(:departamento).permit(:codigo, :nombre, :activo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def departamento_params
+    params.require(:departamento).permit(:codigo, :nombre, :activo)
+  end
 end

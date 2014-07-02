@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
+    <h2 class="text-primary">
+      <%= @empleado.nombres %> <%= @empleado.apellidos %>
+    </h2>
     <ul class="nav nav-tabs">
       <li class="active"><a href="#Personal" data-toggle="tab">Datos Personales</a></li>
       <li><a href="#Laboral" data-toggle="tab">Datos Laborales</a></li>
@@ -10,56 +11,51 @@
     <div id="myTabContent" class="tab-content container-show">
       <div class="tab-pane fade in active" id="Personal">
         <div class="form-horizontal">
-          <div class="field form-show col-md-6">
-            <strong class="text-info">Nombres</strong><br>
-            <%= @empleado.nombres %>
-          </div>
-          <div class="field form-show col-md-6">
-            <strong>Apellidos</strong><br>
-            <%= @empleado.apellidos %>
-          </div>
-
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Cédula</strong><br>
             <%= @empleado.cedula %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Seguro Social</strong><br>
             <%= @empleado.seguro_social %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Dígito Verificador</strong><br>
             <%= @empleado.dv %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Clave ISR</strong><br>
             <%= @empleado.clave_isr %>
           </div>
-          <div class="field form-show col-md-6">
+           <div class="field form-show col-md-4">
             <strong>Fecha de Nacimiento</strong><br>
-            <%= @empleado.fecha_nacimiento %>
+            <%= @empleado.fecha_nacimiento.strftime("%d/%m/%Y") %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
+            <strong>Edad</strong><br>
+            <%= Date.today.year - @empleado.fecha_nacimiento.year %>
+          </div>
+          <div class="field form-show col-md-4">
             <strong>Sexo</strong><br>
             <%= Sexo.find(@empleado.sexo_id).nombre %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Estado Civil</strong><br>
             <%= EstadoCivil.find(@empleado.estado_civil_id).nombre %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>País de Origen</strong><br>
             <%= @empleado.nacionalidad_id %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Email</strong><br>
             <%= @empleado.email %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Teléfono</strong><br>
             <%= @empleado.telefono %>
           </div>
-          <div class="field form-show col-md-6">
+          <div class="field form-show col-md-4">
             <strong>Dirección</strong><br>
             <%= @empleado.direccion %>
           </div>
@@ -69,71 +65,73 @@
         <div class="form-horizontal">
           <div class="row">
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Departamento</strong><br>
             <%= Departamento.find(@empleado.departamento_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Cargo</strong><br>
             <%= Cargo.find(@empleado.cargo_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
-            <strong>Grupo Pago</strong><br>
-            <%= GrupoPago.find(@empleado.grupo_pago_id).nombre %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Estatus</strong><br>
-            <%= Estatus.find(@empleado.status_id).nombre %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Tipo Salario</strong><br>
-            <%= TipoSalario.find(@empleado.tipo_salario_id).nombre %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Tipo Empleado</strong><br>
-            <%= TipoEmpleado.find(@empleado.tipo_empleado_id).nombre %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Salario Pactado</strong><br>
-            <%= number_to_currency(@empleado.salario_pactado) %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Horas Base</strong><br>
-            <%= @empleado.horas_base %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Fecha de Ingreso</strong><br>
-            <%= @empleado.fecha_ingreso %>
-          </div>
-          <div class="form-show col-md-6">
-            <strong>Fecha Liquidación</strong><br>
-            <%= @empleado.fecha_liquidacion %>
-          </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Sucursal</strong><br>
             <%= Sucursal.find(@empleado.sucursal_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
+            <strong>Fecha de Ingreso</strong><br>
+            <%= @empleado.fecha_ingreso.strftime("%d/%m/%Y") %>
+          </div>
+          <% if @empleado.fecha_liquidacion %>
+          <div class="form-show col-md-4">
+            <strong>Fecha Liquidación</strong><br>
+            <%= @empleado.fecha_liquidacion.strftime("%d/%m/%Y") %>
+          </div>
+          <% end %>
+          <div class="form-show col-md-4">
             <strong>Centro de Costos</strong><br>
             <%= CentroCosto.find(@empleado.centro_costo_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Proyecto</strong><br>
             <%= Proyecto.find(@empleado.proyecto_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Fase</strong><br>
             <%= Fase.find(@empleado.fase_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Sección</strong><br>
             <%= Seccion.find(@empleado.seccion_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
+            <strong>Grupo Pago</strong><br>
+            <%= GrupoPago.find(@empleado.grupo_pago_id).nombre %>
+          </div>
+          <div class="form-show col-md-4">
+            <strong>Estatus</strong><br>
+            <%= Estatus.find(@empleado.status_id).nombre %>
+          </div>
+          <div class="form-show col-md-4">
+            <strong>Tipo Salario</strong><br>
+            <%= TipoSalario.find(@empleado.tipo_salario_id).nombre %>
+          </div>
+          <div class="form-show col-md-4">
+            <strong>Tipo Empleado</strong><br>
+            <%= TipoEmpleado.find(@empleado.tipo_empleado_id).nombre %>
+          </div>
+          <div class="form-show col-md-4">
+            <strong>Salario Pactado</strong><br>
+            <%= number_to_currency(@empleado.salario_pactado) %>
+          </div>
+          <div class="form-show col-md-4">
+            <strong>Horas Base</strong><br>
+            <%= @empleado.horas_base %>
+          </div>
+          <div class="form-show col-md-4">
             <strong>Forma de Pago</strong><br>
             <%= FormaPago.find(@empleado.forma_pago_id).nombre %>
           </div>
-          <div class="form-show col-md-6">
+          <div class="form-show col-md-4">
             <strong>Sector</strong><br>
             <%= Sector.find(@empleado.sector_id).nombre %>
           </div>
@@ -141,7 +139,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3">
     <br>
     <br>
     <%= image_tag @empleado.avatar.url(:medium) %>

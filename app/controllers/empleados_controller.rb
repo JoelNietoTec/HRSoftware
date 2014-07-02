@@ -1,26 +1,30 @@
 class EmpleadosController < ApplicationController
   before_action :set_empleado, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Empleados", :empleados_path
   # GET /empleados
   # GET /empleados.json
 
 
   def index
     @empleados = Empleado.all
+    add_breadcrumb "Listado", :empleados_path
   end
 
   # GET /empleados/1
   # GET /empleados/1.json
   def show
+    add_breadcrumb (@empleado.nombres + ' ' + @empleado.apellidos), @empleado
   end
 
   # GET /empleados/new
   def new
     @empleado = Empleado.new
+    add_breadcrumb "Nuevo", new_empleado_path
   end
 
   # GET /empleados/1/edit
   def edit
+    add_breadcrumb "Editar", edit_empleado_path
   end
 
   # POST /empleados
@@ -30,7 +34,7 @@ class EmpleadosController < ApplicationController
 
     respond_to do |format|
       if @empleado.save
-        format.html { redirect_to @empleado, notice: 'Empleado was successfully created.' }
+        format.html { redirect_to @empleado, notice: 'Empleado creado correctamente' }
         format.json { render :show, status: :created, location: @empleado }
       else
         format.html { render :new }
@@ -44,7 +48,7 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       if @empleado.update(empleado_params)
-        format.html { redirect_to @empleado, notice: 'Empleado was successfully updated.' }
+        format.html { redirect_to @empleado, notice: 'Empleado actualizado correctamente' }
         format.json { render :show, status: :ok, location: @empleado }
       else
         format.html { render :edit }

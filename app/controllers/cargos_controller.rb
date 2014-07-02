@@ -11,7 +11,7 @@ class CargosController < ApplicationController
   # GET /cargos/1
   # GET /cargos/1.json
   def show
-      add_breadcrumb "Detalles", @cargos
+    add_breadcrumb "Detalles", @cargos
   end
 
   # GET /cargos/new
@@ -22,7 +22,7 @@ class CargosController < ApplicationController
 
   # GET /cargos/1/edit
   def edit
-      add_breadcrumb "Editar", edit_cargo_path()
+    add_breadcrumb "Editar", edit_cargo_path()
   end
 
   # POST /cargos
@@ -66,13 +66,13 @@ class CargosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cargo
-      @cargo = Cargo.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cargo
+    @cargo = Cargo.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cargo_params
-      params.require(:cargo).permit(:codigo, :nombre, :activo, :departamento_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cargo_params
+    params.require(:cargo).permit(:codigo, :nombre, :activo, :departamento_id)
+  end
 end

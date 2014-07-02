@@ -1,17 +1,17 @@
 class CentroCostosController < ApplicationController
   before_action :set_centro_costo, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Centros de Costos", :centro_costos_path
+  add_breadcrumb "Centros de Costo", :centro_costos_path
   # GET /centro_costos
   # GET /centro_costos.json
   def index
-      add_breadcrumb "Listado", :centro_costos_path
+    add_breadcrumb "Listado", :centro_costos_path
     @centro_costos = CentroCosto.all
   end
 
   # GET /centro_costos/1
   # GET /centro_costos/1.json
   def show
-      add_breadcrumb "Detalles", @centro_costos
+    add_breadcrumb "Detalles", @centro_costos
   end
 
   # GET /centro_costos/new
@@ -22,7 +22,7 @@ class CentroCostosController < ApplicationController
 
   # GET /centro_costos/1/edit
   def edit
-      add_breadcrumb "Editar", edit_centro_costo_path
+    add_breadcrumb "Editar", edit_centro_costo_path
   end
 
   # POST /centro_costos
@@ -66,13 +66,13 @@ class CentroCostosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_centro_costo
-      @centro_costo = CentroCosto.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_centro_costo
+    @centro_costo = CentroCosto.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def centro_costo_params
-      params.require(:centro_costo).permit(:codigo, :nombre, :activo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def centro_costo_params
+    params.require(:centro_costo).permit(:codigo, :nombre, :activo)
+  end
 end

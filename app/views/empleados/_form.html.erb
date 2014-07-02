@@ -10,9 +10,19 @@
 </div>
 <% end %>
 <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg' %>
-<div class="field">
-  <%= f.label :codigo %><br>
-  <%= f.text_field :codigo %>
+<div class="row">
+  <div class="form-horizontal col-md-4">
+    <div class="form-group col-md-8">
+      <%= f.label :codigo, :class=> "control-label" %><br>
+      <%= f.text_field :codigo, :class=> "form-control input-sm upper" %>
+    </div>
+  </div>
+  <div class="form-group col-md-8">
+   <br>
+    <div class="actions">
+      <%= f.submit "Guardar Empleado", :class=> "btn btn-primary btn-sm" %>
+    </div>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-10">
@@ -81,8 +91,8 @@
       </div>
       <div class="tab-pane fade" id="Laboral">
         <div class="form-horizontal">
-         <div class="row">
-         </div>
+          <div class="row">
+          </div>
           <div class="form-group col-md-4">
             <%= f.label :departamento_id, :class=> "control-label" %><br>
             <%= f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
@@ -91,45 +101,13 @@
             <%= f.label :cargo_id, :class=> "control-label" %><br>
             <%= f.grouped_collection_select :cargo_id, Departamento.order(:id).where(:activo=> true), :cargos, :nombre, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
-          <div class="form-group col-md-3">
-            <%= f.label :grupo_pago_id, :class=> "control-label" %><br>
-            <%= f.collection_select :grupo_pago_id, GrupoPago.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :status_id, :class=> "control-label" %><br>
-            <%= f.collection_select :status_id, Estatus.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :tipo_salario_id, :class=> "control-label" %><br>
-            <%= f.collection_select :tipo_salario_id, TipoSalario.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :tipo_empleado_id, :class=> "control-label" %><br>
-            <%= f.collection_select :tipo_empleado_id, TipoEmpleado.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :salario_pactado, :class=> "control-label" %><br>
-            <%= f.text_field :salario_pactado, :class=> "form-control input-sm" %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :horas_base, :class=> "control-label" %><br>
-            <%= f.text_field :horas_base, :class=> "form-control input-sm" %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :fecha_ingreso, :class=> "control-label" %><br>
-            <%= f.text_field :fecha_ingreso, :class=> "datepicker form-control input-sm" %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :fecha_liquidacion, :class=> "control-label" %><br>
-            <%= f.text_field :fecha_liquidacion, :class=> "datepicker form-control input-sm" %>
-          </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-4">
             <%= f.label :sucursal_id, :class=> "control-label" %><br>
             <%= f.collection_select :sucursal_id, Sucursal.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-3">
-            <%= f.label :centro_costo_id, :class=> "control-label" %><br>
-            <%= f.collection_select :centro_costo_id, CentroCosto.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+            <%= f.label :fecha_ingreso, "Fecha Ingreso", :class=> "control-label" %><br>
+            <%= f.text_field :fecha_ingreso, :class=> "datepicker form-control input-sm" %>
           </div>
           <div class="form-group col-md-3">
             <%= f.label :proyecto_id, :class=> "control-label" %><br>
@@ -140,12 +118,45 @@
             <%= f.collection_select :fase_id, Fase.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-3">
-            <%= f.label :seccion_id, :class=> "control-label" %><br>
+            <%= f.label :seccion_id, "Sección", :class=> "control-label" %><br>
             <%= f.collection_select :seccion_id, Seccion.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-3">
-            <%= f.label :forma_pago_id, :class=> "control-label" %><br>
+            <%= f.label :forma_pago_id, "Forma de Pago", :class=> "control-label" %><br>
             <%= f.collection_select :forma_pago_id, FormaPago.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :grupo_pago_id, "Grupo de Pago", :class=> "control-label" %><br>
+            <%= f.collection_select :grupo_pago_id, GrupoPago.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :tipo_salario_id, "Tipo Salario", :class=> "control-label" %><br>
+            <%= f.collection_select :tipo_salario_id, TipoSalario.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :salario_pactado, "Salario Pactado", :class=> "control-label" %><br>
+            <div class="input-group">
+              <div class="input-group-addon input-sm">
+                <i class="fa fa-usd"></i>
+              </div>
+              <%= f.number_field :salario_pactado, :class=> "form-control input-sm" %>
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :status_id, :class=> "control-label" %><br>
+            <%= f.collection_select :status_id, Estatus.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :tipo_empleado_id, "Tipo Empleado", :class=> "control-label" %><br>
+            <%= f.collection_select :tipo_empleado_id, TipoEmpleado.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"} %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :horas_base, "Horas Base", :class=> "control-label" %><br>
+            <%= f.number_field :horas_base, :class=> "form-control input-sm" %>
+          </div>
+          <div class="form-group col-md-3">
+            <%= f.label :centro_costo_id, "Centro de Costo", :class=> "control-label" %><br>
+            <%= f.collection_select :centro_costo_id, CentroCosto.select("id, nombre").where(:activo=> true), :id, :nombre, {}, {:class=> "form-control input-sm"} %>
           </div>
           <div class="form-group col-md-3">
             <%= f.label :sector_id, :class=> "control-label" %><br>
@@ -155,9 +166,5 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="actions">
-  <%= f.submit %>
 </div>
 <% end %>
