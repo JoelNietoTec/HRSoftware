@@ -1,0 +1,32 @@
+%h2 Cargos
+.row
+  .col-md-10
+    %table#datagrid.table.table-condensed.table-hover
+      %thead
+        %tr
+          %th Codigo
+          %th Nombre
+          %th Departamento
+          %th Activo
+          %th Acciones
+      %tbody
+        - @cargos.each do |cargo|
+          %tr
+            %td= cargo.codigo
+            %td= cargo.nombre
+            %td= Departamento.find(cargo.departamento).nombre
+            %td.centered
+              - if cargo.activo
+                %i.fa.fa-check-square-o.btn-xs.btn-success
+              - else
+                %i.fa.fa-square-o.btn-xs.btn-default
+            %td.centered
+              = link_to edit_cargo_path(cargo) do
+                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+              = link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do
+                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
+%br
+= link_to new_cargo_path, :class=> "btn btn-sm btn-primary" do
+  %i.fa.fa-plus.text-success
+  Nuevo Cargo
+

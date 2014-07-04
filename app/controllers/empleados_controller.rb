@@ -62,7 +62,7 @@ class EmpleadosController < ApplicationController
   def destroy
     @empleado.destroy
     respond_to do |format|
-      format.html { redirect_to empleados_url, notice: 'Empleado was successfully destroyed.' }
+      format.html { redirect_to empleados_url, notice: 'Empleado eliminado' }
       format.json { head :no_content }
     end
   end

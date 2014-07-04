@@ -1,4 +1,6 @@
 class Sucursal < ActiveRecord::Base
-  validates :codigo, uniqueness: {message: "Este codigo de Sucursal ya existe"}
-  validates :nombre, uniqueness: {message: "Este nombre de Sucursal ya existe"}
+  validates :codigo, presence: {message: "Es requerido"}
+  validates :nombre, presence: {message: "Es requerido"}
+  validates :codigo, uniqueness: {message: "Ya existe"}
+  validates :nombre, uniqueness: {message: "Ya existe"}
 end
