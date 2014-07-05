@@ -1,0 +1,55 @@
+= form_for @turno do |f|
+  - if @turno.errors.any?
+    .row
+      .col-md-6
+        .alert.alert-danger
+          %strong= "Turno no puede guardarse. #{pluralize(@turno.errors.count, "error")}"
+          %ul
+            - @turno.errors.full_messages.each do |message|
+              %i= message
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            Datos
+        .panel-body.form-horizontal
+          .field.form-group
+            = f.label :codigo, :class=> "control-label col-md-2"
+            .col-md-6
+              = f.text_field :codigo, :class=> "form-control input-sm upper"
+          .field.form-group
+            = f.label :nombre, :class=> "control-label col-md-2"
+            .col-md-8
+              = f.text_field :nombre, :class=> "form-control input-sm"
+          .field.form-group.col-md-6
+            = f.label :entrada, :class=> "control-label col-md-4"
+            .col-md-8
+              = f.text_field :entrada, :class=> "form-control input-sm timepicker", :value=> (f.object.entrada.strftime("%I:%M %p") if f.object.entrada)
+          .field.form-group.col-md-6
+            = f.label :salida, :class=> "control-label col-md-4"
+            .col-md-8
+              = f.text_field :salida, :class=> "form-control input-sm timepicker", :value=> (f.object.salida.strftime("%I:%M %p") if f.object.salida)
+          .field.form-group
+            .col-md-2
+            .field.checkbox.col-md-10
+              = f.label :descanso
+              = f.check_box :descanso
+          .field.form-group.col-md-6
+            = f.label :inicio_descanso, "Inicio Descanso", :class=> "hora col-md-4"
+            .col-md-8
+              = f.text_field :inicio_descanso, :class=> "form-control input-sm timepicker", :value=> (f.object.inicio_descanso.strftime("%I:%M %p") if f.object.inicio_descanso)
+          .field.form-group.col-md-6
+            = f.label :fin_descanso, "Fin Descanso", :class=> "col-md-4 hora"
+            .col-md-8
+              = f.text_field :fin_descanso, :class=> "form-control input-sm timepicker", :value=> (f.object.fin_descanso.strftime("%I:%M %p") if f.object.fin_descanso)
+          .field.form-group
+            .col-md-2
+            .field.checkbox.col-md-10
+              = f.label :activo
+              = f.check_box :activo
+        .panel-footer
+          .actions
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              Guardar
+              %i.fa.fa-save

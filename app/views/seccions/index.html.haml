@@ -1,4 +1,4 @@
-%h2 Departamentos
+%h2 Secciones
 .row
   .col-md-10
     %table#datagrid.table.table-condensed.table-hover
@@ -9,22 +9,21 @@
           %th Activo
           %th Acciones
       %tbody
-        - @departamentos.each do |departamento|
+        - @seccions.each do |seccion|
           %tr
-            %td= departamento.codigo
-            %td= departamento.nombre
+            %td= seccion.codigo
+            %td= seccion.nombre
             %td.centered
-              - if departamento.activo
+              - if seccion.activo
                 %i.fa.fa-check-square-o.btn.btn-xs.btn-success
               - else
                 %i.fa.fa-square-o.btn.btn-xs.btn-default
             %td.centered
-              = link_to edit_departamento_path(departamento) do
+              = link_to edit_seccion_path(seccion) do
                 %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
-              = link_to departamento, method: :delete, data: { confirm: 'Está seguro?' } do
+              = link_to seccion, method: :delete, data: { confirm: 'Está seguro?' } do
                 %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
 %br
-=link_to  new_departamento_path, :class=> "btn btn-primary btn-sm" do
+=link_to  new_seccion_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success
-  Nuevo Departamento
-
+  Nuevo Sección

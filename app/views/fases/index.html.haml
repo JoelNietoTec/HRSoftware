@@ -1,0 +1,30 @@
+%h1 Fases
+.row
+  .col-md-10
+    %table#datagrid.table.table-responsive.table-condensed.table-hover
+      %thead
+        %tr
+          %th Codigo
+          %th Nombre
+          %th Activo
+          %th Acciones
+      %tbody
+        - @fases.each do |fase|
+          %tr
+            %td= fase.codigo
+            %td= fase.nombre
+            %td.centered
+              - if fase.activo
+                %i.fa.fa-check-square-o.btn.btn-xs.btn-success
+              - else
+                %i.fa.fa-square-o.btn.btn-xs.btn-default
+            %td.centered
+              = link_to edit_fase_path(fase) do
+                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+              = link_to fase, method: :delete, data: { confirm: 'Estás seguro?' } do
+                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title'=> 'Borrar'}
+%br
+= link_to new_fase_path, :class=> "btn btn-primary btn-sm" do
+  %i.fa.fa-plus.text-success
+  Nueva Fase
+

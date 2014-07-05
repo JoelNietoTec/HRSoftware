@@ -1,4 +1,4 @@
-%h2 Departamentos
+%h2 Sucursales
 .row
   .col-md-10
     %table#datagrid.table.table-condensed.table-hover
@@ -9,22 +9,22 @@
           %th Activo
           %th Acciones
       %tbody
-        - @departamentos.each do |departamento|
+        - @sucursals.each do |sucursal|
           %tr
-            %td= departamento.codigo
-            %td= departamento.nombre
+            %td= sucursal.codigo
+            %td= sucursal.nombre
             %td.centered
-              - if departamento.activo
+              - if sucursal.activo
                 %i.fa.fa-check-square-o.btn.btn-xs.btn-success
               - else
                 %i.fa.fa-square-o.btn.btn-xs.btn-default
             %td.centered
-              = link_to edit_departamento_path(departamento) do
+              = link_to edit_sucursal_path(sucursal) do
                 %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
-              = link_to departamento, method: :delete, data: { confirm: 'Está seguro?' } do
+              = link_to sucursal, method: :delete, data: { confirm: 'Está seguro?' } do
                 %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
 %br
-=link_to  new_departamento_path, :class=> "btn btn-primary btn-sm" do
+=link_to  new_sucursal_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success
-  Nuevo Departamento
+  Nueva Sucursal
 
