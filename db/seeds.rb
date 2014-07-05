@@ -1,5 +1,5 @@
 #    Datos de Inicialización
-=begin
+
 GrupoPago.create([{nombre: 'Semanal'}, {nombre: 'Bisemanal'}, {nombre: 'Quincenal'}, {nombre: 'Mensual'}])
 Estatus.create([{nombre: 'Activo'}, {nombre: 'Cesante'}, {nombre: 'Vacaciones'}, {nombre: 'Licencia'}])
 TipoSalario.create([{nombre: 'Mensual'}, {nombre: 'Por Hora'}])
@@ -15,5 +15,4 @@ Cargo.create(departamento_id:1, codigo: '0000', nombre: '***SIN ASIGNAR***', act
 Seccion.create(codigo: '0000', nombre: '***SIN ASIGNAR***', activo: true)
 Relacion.create([{nombre: 'Hijo(a)'}, {nombre: 'Conyugue'}, {nombre: 'Padre'}, {nombre: 'Hermano(a)'}, {nombre: 'Otro'}])
 Fase.create(codigo: '0000', nombre: '***SIN ASIGNAR***', activo: true)
-=end
 NivelEstudio.create([{nombre: 'Primario'}, {nombre: 'Secundario'}, {nombre: 'Bachiller'}, {nombre: 'Universitario'}, {nombre: 'Postgrado'}, {nombre: 'Master'}, {nombre: 'Doctorado'}, {nombre: 'Otro'}])
