@@ -1,0 +1,37 @@
+%h2 Empleados
+%table#datagrid.table.table-condensed.table-hover.table-responsive
+  %thead
+    %tr
+      %th Codigo
+      %th Nombres
+      %th Apellidos
+      %th Cédula
+      %th Cargo
+      %th Sucursal
+      %th Sección
+      %th Email
+      %th Teléfono
+      %th Acciones
+  %tbody
+    - @empleados.each do |empleado|
+      %tr
+        %td= empleado.codigo
+        %td= empleado.nombres
+        %td= empleado.apellidos
+        %td= empleado.cedula
+        %td= Cargo.find(empleado.cargo_id).nombre
+        %td= Sucursal.find(empleado.sucursal_id).nombre
+        %td= Seccion.find(empleado.seccion_id).nombre
+        %td= empleado.email
+        %td= number_to_phone(empleado.telefono)
+        %td.centered
+          = link_to empleado do
+            %i.fa.fa-list-alt.btn.btn-xs.btn-info{'title' => "Detalles"}
+          = link_to edit_empleado_path(empleado) do
+            %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => "Editar"}
+          = link_to empleado, method: :delete, data: { confirm: '¿Está Seguro?' } do
+            %i.fa.fa-trash-o.btn.btn-xs.btn-danger{title="Borrar"}
+%br
+= link_to new_empleado_path, :class=>"btn btn-primary btn-sm" do
+  %i.fa.fa-plus.text-success
+  Nuevo Empleado
