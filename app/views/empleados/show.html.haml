@@ -1,0 +1,173 @@
+.row
+  .col-sm-9
+    %h2.text-primary
+      = @empleado.nombres
+      = @empleado.apellidos
+    %ul.nav.nav-tabs
+      %li.active
+        %a{'href' => "#Personal", 'data-toggle' => "tab"}
+          Datos Personales
+      %li
+        %a{'href' => "#Laboral", 'data-toggle' => "tab"}
+          Datos Laborales
+    #myTabContent.tab-content.container-show
+      .tab-pane.fade.in.active#Personal
+        .form-horizontal
+          .field.form-show.col-sm-4
+            %strong
+              Cédula
+            %br
+            = @empleado.cedula
+          .field.form-show.col-sm-4
+            %strong
+              Seguro Social
+            %br
+            = @empleado.seguro_social
+          .field.form-show.col-sm-4
+            %strong
+              Dígito Verificador
+            %br
+            = @empleado.dv
+          .field.form-show.col-sm-4
+            %strong
+              Clave ISR
+            %br
+            = @empleado.clave_isr
+          .field.form-show.col-sm-4
+            %strong
+              Fecha de Nacimiento
+            %br
+            = @empleado.fecha_nacimiento.strftime("%d/%m/%Y")
+          .field.form-show.col-sm-4
+            %strong
+              Edad
+            %br
+            = Date.today.year - @empleado.fecha_nacimiento.year
+          .field.form-show.col-sm-4
+            %strong
+              Sexo
+            %br
+            = Sexo.find(@empleado.sexo_id).nombre
+          .field.form-show.col-sm-4
+            %strong
+              Estado Civil
+            %br
+            = EstadoCivil.find(@empleado.estado_civil_id).nombre
+          .field.form-show.col-sm-4
+            %strong
+              País de Origen
+            %br
+            = @empleado.nacionalidad_id
+          .field.form-show.col-sm-4
+            %strong
+              Email
+            %br
+            = @empleado.email
+          .field.form-show.col-sm-4
+            %strong
+              Teléfono
+            %br
+            = @empleado.telefono
+          .field.form-show.col-sm-4
+            %strong
+              Dirección
+            %br
+            = @empleado.direccion
+      .tab-pane.fade#Laboral
+        .form-horizontal
+          .row
+            .form-show.col-sm-4
+              %strong
+                Departamento
+              %br
+              = Departamento.find(@empleado.departamento_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Cargo
+              %br
+              = Cargo.find(@empleado.cargo_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Sucursal
+              %br
+              = Sucursal.find(@empleado.sucursal_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Fecha de Ingreso
+              %br
+              = @empleado.fecha_ingreso.strftime("%d/%m/%Y")
+            - if @empleado.fecha_liquidacion
+              .form-show.col-sm-4
+                %strong
+                  Fecha Liquidación
+                %br
+                = @empleado.fecha_liquidacion.strftime("%d/%m/%Y")
+            .form-show.col-sm-4
+              %strong
+                Centro de Costo
+              %br
+              = CentroCosto.find(@empleado.centro_costo_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Proyecto
+              %br
+              = Proyecto.find(@empleado.proyecto_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Fase
+              %br
+              = Fase.find(@empleado.fase_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Sección
+              %br
+              = Seccion.find(@empleado.seccion_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Grupo Pago
+              %br
+              = GrupoPago.find(@empleado.grupo_pago_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Estatus
+              %br
+              = Estatus.find(@empleado.status_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Tipo Salario
+              %br
+              = TipoSalario.find(@empleado.tipo_salario_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Tipo Empleado
+              %br
+              = TipoEmpleado.find(@empleado.tipo_empleado_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Salario Pactado
+              %br
+              = number_to_currency(@empleado.salario_pactado)
+            .form-show.col-sm-4
+              %strong
+                Horas Base
+              %br
+              = @empleado.horas_base
+            .form-show.col-sm-4
+              %strong
+                Forma de Pago
+              %br
+              = FormaPago.find(@empleado.forma_pago_id).nombre
+            .form-show.col-sm-4
+              %strong
+                Sector
+              %br
+              = Sector.find(@empleado.sector_id).nombre
+  .col-sm-3
+    %br
+    %br
+    = image_tag @empleado.avatar.url(:medium)
+    %br
+    %br
+    = link_to 'Editar', edit_empleado_path(@empleado)
+    |
+    = link_to 'Regresar', empleados_path

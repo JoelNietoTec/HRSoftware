@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140705185252) do
+ActiveRecord::Schema.define(version: 20140707214633) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -112,10 +112,83 @@ ActiveRecord::Schema.define(version: 20140705185252) do
     t.datetime "updated_at"
   end
 
+  create_table "licencia", force: true do |t|
+    t.string   "tipo"
+    t.string   "vehiculo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "nivel_estudios", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "prospecto_cargos", force: true do |t|
+    t.integer  "prospecto_id"
+    t.integer  "cargo_id"
+    t.boolean  "prioridad"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_cargos", ["prospecto_id"], name: "index_prospecto_cargos_on_prospecto_id"
+
+  create_table "prospecto_estudios", force: true do |t|
+    t.integer  "prospecto_id"
+    t.integer  "nivel_estudio_id"
+    t.string   "institucion"
+    t.date     "fecha_inicio"
+    t.date     "fecha_fin"
+    t.integer  "status_estudio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_estudios", ["prospecto_id"], name: "index_prospecto_estudios_on_prospecto_id"
+
+  create_table "prospecto_experiencia", force: true do |t|
+    t.integer  "prospecto_id"
+    t.string   "empresa"
+    t.string   "cargo"
+    t.text     "descripcion_cargo"
+    t.date     "fecha_ingreso"
+    t.date     "fecha_salida"
+    t.boolean  "actual"
+    t.float    "ultimo_salario"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_experiencia", ["prospecto_id"], name: "index_prospecto_experiencia_on_prospecto_id"
+
+  create_table "prospecto_telefonos", force: true do |t|
+    t.integer  "prospecto_id"
+    t.integer  "tipos_telefono_id"
+    t.string   "telefono"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_telefonos", ["prospecto_id"], name: "index_prospecto_telefonos_on_prospecto_id"
+
+  create_table "prospectos", force: true do |t|
+    t.string   "nombres"
+    t.string   "apellidos"
+    t.string   "cedula"
+    t.string   "seguro_social"
+    t.integer  "sexo_id"
+    t.float    "aspiracion_salario"
+    t.integer  "estado_civil_id"
+    t.string   "direccion"
+    t.date     "fecha_nacimiento"
+    t.integer  "licencia_id"
+    t.string   "nacionalidad"
+    t.boolean  "disponible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "proyectos", force: true do |t|
@@ -152,6 +225,13 @@ ActiveRecord::Schema.define(version: 20140705185252) do
     t.datetime "updated_at"
   end
 
+  create_table "status_estudios", force: true do |t|
+    t.string   "nombre"
+    t.boolean  "finalizado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sucursals", force: true do |t|
     t.string   "codigo"
     t.string   "nombre"
@@ -167,6 +247,12 @@ ActiveRecord::Schema.define(version: 20140705185252) do
   end
 
   create_table "tipo_salarios", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipos_telefonos", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree
 //= require jquery.turbolinks
+//= require jquery_nested_form
 //= require toastr.
 
 $(document).ready(function() {

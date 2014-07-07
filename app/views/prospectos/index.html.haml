@@ -1,0 +1,41 @@
+%h1 Listing prospectos
+
+%table
+  %tr
+    %th Nombres
+    %th Apellidos
+    %th Cedula
+    %th Seguro social
+    %th Sexo
+    %th Aspiracion salario
+    %th Estado civil
+    %th Direccion
+    %th Fecha nacimiento
+    %th Licencia
+    %th Nacionalidad
+    %th Disponible
+    %th
+    %th
+    %th
+
+  - @prospectos.each do |prospecto|
+    %tr
+      %td= prospecto.nombres
+      %td= prospecto.apellidos
+      %td= prospecto.cedula
+      %td= prospecto.seguro_social
+      %td= prospecto.sexo_id
+      %td= prospecto.aspiracion_salario
+      %td= prospecto.estado_civil_id
+      %td= prospecto.direccion
+      %td= prospecto.fecha_nacimiento
+      %td= prospecto.licencia_id
+      %td= prospecto.nacionalidad
+      %td= prospecto.disponible
+      %td= link_to 'Show', prospecto
+      %td= link_to 'Edit', edit_prospecto_path(prospecto)
+      %td= link_to 'Destroy', prospecto, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Prospecto', new_prospecto_path

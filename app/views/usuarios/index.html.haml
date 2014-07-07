@@ -1,0 +1,30 @@
+%h2 Usuarios
+.row
+  .col-md-8
+    %table.table.table-condensed.table-hover#datagrid
+      %thead
+        %tr
+          %th
+            %i.fa.fa-user
+            Nombre de Usuario
+          %th
+            %i.fa.fa-envelope
+            Email
+          %th Acciones
+      %tbody
+        - @usuarios.each do |usuario|
+          %tr.centered
+            %td= usuario.username
+            %td= usuario.email
+            %td
+              = link_to edit_usuario_path(usuario) do
+                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+              = link_to usuario, method: :delete, data: { confirm: '¿Está Seguro?' }  do
+                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Eliminar'}
+  %br
+  = link_to new_usuario_path, :class=> "btn btn-primary btn-sm" do
+    %i.fa.fa-plus.text-success
+    Nuevo Usuario
+
+
+

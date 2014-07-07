@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prospecto_id:
+  nivel_estudio_id: 1
+  institucion: MyString
+  fecha_inicio: 2014-07-07
+  fecha_fin: 2014-07-07
+  status_estudio_id: 1
+
+two:
+  prospecto_id:
+  nivel_estudio_id: 1
+  institucion: MyString
+  fecha_inicio: 2014-07-07
+  fecha_fin: 2014-07-07
+  status_estudio_id: 1

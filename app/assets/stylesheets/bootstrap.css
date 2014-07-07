@@ -5943,13 +5943,13 @@ blockquote small {
 table {
   font-size: 12px;
 }
-input,
+/*input,
 .form-control {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-left: 7px;
   padding-right: 7px;
-}
+}*/
 label,
 .control-label,
 .help-block,

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombres: MyString
+  apellidos: MyString
+  cedula: MyString
+  seguro_social: MyString
+  sexo_id: 1
+  aspiracion_salario: 1.5
+  estado_civil_id: 1
+  direccion: MyString
+  fecha_nacimiento: 2014-07-07
+  licencia_id: 1
+  nacionalidad: MyString
+  disponible: false
+
+two:
+  nombres: MyString
+  apellidos: MyString
+  cedula: MyString
+  seguro_social: MyString
+  sexo_id: 1
+  aspiracion_salario: 1.5
+  estado_civil_id: 1
+  direccion: MyString
+  fecha_nacimiento: 2014-07-07
+  licencia_id: 1
+  nacionalidad: MyString
+  disponible: false

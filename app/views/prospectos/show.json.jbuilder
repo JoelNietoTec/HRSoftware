@@ -1,0 +1,1 @@
+json.extract! @prospecto, :id, :nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :disponible, :created_at, :updated_at

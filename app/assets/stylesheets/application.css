@@ -94,18 +94,15 @@ body {
 .nav-stacked > li > a:focus,
 .nav-stacked > li > a:focus
 {
-
-  border-bottom: 4px solid #008cba;
   background-color: transparent;
   -webkit-transform: scale(1);
 }
 
-.tab-pane > .form-horizontal > .form-group {
+ .form-horizontal > .form-group {
   margin-left: 0px;
   margin-right: 0px;
   margin-bottom: 5px;
 }
-
 
 .container-show {
   padding: 10px;

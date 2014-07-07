@@ -1,0 +1,92 @@
+= nested_form_for @prospecto do |f|
+  - if @prospecto.errors.any?
+    .row
+      .col-md-6
+        .alert.alert-danger
+          %strong= "Prospecto no puede guardarse. #{pluralize(@prospecto.errors.count, "error")}"
+          %ul
+            - @prospecto.errors.full_messages.each do |message|
+              %li= message
+
+  .row
+    .col-sm-10
+      .panel.panel-default
+        .panel-heading
+          %h4.panel-title
+            Datos
+        .panel-body
+          %fieldset
+            %legend
+              Personales
+            .form_horizontal
+              .field.form-group.col-sm-6
+                = f.label :nombres, :class=> "control-label"
+                %br
+                = f.text_field :nombres, :class=> "form-control input-sm"
+              .field.form-group.col-sm-6
+                = f.label :apellidos, :class=> "control-label"
+                %br
+                = f.text_field :apellidos, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :cedula, :class=> "control-label"
+                %br
+                = f.text_field :cedula, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :seguro_social, :class=> "control-label"
+                %br
+                = f.text_field :seguro_social, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :sexo_id, :class=> "control-label"
+                %br
+                = f.collection_select :sexo_id, Sexo.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :aspiracion_salario, :class=> "control-label"
+                %br
+                = f.text_field :aspiracion_salario, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :estado_civil_id, :class=> "control-label"
+                %br
+                = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :direccion, :class=> "control-label"
+                %br
+                = f.text_field :direccion, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :fecha_nacimiento, :class=> "control-label"
+                %br
+                = f.text_field :fecha_nacimiento, :class=> "datepicker form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :licencia_id, :class=> "control-label"
+                %br
+                = f.collection_select :licencia_id, Licencia.select("id, tipo").all, :id, :tipo, {}, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :nacionalidad, :class=> "control-label"
+                %br
+                = f.country_select :nacionalidad, ["Panamá"], {:locale => "es"}, :class=> "form-control input-sm"
+              .field.form-group.col-sm-6
+                =f.label :email, :class=> "control-label"
+                %br
+                =f.email_field :email, :class=> "form-control input-sm"
+              .field.form-group.col-sm-3
+                = f.label :disponible, :class=> "control-label"
+                %br
+                = f.check_box :disponible
+          %br
+          %fieldset
+            %legend
+              Telefonos
+            %table.table.table-hover.table-striped.col-sm-8#telefonos
+              %thead
+                %th Tipo Telefono
+                %th Teléfono
+                %th.ol-sm-2 Eliminar
+              = f.fields_for :prospecto_telefonos, :wrapper=> false do |telefonos_form|
+                %tr.fields.centered
+                  %td= telefonos_form.collection_select :tipos_telefono_id, TiposTelefono.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+                  %td= telefonos_form.phone_field :telefono, :class=> "form-control input-sm"
+                  %td= telefonos_form.link_to_remove "Eliminar"
+          = f.link_to_add :prospecto_telefonos, :data => { :target => "#telefonos" }do
+            Añadir Teléfono
+        .panel-footer
+          .actions
+            = f.submit 'Save'

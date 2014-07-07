@@ -51,9 +51,9 @@
             #nav#accordion.well{'role' => "navigation"}
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href' => "#collapseOne"}
-                  %i.fa.fa-users
-                  Empleados
                   %i.fa.fa-chevron-down
+                  Empleados
+                  %i.fa.fa-users
               .panel-collapse.collapse#collapseOne
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Listar", empleados_path
@@ -61,9 +61,9 @@
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseTwo"}
-                  %i.fa.fa-database
-                  Mantenimiento
                   %i.fa.fa-chevron-down
+                  Mantenimiento
+                  %i.fa.fa-database
               .panel-collapse.collapse#collapseTwo
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Sucursales", sucursals_path

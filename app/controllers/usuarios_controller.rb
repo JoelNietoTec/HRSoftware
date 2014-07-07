@@ -42,7 +42,7 @@ class UsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @usuario.update(usuario_params)
-        format.html { redirect_to root_url, notice: 'Usuario was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Usuario actualizado correctamente' }
         format.json { render :show, status: :ok, location: @usuario }
       else
         format.html { render :edit }
@@ -69,6 +69,8 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:username, :email, :password, :password_confirmation)
+      params.require(:usuario).permit(:username, :email, :password, :password_confirmation, prospecto_telefonos_attributes: [
+        :id, :tipos_telefono_id, :telefono, :_destroy
+        ] )
     end
 end
