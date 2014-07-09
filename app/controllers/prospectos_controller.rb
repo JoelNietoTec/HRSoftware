@@ -69,6 +69,12 @@ class ProspectosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prospecto_params
-      params.require(:prospecto).permit(:nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :disponible)
+      params.require(:prospecto).permit(:nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :email, :disponible,
+        prospecto_cargos_attributes: [
+          :id, :tipos_telefono, :telefono, :_destroy
+          ],
+        prospecto_experiencias_attributes: [
+          :id, :empresa, :cargo, :descripcion_cargo, :fecha_ingreso, :fecha_salida, :actual, :ultimo_salario, :_destroy
+          ])
     end
 end
