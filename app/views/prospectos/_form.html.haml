@@ -120,7 +120,7 @@
                   = experiencias_form.label :fecha_salida, "Fecha Salida", :class=> "control-label"
                   %br
                   = experiencias_form.text_field :fecha_salida, :class=> "form-control input-sm datepicker"
-                .form-group.col-sm-3
+                .form-group.col-sm-1
                   = experiencias_form.label :actual, :class=> "control-label"
                   %br
                   = experiencias_form.check_box :actual, :class=> "form-control input-sm"
@@ -128,15 +128,52 @@
                   = experiencias_form.label :descripcion_cargo, "Descripción del Cargo", :class=> "control-label"
                   %br
                   = experiencias_form.text_area :descripcion_cargo, :class=> "form-control input-sm"
-                = experiencias_form.link_to_remove "Eliminar Experiencia"
+                .form-group.col-sm-12
+                  = experiencias_form.link_to_remove "Eliminar Experiencia"
                 %hr
-            = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
-              %i.fa.fa-plus.text-success
-              Nueva Experiencia
+            .form-group.col-sm-12
+              = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
+                %i.fa.fa-plus.text-success
+                Nueva Experiencia
           %br
           %fieldset
-            %legend
-              Educación
+            %legend Educación
+            = f.fields_for :prospecto_estudios do |estudios_form|
+              .form-horizontal.fields#estudios
+                .form-group.col-sm-3
+                  = estudios_form.label :nivel_estudio_id, "Nivel", :class=> "control-label"
+                  %br
+                  = estudios_form.collection_select :nivel_estudio_id, NivelEstudio.select("id, nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+                .form-group.col-sm-3
+                  = estudios_form.label :status_estudio_id, "Estatus", :class=> "control-label"
+                  %br
+                  = estudios_form.collection_select :status_estudio_id, StatusEstudio.select("id, nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+                .form-group.col-sm-6
+                  = estudios_form.label :institucion, "Institución", :class=> "control-label"
+                  %br
+                  = estudios_form.text_field :institucion, :class=> "form-control input-sm"
+                .form-group.col-sm-6
+                  = estudios_form.label :nombre_titulo, "Título Obtenido", :class=> "control-label"
+                  %br
+                  = estudios_form.text_field :nombre_titulo, :class=> "form-control input-sm"
+                .form-group.col-sm-3
+                  = estudios_form.label :fecha_inicio, "Fecha Ingreso", :class=> "control-label"
+                  %br
+                  = estudios_form.text_field :fecha_inicio, :class=> "datepicker form-control input-sm"
+                .form-group.col-sm-3
+                  = estudios_form.label :fecha_fin, "Fecha Salida", :class=> "control-label"
+                  %br
+                  = estudios_form.text_field :fecha_fin, :class=> "form-control input-sm datepicker"
+                .form-group.col-sm-12
+                  = estudios_form.link_to_remove "Eliminar Estudio"
+                %hr
+            .form-group.col-sm-12
+              = f.link_to_add :prospecto_estudios, :class=> "btn btn-sm btn-primary" do
+                %i.fa.fa-plus.text-success
+                Nuevo Estudio
         .panel-footer
           .actions
-            = f.submit 'Save'
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              Guardar
+              %i.fa.fa-save
+

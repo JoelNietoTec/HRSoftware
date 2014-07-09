@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707214633) do
+ActiveRecord::Schema.define(version: 20140709164043) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20140707214633) do
     t.integer  "status_estudio_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nombre_titulo"
   end
 
   add_index "prospecto_estudios", ["prospecto_id"], name: "index_prospecto_estudios_on_prospecto_id"
