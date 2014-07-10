@@ -131,6 +131,13 @@ body {
 #welcome {
   background-image: url('/assets/BackgroundHR.jpg');
   background-size: cover;
-  height: 350px;
-  padding-top: 200px;
+  height: 400px;
+}
+b {
+  font-weight: 500;
+}
+
+#home {
+  background-color: transparent;
+  border: 0px;
 }

@@ -22,7 +22,11 @@
       %td.centered= number_to_currency(prospecto.aspiracion_salario)
       %td.centered= Date.today.year - prospecto.fecha_nacimiento.year
       %td.centered= Licencia.find(prospecto.licencia_id).tipo
-      %td= prospecto.disponible
+      %td.centered
+        - if prospecto.disponible
+          %i.fa.fa-check.text-success
+        - else
+          %i.fa.fa-times.text-danger
       %td= link_to 'Show', prospecto
       %td= link_to 'Edit', edit_prospecto_path(prospecto)
       %td= link_to 'Destroy', prospecto, :method => :delete, :data => { :confirm => 'Are you sure?' }

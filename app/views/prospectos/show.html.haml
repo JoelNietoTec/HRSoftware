@@ -1,43 +1,112 @@
-%h3
+%h2.text-primary
   = @prospecto.nombres
   = @prospecto.apellidos
+%h4
+  - @prospecto.prospecto_telefonos.each do |telefono|
+    = telefono.telefono
 
-%fieldset
-  %legend Personales
-  %p
-    %b Cedula:
-    = @prospecto.cedula
-  %p
-    %b Seguro social:
-    = @prospecto.seguro_social
-  %p
-    %b Sexo:
-    = @prospecto.sexo_id
-  %p
-    %b Aspiracion salario:
-    = @prospecto.aspiracion_salario
-  %p
-    %b Estado civil:
-    = @prospecto.estado_civil_id
-  %p
-    %b Direccion:
-    = @prospecto.direccion
-  %p
-    %b Fecha nacimiento:
-    = @prospecto.fecha_nacimiento
-  %p
-    %b Licencia:
-    = @prospecto.licencia_id
-  %p
-    %b Nacionalidad:
-    = @prospecto.nacionalidad
-  %p
-    %b Disponible:
-    = @prospecto.disponible
+.row
+  .col-sm-7
+    %fieldset
+      %legend Datos Personales
+      %p
+        %b Cédula:
+        = @prospecto.cedula
+      %p
+        %b Seguro Social:
+        = @prospecto.seguro_social
+      %p
+        %b Sexo:
+        = Sexo.find(@prospecto.sexo_id).nombre
 
-- @prospecto.prospecto_telefonos.each do |telefonos|
-  = telefonos.telefono
+      %p
+        %b Estado Civil:
+        = EstadoCivil.find(@prospecto.estado_civil_id).nombre
+      %p
+        %b Dirección:
+        = @prospecto.direccion
+      %p
+        %b Fecha de Nacimiento:
+        = @prospecto.fecha_nacimiento.strftime("%d/%m/%Y")
+        (
+        = Date.today.year - @prospecto.fecha_nacimiento.year
+        )
+      %p
+        %b Licencia de Conducir:
+        Tipo
+        = Licencia.find(@prospecto.licencia_id).tipo
+      %p
+        %b Nacionalidad:
+        = @prospecto.nacionalidad
+      %p
+        %b Aspiración Salarial:
+        %b.text-success
+          = number_to_currency(@prospecto.aspiracion_salario)
+      %p
+        %b Disponible:
+        - if @prospecto.disponible
+          %i.fa.fa-check.text-success
+        - else
+          %i.fa.fa-times.text-danger
+    %br
+    %fieldset
+      %legend Experiencias Laborales
+      - @prospecto.prospecto_experiencias.each do |experiencia|
+        .panel.panel-info
+          .panel-heading
+            %h4.panel-title
+              = experiencia.cargo
+          .panel-body
+            %h4
+              %b Empresa:
+              = experiencia.empresa
+            %p.text-primary
+              = experiencia.fecha_ingreso.strftime("%d/%m/%Y")
+              \-
+              - if experiencia.actual
+                Actualmente
+              - else
+                - if experiencia.fecha_salida
+                  = experiencia.fecha_salida.strftime("%d/%m/%Y")
+            %br
+            %p
+              %b Último Salario:
+              - if experiencia.ultimo_salario
+                = number_to_currency(experiencia.ultimo_salario)
+              - else
+                No Disponible
+            %br
+            %p
+              %b Descripción de Funciones
+            %p
+              = experiencia.descripcion_cargo
 
-= link_to 'Edit', edit_prospecto_path(@prospecto)
+    %fieldset
+      %legend Estudios
+      - @prospecto.prospecto_estudios.each do |estudio|
+        .panel.panel-success
+          .panel-heading
+            %h4.panel-title
+              = estudio.nombre_titulo
+          .panel-body
+            %h4
+              %b Institución:
+              = estudio.institucion
+            %p.text-primary
+              = estudio.fecha_inicio.strftime("%d/%m/%Y")
+              \-
+              - if estudio.fecha_fin
+                = estudio.fecha_fin.strftime("%d/%m/%Y")
+            %br
+            %p
+              %b Nivel:
+              = NivelEstudio.find(estudio.nivel_estudio_id).nombre
+            %p
+              %b Estatus:
+              = StatusEstudio.find(estudio.status_estudio_id).nombre
+
+
+
+= link_to 'Editar', edit_prospecto_path(@prospecto)
 \|
-= link_to 'Back', prospectos_path
+= link_to 'Volver', prospectos_path

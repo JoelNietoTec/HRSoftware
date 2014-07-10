@@ -71,7 +71,7 @@ class ProspectosController < ApplicationController
     def prospecto_params
       params.require(:prospecto).permit(:nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :email, :disponible,
         prospecto_telefonos_attributes: [
-          :id, :tipos_telefono, :telefono, :_destroy
+          :id, :tipos_telefono_id, :telefono, :_destroy
           ],
         prospecto_experiencias_attributes: [
           :id, :empresa, :cargo, :descripcion_cargo, :fecha_ingreso, :fecha_salida, :actual, :ultimo_salario, :_destroy

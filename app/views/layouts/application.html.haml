@@ -10,13 +10,13 @@
       #nav-container.container-fluid
         .navbar-header
           = link_to root_url, :class=> "navbar-brand" do
-            %i.fa.fa-home
+            %i.fa.fa-calendar
             HRSoftware
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", "href" => "#"}
-                %i.fafa-user
+                %i.fa.fa-user
                 = current_user.username
                 #b.caret
               %ul.dropdown-menu
@@ -90,9 +90,13 @@
                   = render_breadcrumbs :tag => :li, :separator => ""
               = yield
       - else
+        :css
+          body {
+            background-image: url('/assets/BackgroundHR.jpg');
+            }
         .row
-          .jumbotron
-            %h1 RH Software
+          .jumbotron#home
+            %h1.text-info RH Software
             %p.text-primary Software de Gestión de Recursos Humanos
             %p
             = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do
@@ -115,12 +119,13 @@
                       %i.fa.fa-envelope
                 .form-group
                   .input-group
+                    = f.password_field :password, {:class=> "form-control", :placeholder=>"Password"}
                     %span.input-group-addon
                       %i.fa.fa-key
-                    = f.password_field :password, {:class=> "form-control", :placeholder=>"Password"}
-                    %span.input-group-btn
-                      = button_tag(type: 'submit', class: "btn btn-primary") do
-                        %i.fa.fa-arrow-right
+                .form-group
+                  = button_tag(type: 'submit', class: "btn btn-primary btn-block") do
+                    %i.fa.fa-arrow-right
+                    Iniciar Sesión
 
     .modal.fade#modal_register
       .modal-dialog.modal-sm
@@ -149,7 +154,7 @@
                       %i.fa.fa-key
                 .form-group
                   .input-group
-                    = f.password_field :password_confirmation, {:class=> "form-control", :placeholder=>"Confirmación Contraeña"}
+                    = f.password_field :password_confirmation, {:class=> "form-control", :placeholder=>"Confirmación Contraseña"}
                     %span.input-group-addon
                       %i.fa.fa-lock
                 .form-group
