@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title HRSoft
+    %title RH Software - Software de Gestión de Recursos Humanos
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -11,7 +11,7 @@
         .navbar-header
           = link_to root_url, :class=> "navbar-brand" do
             %i.fa.fa-calendar
-            HRSoftware
+            RH Software
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             %li.dropdown
@@ -93,6 +93,8 @@
         :css
           body {
             background-image: url('/assets/BackgroundHR.jpg');
+            background-size: cover;
+            padding-top:250px;
             }
         .row
           .jumbotron#home
