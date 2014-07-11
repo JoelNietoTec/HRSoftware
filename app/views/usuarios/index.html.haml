@@ -14,7 +14,7 @@
       %tbody
         - @usuarios.each do |usuario|
           %tr.centered
-            %td= usuario.username
+            %td= usuario.username.titleize
             %td= usuario.email
             %td
               = link_to edit_usuario_path(usuario) do

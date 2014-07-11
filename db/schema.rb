@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709164043) do
+ActiveRecord::Schema.define(version: 20140711033814) do
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 20140709164043) do
     t.datetime "updated_at"
   end
 
+  create_table "idiomas", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "licencia", force: true do |t|
     t.string   "tipo"
     t.string   "vehiculo"
@@ -120,6 +126,12 @@ ActiveRecord::Schema.define(version: 20140709164043) do
   end
 
   create_table "nivel_estudios", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nivel_idiomas", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -163,6 +175,17 @@ ActiveRecord::Schema.define(version: 20140709164043) do
   end
 
   add_index "prospecto_experiencia", ["prospecto_id"], name: "index_prospecto_experiencia_on_prospecto_id"
+
+  create_table "prospecto_idiomas", force: true do |t|
+    t.integer  "prospecto_id"
+    t.integer  "idioma_id"
+    t.integer  "nivel_oral_id"
+    t.integer  "nivel_escrito_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_idiomas", ["prospecto_id"], name: "index_prospecto_idiomas_on_prospecto_id"
 
   create_table "prospecto_telefonos", force: true do |t|
     t.integer  "prospecto_id"

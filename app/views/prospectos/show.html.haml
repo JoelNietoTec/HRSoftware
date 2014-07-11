@@ -4,7 +4,9 @@
 %h4
   - @prospecto.prospecto_telefonos.each do |telefono|
     = telefono.telefono
-
+%p
+  = @prospecto.email
+%br
 .row
   .col-sm-7
     %fieldset
@@ -104,8 +106,20 @@
             %p
               %b Estatus:
               = StatusEstudio.find(estudio.status_estudio_id).nombre
-
-
+    %fieldset
+      %legend Idiomas
+      - @prospecto.prospecto_idiomas.each do |idioma|
+        .panel.panel-warning
+          .panel-heading
+            %h4.panel-title
+              = Idioma.find(idioma.idioma_id).nombre
+          .panel-body
+            %p
+              %b Nivel Oral:
+              = NivelIdioma.find(idioma.nivel_oral_id).nombre
+            %p
+              %b Nivel Escrito:
+              = NivelIdioma.find(idioma.nivel_escrito_id).nombre
 
 = link_to 'Editar', edit_prospecto_path(@prospecto)
 \|

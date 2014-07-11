@@ -17,7 +17,7 @@
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", "href" => "#"}
                 %i.fa.fa-user
-                = current_user.username
+                = current_user.username.titleize
                 #b.caret
               %ul.dropdown-menu
                 %li

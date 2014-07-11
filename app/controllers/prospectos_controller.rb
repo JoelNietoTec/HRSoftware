@@ -28,7 +28,7 @@ class ProspectosController < ApplicationController
 
     respond_to do |format|
       if @prospecto.save
-        format.html { redirect_to @prospecto, notice: 'Prospecto was successfully created.' }
+        format.html { redirect_to @prospecto, notice: 'Prospecto creado' }
         format.json { render :show, status: :created, location: @prospecto }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ProspectosController < ApplicationController
   def update
     respond_to do |format|
       if @prospecto.update(prospecto_params)
-        format.html { redirect_to @prospecto, notice: 'Prospecto was successfully updated.' }
+        format.html { redirect_to @prospecto, notice: 'Prospecto actualizado' }
         format.json { render :show, status: :ok, location: @prospecto }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ProspectosController < ApplicationController
   def destroy
     @prospecto.destroy
     respond_to do |format|
-      format.html { redirect_to prospectos_url, notice: 'Prospecto was successfully destroyed.' }
+      format.html { redirect_to prospectos_url, notice: 'Prospecto eliminado' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,9 @@ class ProspectosController < ApplicationController
           ],
         prospecto_estudios_attributes: [
           :id, :nivel_estudio_id, :institucion, :nombre_titulo, :fecha_inicio, :fecha_fin, :status_estudio_id, :_destroy
+          ],
+        prospecto_idiomas_attributes: [
+          :id, :idioma_id, :nivel_oral_id, :nivel_escrito_id, :_destroy
           ])
     end
 end

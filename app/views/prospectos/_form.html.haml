@@ -171,6 +171,27 @@
               = f.link_to_add :prospecto_estudios, :class=> "btn btn-sm btn-primary" do
                 %i.fa.fa-plus.text-success
                 Nuevo Estudio
+          %br
+          %fieldset
+            %legend Idiomas
+            .col-sm-8
+              %table.table.table-hover.table-bordered#idiomas
+                %thead
+                  %th Idioma
+                  %th Nivel Oral
+                  %th Nivel Escrito
+                  %th Eliminar
+                = f.fields_for :prospecto_idiomas, :wrapper=> false do |idiomas_form|
+                  %tr.fields.centered
+                    %td= idiomas_form.collection_select :idioma_id, Idioma.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+                    %td= idiomas_form.collection_select :nivel_oral_id, NivelIdioma.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+                    %td= idiomas_form.collection_select :nivel_escrito_id, NivelIdioma.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+                    %td
+                      = idiomas_form.link_to_remove do
+                        %i.fa.fa-minus.text-danger
+            = f.link_to_add :prospecto_idiomas, :class=> "btn btn-sm btn-primary", :data => { :target => "#idiomas" } do
+              %i.fa.fa-plus.text-success
+              Nuevo Idioma
         .panel-footer
           .actions
             = f.button(type: "submit", class: "btn btn-sm btn-primary") do
