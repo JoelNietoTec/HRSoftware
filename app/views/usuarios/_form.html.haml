@@ -1,7 +1,7 @@
 = form_for @usuario do |f|
   - if @usuario.errors.any?
     .row
-      .col-md-6
+      .col-sm-6
         .alert.alert-danger
           %strong= "Usuario no puede guardarse. #{pluralize(@usuario.errors.count, "error")}"
           %ul
@@ -9,26 +9,26 @@
               %i= message
   .row
     .col-md-6
-      .panel.panel-default
+      .panel.panel-primary
         .panel-heading
           #h4.panel-title
           Datos Usuario
         .panel-body.form-horizontal
           .field.form-group
-            = f.label :username, "Nombre del Usuario", :class=> "control-label col-md-4"
-            .col-md-6
+            = f.label :username, "Nombre del Usuario", :class=> "control-label col-sm-4"
+            .col-sm-6
               = f.text_field :username, :class=> "form-control input-sm upper"
           .field.form-group
-            = f.label :email, :class=> "control-label col-md-4"
-            .col-md-6
+            = f.label :email, :class=> "control-label col-sm-4"
+            .col-sm-6
               = f.text_field :email, :class=> "form-control input-sm"
           .field.form-group
-            = f.label :password, "Contraseña", :class=> "control-label col-md-4"
-            .col-md-6
+            = f.label :password, "Contraseña", :class=> "control-label col-sm-4"
+            .col-sm-6
               = f.password_field :password,  :class=> "form-control input-sm"
           .field.form-group
-            = f.label :password_confirmation, "Confimar Contraseña", :class=> "control-label col-md-4"
-            .col-md-6
+            = f.label :password_confirmation, "Confimar Contraseña", :class=> "control-label col-sm-4"
+            .col-sm-6
               = f.password_field :password_confirmation, :class=> "form-control input-sm"
         .panel-footer
           .actions

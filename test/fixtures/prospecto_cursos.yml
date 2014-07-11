@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prospecto_id:
+  titulo_curso: MyString
+  institucion: MyString
+  descripcion_curso: MyText
+  anio_curso: 1
+
+two:
+  prospecto_id:
+  titulo_curso: MyString
+  institucion: MyString
+  descripcion_curso: MyText
+  anio_curso: 1

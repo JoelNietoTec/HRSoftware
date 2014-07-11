@@ -1,5 +1,5 @@
 - flash.each do |level, message|
-  %div.fade.in.col-md-6#advertencia{ :class => flash_class(level) }
+  %div.fade.in.col-sm-6#advertencia{ :class => flash_class(level) }
     %a.close{:href => "#", "data-dismiss" => "alert",} ×
     %h4.alert-heading Advertencia !
     %p= message

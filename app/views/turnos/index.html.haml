@@ -1,9 +1,9 @@
-%h2 Turnos
+%h3 Turnos
 .row
-  .col-md-11
+  .col-sm-11
     %table#datagrid.table.table-hover.table-condensed.table-responsive
       %thead
-        %tr
+        %tr.info
           %th Codigo
           %th Nombre
           %th Entrada
@@ -32,19 +32,20 @@
             %td= turno.salida.strftime("%I:%M %p")
             %td.centered
               - if turno.descanso
-                %i.fa.fa-check-square-o.btn.btn-xs.btn-success
+                %i.fa.fa-check.text-success
               - else
-                %i.fa.fa-times.btn.btn-xs.btn-danger
+                %i.fa.fa-times.text-danger
             %td.centered
               - if turno.activo
-                %i.fa.fa-check-square-o.btn.btn-xs.btn-success
+                %i.fa.fa-check.text-success
               - else
-                %i.fa.fa-times.btn.btn-xs.btn-danger
+                %i.fa.fa-times.text-danger
             %td.centered
               = link_to edit_turno_path(turno) do
-                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+                %i.fa.fa-pencil.text-primary{'title' => 'Editar'}
+              \|
               = link_to turno, method: :delete, data: { confirm: 'Está seguro?' } do
-                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
+                %i.fa.fa-trash-o.text-danger{'title' => 'Borrar'}
 %br
 = link_to new_turno_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success

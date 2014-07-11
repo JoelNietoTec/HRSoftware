@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title RH Software - Software de Gestión de Recursos Humanos
+    %title RH Software - Sistema de Gestión de Recursos Humanos
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -93,13 +93,11 @@
         :css
           body {
             background-image: url('/assets/BackgroundHR.jpg');
-            background-size: cover;
-            padding-top:250px;
             }
         .row
           .jumbotron#home
             %h1.text-info RH Software
-            %p.text-primary Software de Gestión de Recursos Humanos
+            %p.text-primary Sistema de Gestión de Recursos Humanos
             %p
             = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do
               Abrir Sesión

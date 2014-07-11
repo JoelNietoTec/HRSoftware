@@ -1,17 +1,15 @@
 %h3 Prospectos
 
-%table.table.table-hover#datagrid
+%table.table.table-hover.table-striped.table-condensed#datagrid
   %thead
-    %tr
+    %tr.info
       %th Nombres
       %th Sexo
       %th Aspiración Salarial
       %th Edad
       %th Licencia
       %th Disponible
-      %th
-      %th
-      %th
+      %th Acciones
 
   - @prospectos.each do |prospecto|
     %tr
@@ -27,9 +25,15 @@
           %i.fa.fa-check.text-success
         - else
           %i.fa.fa-times.text-danger
-      %td= link_to 'Show', prospecto
-      %td= link_to 'Edit', edit_prospecto_path(prospecto)
-      %td= link_to 'Destroy', prospecto, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td.centered
+        = link_to prospecto do
+          %i.fa.fa-list-alt.text-info{'title' => "Detalles"}
+        \|
+        = link_to edit_prospecto_path(prospecto) do
+          %i.fa.fa-pencil.text-primary{'title' => "Editar"}
+        \|
+        = link_to prospecto, method: :delete, data: { confirm: '¿Está Seguro?' } do
+          %i.fa.fa-trash-o.text-danger{'title' => "Borrar"}
 
 %br
 = link_to  new_prospecto_path, :class=> "btn btn-primary btn-sm" do

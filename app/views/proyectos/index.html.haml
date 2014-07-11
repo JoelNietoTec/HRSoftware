@@ -1,9 +1,9 @@
-%h2 Proyectos
+%h3 Proyectos
 .row
-  .col-md-10
+  .col-sm-10
     %table#datagrid.table.table-condensed.table-hover
       %thead
-        %tr
+        %tr.info
           %th Codigo
           %th Nombre
           %th Activo
@@ -15,14 +15,15 @@
             %td= proyecto.nombre
             %td.centered
               - if proyecto.activo
-                %i.fa.fa-check-square-o.btn.btn-xs.btn-success
+                %i.fa.fa-check.text-success
               - else
-                %i.fa.fa-square-o.btn.btn-xs.btn-default
+                %i.fa.fa-times.text-danger
             %td.centered
               = link_to edit_proyecto_path(proyecto) do
-                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+                %i.fa.fa-pencil.text-primary{'title' => 'Editar'}
+              \|
               = link_to proyecto, method: :delete, data: { confirm: 'Está seguro?' } do
-                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
+                %i.fa.fa-trash-o.text-danger{'title' => 'Borrar'}
 %br
 =link_to  new_proyecto_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success

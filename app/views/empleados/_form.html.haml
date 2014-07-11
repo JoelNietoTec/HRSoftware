@@ -1,7 +1,7 @@
 = form_for @empleado do |f|
   - if @empleado.errors.any?
     .row
-      .col-md-6
+      .col-sm-6
         .alert.alert-danger
           %strong= "Empleado no puede guardarse. #{pluralize(@empleado.errors.count, "error")}"
           %ul

@@ -95,10 +95,9 @@
               %b Institución:
               = estudio.institucion
             %p.text-primary
-              = estudio.fecha_inicio.strftime("%d/%m/%Y")
+              = estudio.fecha_inicio
               \-
-              - if estudio.fecha_fin
-                = estudio.fecha_fin.strftime("%d/%m/%Y")
+              = estudio.fecha_fin
             %br
             %p
               %b Nivel:
@@ -106,6 +105,24 @@
             %p
               %b Estatus:
               = StatusEstudio.find(estudio.status_estudio_id).nombre
+    %fieldset
+      %legend Cursos y Seminarios
+      - @prospecto.prospecto_cursos.each do |curso|
+        .panel.panel-primary
+          .panel-heading
+            %h4.panel-title
+              = curso.titulo_curso
+          .panel-body
+            %h4
+              %b Institución:
+              = curso.institucion
+            %p.text-primary
+              = curso.anio_curso
+            %br
+            %p
+              %b Descripción del Curso
+            %p= curso.descripcion_curso
+
     %fieldset
       %legend Idiomas
       - @prospecto.prospecto_idiomas.each do |idioma|

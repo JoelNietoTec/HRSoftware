@@ -1,9 +1,9 @@
-%h2 Secciones
+%h3 Secciones
 .row
-  .col-md-10
+  .col-sm-11
     %table#datagrid.table.table-condensed.table-hover
       %thead
-        %tr
+        %tr.info
           %th Codigo
           %th Nombre
           %th Activo
@@ -15,15 +15,16 @@
             %td= seccion.nombre
             %td.centered
               - if seccion.activo
-                %i.fa.fa-check-square-o.btn.btn-xs.btn-success
+                %i.fa.fa-check.text-success
               - else
-                %i.fa.fa-square-o.btn.btn-xs.btn-default
+                %i.fa.fa-times.text-danger
             %td.centered
               = link_to edit_seccion_path(seccion) do
-                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+                %i.fa.fa-pencil.text-primary{'title' => 'Editar'}
+              \|
               = link_to seccion, method: :delete, data: { confirm: 'Está seguro?' } do
-                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
+                %i.fa.fa-trash-o.text-danger{'title' => 'Borrar'}
 %br
 =link_to  new_seccion_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success
-  Nuevo Sección
+  Nueva Sección

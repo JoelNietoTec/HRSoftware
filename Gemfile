@@ -55,3 +55,5 @@ gem 'sorcery'
 gem 'haml-rails', '~> 0.5.3'
 
 gem 'toastr-rails'
+
+gem 'jquery-datatables-rails', '~> 2.1.10.0.3'

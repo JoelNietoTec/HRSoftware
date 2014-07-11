@@ -81,6 +81,9 @@ class ProspectosController < ApplicationController
           ],
         prospecto_idiomas_attributes: [
           :id, :idioma_id, :nivel_oral_id, :nivel_escrito_id, :_destroy
+          ],
+        prospecto_cursos_attributes: [
+          :id, :institucion, :titulo_curso, :descripcion_curso, :anio_curso, :_destroy
           ])
     end
 end

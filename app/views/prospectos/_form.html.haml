@@ -1,7 +1,7 @@
 = nested_form_for @prospecto do |f|
   - if @prospecto.errors.any?
     .row
-      .col-md-6
+      .col-sm-6
         .alert.alert-danger
           %strong= "Prospecto no puede guardarse. #{pluralize(@prospecto.errors.count, "error")}"
           %ul
@@ -10,7 +10,7 @@
 
   .row
     .col-sm-10
-      .panel.panel-default
+      .panel.panel-primary
         .panel-heading
           %h4.panel-title
             Datos
@@ -131,7 +131,7 @@
                 .form-group.col-sm-12
                   = experiencias_form.link_to_remove "Eliminar Experiencia"
                 %hr
-            .form-group.col-sm-12
+            %p
               = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
                 %i.fa.fa-plus.text-success
                 Nueva Experiencia
@@ -157,20 +157,48 @@
                   %br
                   = estudios_form.text_field :nombre_titulo, :class=> "form-control input-sm"
                 .form-group.col-sm-3
-                  = estudios_form.label :fecha_inicio, "Fecha Ingreso", :class=> "control-label"
+                  = estudios_form.label :fecha_inicio, "Año Ingreso", :class=> "control-label"
                   %br
-                  = estudios_form.text_field :fecha_inicio, :class=> "datepicker form-control input-sm"
+                  = estudios_form.select :fecha_inicio, (Time.zone.now.year - 50)..(Time.zone.now.year + 1), {include_blank: true}, :class=> "form-control input-sm"
                 .form-group.col-sm-3
-                  = estudios_form.label :fecha_fin, "Fecha Salida", :class=> "control-label"
+                  = estudios_form.label :fecha_fin, "Año Salida", :class=> "control-label"
                   %br
-                  = estudios_form.text_field :fecha_fin, :class=> "form-control input-sm datepicker"
+                  = estudios_form.select :fecha_fin, (Time.zone.now.year - 50)..(Time.zone.now.year + 1), {include_blank: true}, :class=> "form-control input-sm"
                 .form-group.col-sm-12
                   = estudios_form.link_to_remove "Eliminar Estudio"
                 %hr
-            .form-group.col-sm-12
+            %p
               = f.link_to_add :prospecto_estudios, :class=> "btn btn-sm btn-primary" do
                 %i.fa.fa-plus.text-success
                 Nuevo Estudio
+          %br
+          %fieldset
+            %legend Cursos y Seminarios
+            = f.fields_for :prospecto_cursos, :wrapper => false do |cursos_form|
+              .fields#cursos
+                .form-group.col-sm-5
+                  = cursos_form.label :titulo_curso, "Nombre del Curso", :class=> "control-label"
+                  %br
+                  = cursos_form.text_field :titulo_curso, :class=> "form-control input-sm"
+                .form-group.col-sm-5
+                  = cursos_form.label :institucion, "Institución", :class=> "control-label"
+                  %br
+                  = cursos_form.text_field :institucion,:class=> "form-control input-sm"
+                .form-group.col-sm-2
+                  = cursos_form.label :anio_curso, "Año del Curso", :class=> "control-label"
+                  %br
+                  = cursos_form.select :anio_curso, (Time.zone.now.year - 50)..(Time.zone.now.year + 1), {include_blank: true}, :class=> "form-control input-sm"
+                .form-group.col-sm-12
+                  = cursos_form.label :descripcion_curso, "Descripción del Curso", :class=> "control-label"
+                  %br
+                  = cursos_form.text_area :descripcion_curso, :class=> "form-control input-sm"
+                .form-group.col-sm-12
+                  = cursos_form.link_to_remove "Eliminar Curso"
+                %hr
+            %p
+              = f.link_to_add :prospecto_cursos, :class=> "btn btn-sm btn-primary" do
+                %i.fa.fa-plus.text-success
+                Nuevo Curso
           %br
           %fieldset
             %legend Idiomas

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711033814) do
+ActiveRecord::Schema.define(version: 20140711220101) do
+
+  create_table "area_profesionals", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cargos", force: true do |t|
     t.string   "codigo"
@@ -147,12 +153,24 @@ ActiveRecord::Schema.define(version: 20140711033814) do
 
   add_index "prospecto_cargos", ["prospecto_id"], name: "index_prospecto_cargos_on_prospecto_id"
 
+  create_table "prospecto_cursos", force: true do |t|
+    t.integer  "prospecto_id"
+    t.string   "titulo_curso"
+    t.string   "institucion"
+    t.text     "descripcion_curso"
+    t.integer  "anio_curso"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prospecto_cursos", ["prospecto_id"], name: "index_prospecto_cursos_on_prospecto_id"
+
   create_table "prospecto_estudios", force: true do |t|
     t.integer  "prospecto_id"
     t.integer  "nivel_estudio_id"
     t.string   "institucion"
-    t.date     "fecha_inicio"
-    t.date     "fecha_fin"
+    t.integer  "fecha_inicio"
+    t.integer  "fecha_fin"
     t.integer  "status_estudio_id"
     t.datetime "created_at"
     t.datetime "updated_at"

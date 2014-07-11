@@ -1,7 +1,7 @@
 = form_for @departamento do |f|
   - if @departamento.errors.any?
     .row
-      .col-md-6
+      .col-sm-6
         .alert.alert-danger
           %strong= "Departamento no puede guardarse. #{pluralize(@departamento.errors.count, "error")}"
           %ul
@@ -9,22 +9,22 @@
               %li= message
   .row
     .col-md-6
-      .panel.panel-default
+      .panel.panel-primary
         .panel-heading
           %h4.panel-title
             Datos
         .panel-body.form-horizontal
           .field.form-group
-            =f.label :codigo, :class=> "control-label col-md-2"
-            .col-md-6
+            =f.label :codigo, :class=> "control-label col-sm-2"
+            .col-sm-6
               = f.text_field :codigo, :class=> "form-control input-sm upper"
           .field.form-group
-            = f.label :nombre, :class=> "control-label col-md-2"
-            .col-md-8
+            = f.label :nombre, :class=> "control-label col-sm-2"
+            .col-sm-8
               = f.text_field :nombre, :class=> "form-control input-sm"
           .field.form-group
-            .col-md-2
-            .field.checkbox.col-md-10
+            .col-sm-2
+            .field.checkbox.col-sm-10
               = f.label :activo
               = f.check_box :activo
         .panel-footer

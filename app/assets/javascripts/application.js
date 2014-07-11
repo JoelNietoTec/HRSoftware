@@ -12,16 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree
 //= require jquery.turbolinks
+//= require_tree
 //= require jquery_nested_form
-//= require toastr.
+//= require toastr
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 
 $(document).ready(function() {
-  var table = $('#datagrid').DataTable( {
+  var table = $('#datagrid').dataTable({
+    "sPaginationType": "bootstrap",
     scrollX:        true,
     scrollCollapse: true
-  } );
+  });
 } );
 
 $(document).ready(function() {
@@ -64,4 +67,3 @@ $(function() {
     showLeadingZero: true
   });
 });
-

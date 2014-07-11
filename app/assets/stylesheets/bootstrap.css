@@ -1534,7 +1534,8 @@ table th[class*="col-"] {
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-  background-color: #d9edf7;
+  background-color: #008CBA;
+  color: #ffffff;
 }
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
@@ -5955,7 +5956,7 @@ blockquote small {
   font-weight: 300;
 }
 table {
-  font-size: 12px;
+  font-size: 13px;
 }
 /*input,
 .form-control {
