@@ -1,0 +1,25 @@
+= form_for @vacante do |f|
+  - if @vacante.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vacante.errors.count, "error")} prohibited this vacante from being saved:"
+      %ul
+        - @vacante.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :cargo_id
+    = f.collection_select :cargo_id, Cargo.order("nombre"), :id, :nombre
+  .field
+    = f.label :fecha_inicio
+    = f.date_select :fecha_inicio
+  .field
+    = f.label :fecha_vencimiento
+    = f.date_select :fecha_vencimiento
+  .field
+    = f.label :activo
+    = f.check_box :activo
+  .field
+    = f.label :area_profesional_id
+    = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre
+  .actions
+    = f.submit 'Save'

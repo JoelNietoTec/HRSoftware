@@ -159,11 +159,11 @@
                 .form-group.col-sm-3
                   = estudios_form.label :fecha_inicio, "Año Ingreso", :class=> "control-label"
                   %br
-                  = estudios_form.select :fecha_inicio, (Time.zone.now.year - 50)..(Time.zone.now.year + 1), {include_blank: true}, :class=> "form-control input-sm"
+                  = estudios_form.select :fecha_inicio, (Time.zone.now.year - 50)..(Time.zone.now.year), {include_blank: true}, :class=> "form-control input-sm"
                 .form-group.col-sm-3
                   = estudios_form.label :fecha_fin, "Año Salida", :class=> "control-label"
                   %br
-                  = estudios_form.select :fecha_fin, (Time.zone.now.year - 50)..(Time.zone.now.year + 1), {include_blank: true}, :class=> "form-control input-sm"
+                  = estudios_form.select :fecha_fin, (Time.zone.now.year - 50)..(Time.zone.now.year), {include_blank: true}, :class=> "form-control input-sm"
                 .form-group.col-sm-12
                   = estudios_form.link_to_remove "Eliminar Estudio"
                 %hr

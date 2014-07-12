@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711220101) do
+ActiveRecord::Schema.define(version: 20140712165247) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -330,5 +330,15 @@ ActiveRecord::Schema.define(version: 20140711220101) do
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
   add_index "usuarios", ["remember_me_token"], name: "index_usuarios_on_remember_me_token"
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token"
+
+  create_table "vacantes", force: true do |t|
+    t.integer  "cargo_id"
+    t.date     "fecha_inicio"
+    t.date     "fecha_vencimiento"
+    t.boolean  "activo"
+    t.integer  "area_profesional_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

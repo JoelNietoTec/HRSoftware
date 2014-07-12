@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :vacantes
+
   resources :prospectos
 
   resources :usuarios
