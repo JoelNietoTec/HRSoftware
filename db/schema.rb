@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712165247) do
+ActiveRecord::Schema.define(version: 20140713035944) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 20140712165247) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "distritos", force: true do |t|
+    t.integer  "provincia_id"
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "distritos", ["provincia_id"], name: "index_distritos_on_provincia_id"
 
   create_table "empleados", force: true do |t|
     t.string   "codigo"
@@ -233,6 +242,12 @@ ActiveRecord::Schema.define(version: 20140712165247) do
     t.string   "email"
   end
 
+  create_table "provincia", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "proyectos", force: true do |t|
     t.string   "codigo"
     t.string   "nombre"
@@ -339,6 +354,13 @@ ActiveRecord::Schema.define(version: 20140712165247) do
     t.integer  "area_profesional_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "descripcion_cargo"
+    t.integer  "provincia_id"
+    t.integer  "distrito_id"
+    t.float    "salario_oferta"
+    t.integer  "nivel_studio_id"
+    t.integer  "idioma_id"
+    t.integer  "nivel_idioma_id"
   end
 
 end

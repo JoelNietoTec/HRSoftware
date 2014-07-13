@@ -1,11 +1,11 @@
 class FasesController < ApplicationController
   before_action :set_fase, only: [:show, :edit, :update, :destroy]
-    add_breadcrumb "Fases", :fases_path
+  add_breadcrumb "Fases", :fases_path
 
   # GET /fases
   # GET /fases.json
   def index
-      add_breadcrumb "Listado", :fases_path
+    add_breadcrumb "Listado", :fases_path
     @fases = Fase.all
   end
 
@@ -16,13 +16,13 @@ class FasesController < ApplicationController
 
   # GET /fases/new
   def new
-      add_breadcrumb "Nuevo", new_fase_path
+    add_breadcrumb "Nuevo", new_fase_path
     @fase = Fase.new
   end
 
   # GET /fases/1/edit
   def edit
-      add_breadcrumb "Editar", edit_fase_path()
+    add_breadcrumb "Editar", edit_fase_path()
   end
 
   # POST /fases
@@ -66,13 +66,13 @@ class FasesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fase
-      @fase = Fase.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_fase
+    @fase = Fase.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def fase_params
-      params.require(:fase).permit(:codigo, :nombre, :activo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def fase_params
+    params.require(:fase).permit(:codigo, :nombre, :activo)
+  end
 end

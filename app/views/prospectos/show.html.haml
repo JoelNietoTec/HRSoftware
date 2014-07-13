@@ -20,7 +20,6 @@
       %p
         %b Sexo:
         = Sexo.find(@prospecto.sexo_id).nombre
-
       %p
         %b Estado Civil:
         = EstadoCivil.find(@prospecto.estado_civil_id).nombre
@@ -82,7 +81,6 @@
               %b Descripción de Funciones
             %p
               = experiencia.descripcion_cargo
-
     %fieldset
       %legend Estudios
       - @prospecto.prospecto_estudios.each do |estudio|
