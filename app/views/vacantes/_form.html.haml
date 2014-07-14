@@ -5,28 +5,54 @@
       %ul
         - @vacante.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :cargo_id
-    = f.collection_select :cargo_id, Cargo.order("nombre"), :id, :nombre
-  .field
-    = f.label :fecha_inicio
-    = f.date_select :fecha_inicio
-  .field
-    = f.label :fecha_vencimiento
-    = f.date_select :fecha_vencimiento
-  .field
-    = f.label :activo
-    = f.check_box :activo
-  .field
-    = f.label :area_profesional_id
-    = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre
-  .field
-    = f.label :provincia_id
-    = f.collection_select :provincia_id, Provincia.order("id"), :id, :nombre, {:selected => "8"}
-
-    .field
-    = f.label :distrito_id
-    = f.collection_select :distrito_id, Distrito.order("id"), :id, :nombre
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-sm-10
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Datos
+        .panel-body.form-horizontal
+          .field.form-group.col-sm-6
+            = f.label :cargo_id, :class=> "control-label"
+            %br
+            = f.collection_select :cargo_id, Cargo.order("nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-6
+            = f.label :area_profesional_id, :class=> "control-label"
+            %br
+            = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre, {:prompt=> "***Seleccione Área Profesional***"}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :provincia_id, :class=> "control-label"
+            %br
+            = f.collection_select :provincia_id, Provincia.order("id"), :id, :nombre, {:selected => "8"}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :distrito_id, :class=> "control-label"
+            %br
+            = f.grouped_collection_select :distrito_id, Provincia.all, :distritos, :nombre, :id, :nombre, {}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :fecha_inicio, :class=> "control-label"
+            %br
+            = f.text_field :fecha_inicio, :class=> "form-control input-sm datepicker"
+          .field.form-group.col-sm-3
+            = f.label :fecha_vencimiento, :class=> "control-label"
+            %br
+            = f.text_field :fecha_vencimiento, :class=> "form-control input-sm datepicker"
+          .field.form-group.col-sm-3
+            = f.label :salario_oferta, :class=> "control-label"
+            %br
+            = f.text_field :salario_oferta, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :nivel_studio_id, :class=> "control-label"
+            %br
+            = f.collection_select :nivel_studio_id, NivelEstudio.order("id"), :id, :nombre, {}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-2
+            = f.label :activo, :class=> "control-label"
+            %br
+            = f.check_box :activo, :class=> "form-control input-sm"
+          .field.form-group.col-sm-12
+            = f.label :descripcion_cargo, :class=> "control-label"
+            %br
+            = f.text_area :descripcion_cargo, :class=> "form-control input-sm"
+        .panel-footer
+          .actions
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              Guardar
+              %i.fa.fa-save

@@ -6,6 +6,13 @@
 
 jQuery ->
   cargos = $('#empleado_cargo_id').html();
+  $(document).ready ->
+    departamento = $('#empleado_departamento_id :selected').text()
+    options = $(cargos).filter("optgroup[label='#{departamento}']").html()
+    if options
+      $('#empleado_cargo_id').html(options)
+    else
+      $('#empleado_cargo_id').html("No Disponible")
   $('#empleado_departamento_id').change ->
     departamento = $('#empleado_departamento_id :selected').text()
     options = $(cargos).filter("optgroup[label='#{departamento}']").html()

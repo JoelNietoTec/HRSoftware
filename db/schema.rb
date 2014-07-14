@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713035944) do
+ActiveRecord::Schema.define(version: 20140714221526) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -359,8 +359,7 @@ ActiveRecord::Schema.define(version: 20140713035944) do
     t.integer  "distrito_id"
     t.float    "salario_oferta"
     t.integer  "nivel_studio_id"
-    t.integer  "idioma_id"
-    t.integer  "nivel_idioma_id"
+    t.string   "direccion"
   end
 
 end
