@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   add_breadcrumb "Inicio", :root_path
   protect_from_forgery with: :exception
+  add_flash_types :success, :error
 
   private
 
@@ -14,11 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
 
-#  before_filter :require_login, :except => [:not_authenticated]
-#
-#  protected
-#
-#  def not_authenticated
-#    redirect_to root_url, :alert => "Accesar"
-#  end
+  before_filter :require_login, :except => [:not_authenticated]
+
+  protected
+
+  def not_authenticated
+    redirect_to root_url, :alert => "Accesar"
+  end
 end

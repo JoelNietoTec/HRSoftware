@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class SessionsController < ApplicationController
 
   before_action :set_user, only: [:create]
@@ -8,14 +9,14 @@ class SessionsController < ApplicationController
 
   def create
     if @user
-      redirect_back_or_to root_url , :notice => "Sesion Iniciada"
+      redirect_back_or_to root_url , :success => "Sesión Iniciada"
     else
-      redirect_to root_url, :alert => "Email o password incorrecto"
+      redirect_to root_url, :error => "Email y/o contraseña incorrectos"
     end
   end
   def destroy
     logout
-    redirect_to root_url, :notice => 'Sesion cerrada'
+    redirect_to root_url, :notice => 'Sesión Finalizada'
   end
 
   private

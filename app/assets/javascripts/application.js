@@ -16,8 +16,7 @@
 //= require_tree
 //= require jquery_nested_form
 //= require toastr
-//= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+
 
 $(document).ready(function() {
   var table = $('#datagrid').dataTable({

@@ -21,5 +21,12 @@
   .field
     = f.label :area_profesional_id
     = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre
+  .field
+    = f.label :provincia_id
+    = f.collection_select :provincia_id, Provincia.order("id"), :id, :nombre, {:selected => "8"}
+
+    .field
+    = f.label :distrito_id
+    = f.collection_select :distrito_id, Distrito.order("id"), :id, :nombre
   .actions
     = f.submit 'Save'
