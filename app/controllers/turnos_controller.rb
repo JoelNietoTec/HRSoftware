@@ -5,7 +5,6 @@ class TurnosController < ApplicationController
   # GET /turnos.json
   def index
     @turnos = Turno.all
-    add_breadcrumb "Listado", :turnos_path
   end
 
   # GET /turnos/1

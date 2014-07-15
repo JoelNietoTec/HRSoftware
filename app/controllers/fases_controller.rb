@@ -5,7 +5,6 @@ class FasesController < ApplicationController
   # GET /fases
   # GET /fases.json
   def index
-    add_breadcrumb "Listado", :fases_path
     @fases = Fase.all
   end
 

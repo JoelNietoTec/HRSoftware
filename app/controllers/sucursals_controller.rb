@@ -5,7 +5,6 @@ class SucursalsController < ApplicationController
   # GET /sucursals.json
   def index
     @sucursals = Sucursal.all
-    add_breadcrumb "Listado", :sucursals_path
   end
 
   # GET /sucursals/1

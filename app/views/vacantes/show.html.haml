@@ -1,21 +1,37 @@
-%p#notice= notice
-
-%p
-  %b Cargo:
-  = @vacante.cargo_id
-%p
-  %b Fecha inicio:
-  = @vacante.fecha_inicio
-%p
-  %b Fecha vencimiento:
-  = @vacante.fecha_vencimiento
-%p
-  %b Activo:
-  = @vacante.activo
-%p
-  %b Area profesional:
-  = @vacante.area_profesional_id
-
+.row
+  .col-sm-8
+    %fieldset
+      %legend
+        = Cargo.find(@vacante.cargo_id).nombre
+      %p
+        %b.text-primary Oferta Salarial:
+        %b
+          = number_to_currency(@vacante.salario_oferta)
+          = GrupoPago.find(@vacante.grupo_pago_id).nombre
+      %p
+        %b.text-primary Área Profesional:
+        = AreaProfesional.find(@vacante.area_profesional_id).nombre
+      %p
+        %b.text-primary Tipo de Puesto:
+        = TipoPuesto.find(@vacante.tipo_puesto_id).nombre
+      %p
+        %b.text-primary Ubicación:
+        = Provincia.find(@vacante.provincia_id).nombre
+        \,
+        = Distrito.find(@vacante.distrito_id).nombre
+        \,
+        = @vacante.direccion
+      %p
+        %b.text-primary Vigente Hasta:
+        = @vacante.fecha_vencimiento.strftime("%d/%m/%Y")
+      %br
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Descripción del Cargo
+        .panel-body
+          = @vacante.descripcion_cargo
+      %b Activo:
+      = @vacante.activo
 = link_to 'Edit', edit_vacante_path(@vacante)
 \|
 = link_to 'Back', vacantes_path

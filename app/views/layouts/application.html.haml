@@ -67,7 +67,11 @@
               .panel-collapse.collapse#collapseTwo
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Prospectos", prospectos_path
-                  %li= link_to "Vacantes", vacantes_path
+                  %li
+                    = link_to vacantes_path do
+                      Vacantes
+                      %span.badge
+                        = Vacante.count
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseThree"}
@@ -100,9 +104,9 @@
             %h1.text-info RH Software
             %p.text-primary Sistema de Gestión de Recursos Humanos
             %p
-            = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do
-              Abrir Sesión
-              %i.fa.fa-sign-in
+              = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do
+                Abrir Sesión
+                %i.fa.fa-sign-in
     .modal.fade#modal_login
       .modal-dialog.modal-sm
         .modal-content
@@ -127,7 +131,6 @@
                   = button_tag(type: 'submit', class: "btn btn-primary btn-block") do
                     %i.fa.fa-arrow-right
                     Iniciar Sesión
-
     .modal.fade#modal_register
       .modal-dialog.modal-sm
         .modal-content.form-horizontal

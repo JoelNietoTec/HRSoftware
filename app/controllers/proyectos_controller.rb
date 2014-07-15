@@ -6,7 +6,6 @@ class ProyectosController < ApplicationController
   # GET /proyectos.json
   def index
     @proyectos = Proyecto.all
-    add_breadcrumb "Listado", :proyectos_path
   end
 
   # GET /proyectos/1

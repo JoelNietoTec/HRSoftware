@@ -4,7 +4,6 @@ class CentroCostosController < ApplicationController
   # GET /centro_costos
   # GET /centro_costos.json
   def index
-    add_breadcrumb "Listado", :centro_costos_path
     @centro_costos = CentroCosto.all
   end
 

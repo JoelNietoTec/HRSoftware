@@ -47,6 +47,14 @@
             = f.label :salario_oferta, "Oferta Salarial", :class=> "control-label"
             %br
             = f.text_field :salario_oferta, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :grupo_pago_id, "Forma de Salario", :class=> "control-label"
+            %br
+            = f.collection_select :grupo_pago_id, GrupoPago.all, :id, :nombre, {:selected => "4"}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-3
+            = f.label :tipo_puesto_id, "Tipo de Puesto", :class=> "control-label"
+            %br
+            = f.collection_select :tipo_puesto_id, TipoPuesto.all, :id, :nombre, {}, :class=> "form-control input-sm"
           .field.form-group.col-sm-2
             = f.label :activo, :class=> "control-label"
             %br

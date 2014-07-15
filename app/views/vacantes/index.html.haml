@@ -1,18 +1,32 @@
-%h1 Listing vacantes
+%h3 Vacantes
+= link_to new_vacante_path, :class=> "btn btn-sm btn-primary" do
+  %i.fa.fa-plus.text-success
+  Nueva Vacante
+%br
+%br
 .row
   - @vacantes.each do |vacante|
-    .col-sm-4
+    .col-sm-6
       .panel.panel-primary
         .panel-heading
           %h4.panel-title
           = Cargo.find(vacante.cargo_id).nombre
-        .panel-body.form-horizontal
-          .col-sm-6
-            = vacante.fecha_vencimiento
+        .panel-body.form-horizontal#vacante-body
+          %p
+            %b.text-primary Área:
+            = AreaProfesional.find(vacante.area_profesional_id).nombre
+          %p
+            %b.text-primary Oferta Salarial:
+            = number_to_currency(vacante.salario_oferta)
+            = GrupoPago.find(vacante.grupo_pago_id).nombre
+          %p
+            %b.text-primary Tipo Puesto:
+            = TipoPuesto.find(vacante.tipo_puesto_id).nombre
         .panel-footer
           .actions
+            = link_to vacante do
+              %i.fa.fa-search-plus.fa-2x.text-success
             = link_to edit_vacante_path(vacante) do
               %i.fa.fa-pencil.fa-2x.text-primary
             = link_to vacante, :method => :delete, :data => { :confirm => 'Are you sure?' } do
               %i.fa.fa-times.fa-2x.text-danger
-= link_to 'New Vacante', new_vacante_path

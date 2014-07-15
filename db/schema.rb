@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714221526) do
+ActiveRecord::Schema.define(version: 20140715194121) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -303,6 +303,12 @@ ActiveRecord::Schema.define(version: 20140714221526) do
     t.datetime "updated_at"
   end
 
+  create_table "tipo_puestos", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tipo_salarios", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
@@ -360,6 +366,9 @@ ActiveRecord::Schema.define(version: 20140714221526) do
     t.float    "salario_oferta"
     t.integer  "nivel_studio_id"
     t.string   "direccion"
+    t.integer  "tipo_puesto_id"
+    t.integer  "grupo_pago_id"
+    t.text     "otros_requisitos"
   end
 
 end

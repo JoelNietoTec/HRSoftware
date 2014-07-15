@@ -5,7 +5,6 @@ class DepartamentosController < ApplicationController
   # GET /departamentos
   # GET /departamentos.json
   def index
-    add_breadcrumb "Listado", :departamentos_path
     @departamentos = Departamento.all
   end
 

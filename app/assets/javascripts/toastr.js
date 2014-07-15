@@ -22,7 +22,7 @@
                     warning: 'toast-warning'
                 },
                 iconClass: 'toast-info',
-                positionClass: 'toast-top-left',
+                positionClass: 'toast-bottom-right',
                 timeOut: 5000, // Set timeOut to 0 to make it sticky
                 titleClass: 'toast-title',
                 messageClass: 'toast-message'

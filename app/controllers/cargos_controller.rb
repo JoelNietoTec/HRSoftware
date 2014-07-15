@@ -5,7 +5,6 @@ class CargosController < ApplicationController
   # GET /cargos.json
   def index
     @cargos = Cargo.all
-    add_breadcrumb "Listado", :cargos_path
   end
 
   # GET /cargos/1

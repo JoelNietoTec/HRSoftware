@@ -7,7 +7,6 @@ class EmpleadosController < ApplicationController
 
   def index
     @empleados = Empleado.all
-    add_breadcrumb "Listado", :empleados_path
   end
 
   # GET /empleados/1

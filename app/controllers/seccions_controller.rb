@@ -5,7 +5,6 @@ class SeccionsController < ApplicationController
   # GET /seccions.json
   def index
     @seccions = Seccion.all
-    add_breadcrumb "Listado", :seccions_path
   end
 
   # GET /seccions/1
