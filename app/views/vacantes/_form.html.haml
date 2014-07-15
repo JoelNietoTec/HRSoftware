@@ -11,14 +11,18 @@
         .panel-heading
           %h4.panel-title Datos
         .panel-body.form-horizontal
-          .field.form-group.col-sm-6
+          .field.form-group.col-sm-4
             = f.label :cargo_id, :class=> "control-label"
             %br
             = f.collection_select :cargo_id, Cargo.order("nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
-          .field.form-group.col-sm-6
-            = f.label :area_profesional_id, :class=> "control-label"
+          .field.form-group.col-sm-4
+            = f.label :area_profesional_id, "Área Profesional", :class=> "control-label"
             %br
             = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre, {:prompt=> "***Seleccione Área Profesional***"}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-4
+            = f.label :nivel_studio_id, "Nivel de Estudio", :class=> "control-label"
+            %br
+            = f.collection_select :nivel_studio_id, NivelEstudio.order("id"), :id, :nombre, {}, :class=> "form-control input-sm"
           .field.form-group.col-sm-3
             = f.label :provincia_id, :class=> "control-label"
             %br
@@ -27,28 +31,28 @@
             = f.label :distrito_id, :class=> "control-label"
             %br
             = f.grouped_collection_select :distrito_id, Provincia.all, :distritos, :nombre, :id, :nombre, {}, :class=> "form-control input-sm"
+          .field.form-group.col-sm-6
+            = f.label :direccion, "Ubicación", :class=> "control-label"
+            %br
+            = f.text_field :direccion, :class=> "form-control input-sm"
           .field.form-group.col-sm-3
-            = f.label :fecha_inicio, :class=> "control-label"
+            = f.label :fecha_inicio, "Fecha de Inicio", :class=> "control-label"
             %br
             = f.text_field :fecha_inicio, :class=> "form-control input-sm datepicker"
           .field.form-group.col-sm-3
-            = f.label :fecha_vencimiento, :class=> "control-label"
+            = f.label :fecha_vencimiento, "Fecha de Vencimiento", :class=> "control-label"
             %br
-            = f.text_field :fecha_vencimiento, :class=> "form-control input-sm datepicker"
+            = f.text_field :fecha_vencimiento,  :class=> "form-control input-sm datepicker"
           .field.form-group.col-sm-3
-            = f.label :salario_oferta, :class=> "control-label"
+            = f.label :salario_oferta, "Oferta Salarial", :class=> "control-label"
             %br
             = f.text_field :salario_oferta, :class=> "form-control input-sm"
-          .field.form-group.col-sm-3
-            = f.label :nivel_studio_id, :class=> "control-label"
-            %br
-            = f.collection_select :nivel_studio_id, NivelEstudio.order("id"), :id, :nombre, {}, :class=> "form-control input-sm"
           .field.form-group.col-sm-2
             = f.label :activo, :class=> "control-label"
             %br
-            = f.check_box :activo, :class=> "form-control input-sm"
+            = f.check_box :activo
           .field.form-group.col-sm-12
-            = f.label :descripcion_cargo, :class=> "control-label"
+            = f.label :descripcion_cargo, "Descripción del Cargo", :class=> "control-label"
             %br
             = f.text_area :descripcion_cargo, :class=> "form-control input-sm"
         .panel-footer

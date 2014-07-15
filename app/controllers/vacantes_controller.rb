@@ -69,6 +69,6 @@ class VacantesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vacante_params
-      params.require(:vacante).permit(:cargo_id, :fecha_inicio, :fecha_vencimiento, :activo, :area_profesional_id)
+      params.require(:vacante).permit(:cargo_id, :fecha_inicio, :fecha_vencimiento, :activo, :area_profesional_id, :descripcion_cargo, :provincia_id, :distrito_id, :nivel_studio_id, :direccion, :salario_oferta)
     end
 end

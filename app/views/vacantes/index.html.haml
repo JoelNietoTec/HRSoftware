@@ -1,27 +1,18 @@
 %h1 Listing vacantes
-
-%table
-  %tr
-    %th Cargo
-    %th Fecha inicio
-    %th Fecha vencimiento
-    %th Activo
-    %th Area profesional
-    %th
-    %th
-    %th
-
+.row
   - @vacantes.each do |vacante|
-    %tr
-      %td= vacante.cargo_id
-      %td= vacante.fecha_inicio
-      %td= vacante.fecha_vencimiento
-      %td= vacante.activo
-      %td= vacante.area_profesional_id
-      %td= link_to 'Show', vacante
-      %td= link_to 'Edit', edit_vacante_path(vacante)
-      %td= link_to 'Destroy', vacante, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
+    .col-sm-4
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title
+          = Cargo.find(vacante.cargo_id).nombre
+        .panel-body.form-horizontal
+          .col-sm-6
+            = vacante.fecha_vencimiento
+        .panel-footer
+          .actions
+            = link_to edit_vacante_path(vacante) do
+              %i.fa.fa-pencil.fa-2x.text-primary
+            = link_to vacante, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+              %i.fa.fa-times.fa-2x.text-danger
 = link_to 'New Vacante', new_vacante_path
