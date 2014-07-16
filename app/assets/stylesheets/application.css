@@ -140,3 +140,8 @@ b {
   background-color: transparent;
   border: 0px;
 }
+#paginater {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
