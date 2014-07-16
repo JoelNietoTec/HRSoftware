@@ -16,11 +16,11 @@
         = TipoPuesto.find(@vacante.tipo_puesto_id).nombre
       %p
         %b.text-primary Ubicación:
-        = Provincia.find(@vacante.provincia_id).nombre
+        = @vacante.direccion.titleize
         \,
-        = Distrito.find(@vacante.distrito_id).nombre
+        = Distrito.find(@vacante.distrito_id).nombre.titleize
         \,
-        = @vacante.direccion
+        = Provincia.find(@vacante.provincia_id).nombre.titleize
       %p
         %b.text-primary Vigente Hasta:
         = @vacante.fecha_vencimiento.strftime("%d/%m/%Y")
@@ -29,9 +29,7 @@
         .panel-heading
           %h4.panel-title Descripción del Cargo
         .panel-body
-          = @vacante.descripcion_cargo
-      %b Activo:
-      = @vacante.activo
-= link_to 'Edit', edit_vacante_path(@vacante)
+          = h(@vacante.descripcion_cargo).gsub(/\n/, '<br>').html_safe
+= link_to 'Editar', edit_vacante_path(@vacante)
 \|
-= link_to 'Back', vacantes_path
+= link_to 'Volver', vacantes_path

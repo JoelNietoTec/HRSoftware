@@ -25,8 +25,9 @@
         .panel-footer
           .actions
             = link_to vacante do
-              %i.fa.fa-search-plus.fa-2x.text-success
+              %i.fa.fa-search-plus.fa-2x.text-success{'data-toggle'=>"tooltip", 'data-placement' => "right", 'data-original-title'=>"Ver Vacante"}
             = link_to edit_vacante_path(vacante) do
               %i.fa.fa-pencil.fa-2x.text-primary
-            = link_to vacante, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+            = link_to vacante, :method => :delete, :data => { :confirm => 'Está seguro?' } do
               %i.fa.fa-times.fa-2x.text-danger
+= will_paginate @vacantes, renderer: BootstrapPagination::Rails
