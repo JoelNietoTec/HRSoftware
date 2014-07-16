@@ -10,7 +10,9 @@
 .row
   .col-sm-7
     %fieldset
-      %legend Datos Personales
+      %legend
+        %i.fa.fa-user
+        Datos Personales
       %p
         %b Cédula:
         = @prospecto.cedula
@@ -51,7 +53,9 @@
           %i.fa.fa-times.text-danger
     %br
     %fieldset
-      %legend Experiencias Laborales
+      %legend
+        %i.fa.fa-briefcase
+        Experiencias Laborales
       - @prospecto.prospecto_experiencias.each do |experiencia|
         .panel.panel-info
           .panel-heading
@@ -77,12 +81,14 @@
               - else
                 No Disponible
             %br
-            %p
+            %h4
               %b Descripción de Funciones
             %p
-              = experiencia.descripcion_cargo
+              = h(experiencia.descripcion_cargo).gsub(/\n/, '<br>').html_safe
     %fieldset
-      %legend Estudios
+      %legend
+        %i.fa.fa-book
+        Estudios
       - @prospecto.prospecto_estudios.each do |estudio|
         .panel.panel-success
           .panel-heading
@@ -104,7 +110,9 @@
               %b Estatus:
               = StatusEstudio.find(estudio.status_estudio_id).nombre
     %fieldset
-      %legend Cursos y Seminarios
+      %legend
+        %i.fa.fa-building
+        Cursos y Seminarios
       - @prospecto.prospecto_cursos.each do |curso|
         .panel.panel-primary
           .panel-heading
@@ -117,12 +125,14 @@
             %p.text-primary
               = curso.anio_curso
             %br
-            %p
+            %h4
               %b Descripción del Curso
-            %p= curso.descripcion_curso
+            %p= h(curso.descripcion_curso).gsub(/\n/, '<br>').html_safe
 
     %fieldset
-      %legend Idiomas
+      %legend
+        %i.fa.fa-language
+        Idiomas
       - @prospecto.prospecto_idiomas.each do |idioma|
         .panel.panel-warning
           .panel-heading

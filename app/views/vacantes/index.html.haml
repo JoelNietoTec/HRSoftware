@@ -17,17 +17,20 @@
             = AreaProfesional.find(vacante.area_profesional_id).nombre
           %p
             %b.text-primary Oferta Salarial:
-            = number_to_currency(vacante.salario_oferta)
-            = GrupoPago.find(vacante.grupo_pago_id).nombre
+            - if vacante.salario_oferta
+              = number_to_currency(vacante.salario_oferta)
+              = GrupoPago.find(vacante.grupo_pago_id).nombre
+            - else
+              No especificado
           %p
             %b.text-primary Tipo Puesto:
             = TipoPuesto.find(vacante.tipo_puesto_id).nombre
         .panel-footer
           .actions
             = link_to vacante do
-              %i.fa.fa-search-plus.fa-2x.text-success{'data-toggle'=>"tooltip", 'data-placement' => "right", 'data-original-title'=>"Ver Vacante"}
+              %i.fa.fa-search-plus.fa-2x.text-success{'title'=>"Ver Vacante"}
             = link_to edit_vacante_path(vacante) do
-              %i.fa.fa-pencil.fa-2x.text-primary
+              %i.fa.fa-pencil.fa-2x.text-primary{'title'=>"Editar Vacante"}
             = link_to vacante, :method => :delete, :data => { :confirm => 'Está seguro?' } do
               %i.fa.fa-times.fa-2x.text-danger
 = will_paginate @vacantes, renderer: BootstrapPagination::Rails

@@ -6,8 +6,11 @@
       %p
         %b.text-primary Oferta Salarial:
         %b
-          = number_to_currency(@vacante.salario_oferta)
-          = GrupoPago.find(@vacante.grupo_pago_id).nombre
+          - if @vacante.salario_oferta
+            = number_to_currency(@vacante.salario_oferta)
+            = GrupoPago.find(@vacante.grupo_pago_id).nombre
+          - else
+            No Especificado
       %p
         %b.text-primary Área Profesional:
         = AreaProfesional.find(@vacante.area_profesional_id).nombre
