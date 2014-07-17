@@ -4,7 +4,7 @@ class VacantesController < ApplicationController
   # GET /vacantes
   # GET /vacantes.json
   def index
-    @vacantes = Vacante.search(params[:area_profesional_id],:page => params[:page])
+    @vacantes = Vacante.search(params[:search],params[:page])
   end
 
   # GET /vacantes/1
