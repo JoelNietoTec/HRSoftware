@@ -5,7 +5,7 @@
       = label_tag :search, "Área"
       %br
       = select_tag :search, options_from_collection_for_select(AreaProfesional.order("nombre"), :id, :nombre, params[:search]), prompt: "***Todos***"
-      = submit_tag "Filtrar", :name => nil
+      = submit_tag "Filtrar", :name => nil, :class=> "btn btn-sm btn-default filter"
   .col-sm-6
     %br
     = link_to new_vacante_path, :class=> "btn btn-sm btn-primary" do

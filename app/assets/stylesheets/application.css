@@ -145,3 +145,7 @@ b {
   margin: 0;
   text-align: right;
 }
+.filter {
+  padding: 3px 16px;
+  margin-left: 20px;
+}
