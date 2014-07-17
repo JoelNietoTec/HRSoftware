@@ -363,7 +363,7 @@ h6,
 .h5,
 .h6 {
   font-family: inherit;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.1;
   color: inherit;
 }
@@ -1693,13 +1693,13 @@ output {
   width: 100%;
   height: 35px;
   padding: 6px 12px;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.42857143;
   color: #6f6f6f;
   background-color: #ffffff;
   background-image: none;
-  border: 1px solid #505050;
-  border-radius: 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -1795,14 +1795,12 @@ fieldset[disabled] .checkbox-inline {
   cursor: not-allowed;
 }
 .input-sm {
-  height: 25px;
-  padding: 2px 5px;
-  font-size: 12px;
+  height: 27px;
+  padding: 3px 12px;
+  font-size: 13px;
   line-height: 1.5;
-  border-radius: 0;
 }
 select.input-sm {
-  height: 25px;
   line-height: 1.5;
 }
 textarea.input-sm,
@@ -1812,9 +1810,7 @@ select[multiple].input-sm {
 .input-lg {
   height: 48px;
   padding: 10px 16px;
-  font-size: 19px;
   line-height: 1.33;
-  border-radius: 0;
 }
 select.input-lg {
   height: 48px;
@@ -2005,12 +2001,13 @@ select[multiple].input-lg {
   padding: 6px 12px;
   font-size: 15px;
   line-height: 1.42857143;
-  border-radius: 0;
+  border-radius: 2px;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  border-bottom-width: 5px;
 }
 .btn:focus,
 .btn:active:focus,
@@ -2325,21 +2322,18 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 19px;
   line-height: 1.33;
-  border-radius: 0;
 }
 .btn-sm,
 .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 0;
 }
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 0;
 }
 .btn-block {
   display: block;
@@ -3375,19 +3369,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .input-group-addon {
   padding: 6px 12px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: normal;
   line-height: 1;
-  color: #6f6f6f;
+  color: #008CBA;
   text-align: center;
-  background-color: #eeeeee;
-  border: 1px solid #505050;
-  border-radius: 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
-  font-size: 12px;
-  border-radius: 0;
+  font-size: 14px;
 }
 .input-group-addon.input-lg {
   padding: 10px 16px;
@@ -3511,8 +3503,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #6f6f6f;
-  background-color: #ffffff;
+  color: #fff;
+  background-color: #008CBA;
   border: 1px solid #dddddd;
   border-bottom-color: transparent;
   cursor: default;
@@ -5973,7 +5965,7 @@ label,
 .help-block,
 .checkbox,
 .radio {
-  font-weight: normal;
+  font-weight: 600;
 }
 .input-group-addon,
 .input-group-btn .btn {
@@ -5998,8 +5990,7 @@ label,
 }
 .breadcrumb {
   border: 1px solid #dddddd;
-  font-size: 12px;
-  text-transform: uppercase;
+  font-size: 14px;
 }
 .pagination {
   font-size: 12px;

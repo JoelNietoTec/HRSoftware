@@ -6,11 +6,9 @@
         %tr.info
           %th Codigo
           %th Nombres
-          %th Apellidos
           %th Cédula
           %th Cargo
           %th Sucursal
-          %th Sección
           %th Email
           %th Teléfono
           %th Acciones
@@ -18,12 +16,12 @@
         - @empleados.each do |empleado|
           %tr
             %td= empleado.codigo
-            %td= empleado.nombres
-            %td= empleado.apellidos
+            %td
+              = empleado.nombres
+              = empleado.apellidos
             %td= empleado.cedula
             %td= Cargo.find(empleado.cargo_id).nombre
             %td= Sucursal.find(empleado.sucursal_id).nombre
-            %td= Seccion.find(empleado.seccion_id).nombre
             %td= empleado.email
             %td= number_to_phone(empleado.telefono)
             %td.centered

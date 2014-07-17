@@ -26,7 +26,7 @@
                     Administrar Usuarios
                 %li
                   = link_to logout_path do
-                    %i.fa.fa-sign-out
+                    %i.fa.fa-power-off
                     Cerrar Sesión
           - else
             %li.dropdown
@@ -91,7 +91,7 @@
           .col-sm-10.main-container
             #center-container.well
               .row
-                %ul.breadcrumb.col-sm-6
+                %ul.breadcrumb.col-sm-4
                   = render_breadcrumbs :tag => :li, :separator => ""
               = yield
       - else
@@ -119,14 +119,14 @@
               .modal-container
                 .form-group
                   .input-group
-                    = f.email_field :email, {:class=> "form-control", :placeholder=>"Email"}
                     %span.input-group-addon
                       %i.fa.fa-envelope
+                    = f.email_field :email, {:class=> "form-control input-lg", :placeholder=>"Email"}
                 .form-group
                   .input-group
-                    = f.password_field :password, {:class=> "form-control", :placeholder=>"Password"}
                     %span.input-group-addon
                       %i.fa.fa-key
+                    = f.password_field :password, {:class=> "form-control input-lg", :placeholder=>"Password"}
                 .form-group
                   = button_tag(type: 'submit', class: "btn btn-primary btn-block") do
                     %i.fa.fa-arrow-right
@@ -143,24 +143,24 @@
               .modal-container
                 .form-group
                   .input-group
-                    = f.text_field :username, {:class=> "form-control", :placeholder=>"Nombre de Usuario"}
                     %span.input-group-addon
-                      %i.fa.fa-user
+                      %i.fa.fa-user.text-primary
+                    = f.text_field :username, {:class=> "form-control input-lg", :placeholder=>"Nombre de Usuario"}
                 .form-group
                   .input-group
-                    = f.email_field :email, {:class=> "form-control", :placeholder=>"Email"}
                     %span.input-group-addon
                       %i.fa.fa-envelope
+                    = f.email_field :email, {:class=> "form-control input-lg", :placeholder=>"Email"}
                 .form-group
                   .input-group
-                    = f.password_field :password, {:class=> "form-control", :placeholder=>"Contraseña"}
                     %span.input-group-addon
                       %i.fa.fa-key
+                    = f.password_field :password, {:class=> "form-control input-lg", :placeholder=>"Contraseña"}
                 .form-group
                   .input-group
-                    = f.password_field :password_confirmation, {:class=> "form-control", :placeholder=>"Confirmación Contraseña"}
                     %span.input-group-addon
                       %i.fa.fa-lock
+                    = f.password_field :password_confirmation, {:class=> "form-control input-lg", :placeholder=>"Confirmación Contraseña"}
                 .form-group
                   = button_tag(type: 'submit', class: "btn btn-primary btn-block") do
                     %i.fa.fa-arrow-right

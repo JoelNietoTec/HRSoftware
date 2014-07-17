@@ -62,7 +62,7 @@
               %br
               = f.collection_select :sexo_id, Sexo.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
             .field.form-group.col-sm-3
-              = f.label :estado_civil_id, :class=> "control-label"
+              = f.label :estado_civil_id, "Estado Civil", :class=> "control-label"
               %br
               = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
             .field.form-group.col-sm-3
@@ -74,11 +74,11 @@
               %br
               = f.email_field :email, :class=> "form-control input-sm"
             .field.form-group.col-sm-2
-              = f.label :telefono, :class=> "control-label"
+              = f.label :telefono, "Teléfono", :class=> "control-label"
               %br
               = f.phone_field :telefono, :class=> "form-control input-sm"
             .field.form-group.col-sm-6
-              = f.label :direccion, :class=> "control-label"
+              = f.label :direccion, "Dirección", :class=> "control-label"
               %br
               = f.text_field :direccion, :class=> "form-control input-sm"
         .tab-pane.fade#Laboral

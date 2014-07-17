@@ -19,7 +19,7 @@
       .panel.panel-primary
         .panel-heading
           %h4.panel-title
-          = Cargo.find(vacante.cargo_id).nombre
+            = Cargo.find(vacante.cargo_id).nombre
         .panel-body.form-horizontal#vacante-body
           %p
             %b.text-primary Área:
@@ -42,4 +42,5 @@
               %i.fa.fa-pencil.fa-2x.text-primary{'title'=>"Editar Vacante"}
             = link_to vacante, :method => :delete, :data => { :confirm => 'Está seguro?' } do
               %i.fa.fa-times.fa-2x.text-danger
-= will_paginate @vacantes, renderer: BootstrapPagination::Rails
+#paginater
+  = will_paginate @vacantes, renderer: BootstrapPagination::Rails
