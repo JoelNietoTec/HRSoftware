@@ -4,7 +4,5 @@ class Vacante < ActiveRecord::Base
   #  Filtros
   def self.search(search, page)
     order('created_at DESC').where(area_profesional_id: search).paginate(page: page, per_page: 6)
-
-
   end
 end

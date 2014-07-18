@@ -1,12 +1,12 @@
 %h3 Vacantes
 .row
-  .col-sm-10
+  .col-sm-8
     = form_tag vacantes_path, :method => 'get' do
       = label_tag :search, "Área"
       %br
       = select_tag :search, options_from_collection_for_select(AreaProfesional.order("nombre"), :id, :nombre, params[:search]), :multiple=> true, :class=> "multiselect"
       = submit_tag "Filtrar", :name => nil, :class=> "btn btn-sm btn-default filter"
-  .col-sm-2
+  .col-sm-4
     %br
     = link_to new_vacante_path, :class=> "btn btn-sm btn-primary" do
       %i.fa.fa-plus.text-success
