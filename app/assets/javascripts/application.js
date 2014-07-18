@@ -66,3 +66,13 @@ $(function() {
     showLeadingZero: true
   });
 });
+
+$(document).ready(function() {
+  $('.multiselect').multiselect({
+    enableCaseInsensitiveFiltering: true,
+    includeSelectAllOption: true,
+    includeSelectAllDivider: true,
+    maxHeight: 400
+  });
+});
+

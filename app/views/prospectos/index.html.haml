@@ -4,11 +4,10 @@
   %thead
     %tr.info
       %th Nombres
-      %th Sexo
       %th Aspiración Salarial
       %th Edad
-      %th Licencia
-      %th Disponible
+      %th Nivel Académico
+      %th Último Cargo
       %th Acciones
 
   - @prospectos.each do |prospecto|
@@ -16,18 +15,13 @@
       %td
         = prospecto.nombres
         = prospecto.apellidos
-      %td= Sexo.find(prospecto.sexo_id).nombre
       %td.centered= number_to_currency(prospecto.aspiracion_salario)
       %td.centered= Date.today.year - prospecto.fecha_nacimiento.year
-      %td.centered= Licencia.find(prospecto.licencia_id).tipo
-      %td.centered
-        - if prospecto.disponible
-          %i.fa.fa-check.text-success
-        - else
-          %i.fa.fa-times.text-danger
+      %td.centered= NivelEstudio.find(prospecto.nivel_estudio_id).nombre
+      %td.centered= prospecto.cargo
       %td.centered
         = link_to prospecto do
-          %i.fa.fa-list-alt.text-info{'title' => "Detalles"}
+          %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
         \|
         = link_to edit_prospecto_path(prospecto) do
           %i.fa.fa-pencil.text-primary{'title' => "Editar"}

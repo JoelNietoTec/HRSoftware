@@ -4,7 +4,8 @@ class ProspectosController < ApplicationController
   # GET /prospectos
   # GET /prospectos.json
   def index
-    @prospectos = Prospecto.all
+    @prospectos = Prospecto.find_by_sql('SELECT * FROM prospectos LEFT JOIN prospecto_estudios on prospecto_estudios.prospecto_id = prospectos.id and prospecto_estudios.nivel_estudio_id = (SELECT max(nivel_estudio_id) from prospecto_estudios where prospecto_estudios.prospecto_id = prospectos.id)
+LEFT JOIN prospecto_experiencia on prospecto_experiencia.prospecto_id = prospectos.id and prospecto_experiencia.fecha_ingreso = (SELECT max(fecha_ingreso) from prospecto_experiencia where prospecto_experiencia.prospecto_id = prospectos.id)')
   end
 
   # GET /prospectos/1
