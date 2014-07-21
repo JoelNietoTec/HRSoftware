@@ -47,8 +47,8 @@
     .container-fluid
       - if current_user
         .row
-          #aside.col-sm-2.left-sidebar
-            #nav#accordion.well{'role' => "navigation"}
+          %aside.col-sm-2.left-sidebar
+            %nav#accordion.well{'role' => "navigation"}
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href' => "#collapseOne"}
                   %i.fa.fa-chevron-down
