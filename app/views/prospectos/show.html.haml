@@ -50,13 +50,14 @@
           = @prospecto.fecha_nacimiento.strftime("%d/%m/%Y")
           (
           = Date.today.year - @prospecto.fecha_nacimiento.year
+          años
           )
         %p
           %b Licencia de Conducir:
           Tipo
           = Licencia.find(@prospecto.licencia_id).tipo
         %p
-          %b Nacionalidad:
+          %b País de Origen:
           = @prospecto.nacionalidad
         %p
           %b Aspiración Salarial:
@@ -94,7 +95,7 @@
             No Disponible
           %p
             %b Descripción de Funciones
-          %p
+          %p.contenido
             = h(experiencia.descripcion_cargo).gsub(/\n/, '<br>').html_safe
           - if index + 1 < @prospecto.prospecto_experiencias.count
             %hr
@@ -104,7 +105,7 @@
           %i.fa.fa-graduation-cap
           Educación
       .panel-body
-        - @prospecto.prospecto_estudios.each_with_index do |estudio, index|
+        - @prospecto.prospecto_estudios.sort{|a, b| b.fecha_inicio <=> a.fecha_inicio}.each_with_index do |estudio, index|
           %b
             =estudio.nombre_titulo
           \/
@@ -126,7 +127,7 @@
           %i.fa.fa-book
           Cursos y Seminarios
       .panel-body
-        - @prospecto.prospecto_cursos.each_with_index do |curso, index|
+        - @prospecto.prospecto_cursos.sort{|a, b| b.anio_curso <=> a.anio_curso}.each_with_index do |curso, index|
           %b
             = curso.titulo_curso
           \/
