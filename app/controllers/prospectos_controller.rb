@@ -4,7 +4,7 @@ class ProspectosController < ApplicationController
   # GET /prospectos
   # GET /prospectos.json
   def index
-    @prospectos = Prospecto.find_by_sql('SELECT * FROM prospectos LEFT JOIN prospecto_estudios on prospecto_estudios.prospecto_id = prospectos.id and prospecto_estudios.nivel_estudio_id = (SELECT max(nivel_estudio_id) from prospecto_estudios where prospecto_estudios.prospecto_id = prospectos.id)
+    @prospectos = Prospecto.find_by_sql('SELECT prospectos.*, prospecto_estudios.nivel_estudio_id, prospecto_experiencia.cargo FROM prospectos LEFT JOIN prospecto_estudios on prospecto_estudios.prospecto_id = prospectos.id and prospecto_estudios.nivel_estudio_id = (SELECT max(nivel_estudio_id) from prospecto_estudios where prospecto_estudios.prospecto_id = prospectos.id)
 LEFT JOIN prospecto_experiencia on prospecto_experiencia.prospecto_id = prospectos.id and prospecto_experiencia.fecha_ingreso = (SELECT max(fecha_ingreso) from prospecto_experiencia where prospecto_experiencia.prospecto_id = prospectos.id)')
   end
 
@@ -73,7 +73,7 @@ LEFT JOIN prospecto_experiencia on prospecto_experiencia.prospecto_id = prospect
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def prospecto_params
-    params.require(:prospecto).permit(:nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :email, :disponible,
+    params.require(:prospecto).permit(:nombres, :apellidos, :cedula, :seguro_social, :sexo_id, :aspiracion_salario, :estado_civil_id, :direccion, :fecha_nacimiento, :licencia_id, :nacionalidad, :email, :disponible, :area_profesional_id,
       prospecto_telefonos_attributes: [
         :id, :tipos_telefono_id, :telefono, :_destroy
         ],

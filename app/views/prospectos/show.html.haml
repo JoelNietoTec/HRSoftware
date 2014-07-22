@@ -1,151 +1,157 @@
-%h2.text-primary
-  = @prospecto.nombres
-  = @prospecto.apellidos
-%h4
-  - @prospecto.prospecto_telefonos.each do |telefono|
-    = telefono.telefono
-%p
-  = @prospecto.email
-%br
 .row
-  .col-sm-7
-    %fieldset
-      %legend
-        %i.fa.fa-user
-        Datos Personales
-      %p
-        %b Cédula:
-        = @prospecto.cedula
-      %p
-        %b Seguro Social:
-        = @prospecto.seguro_social
-      %p
-        %b Sexo:
-        = Sexo.find(@prospecto.sexo_id).nombre
-      %p
-        %b Estado Civil:
-        = EstadoCivil.find(@prospecto.estado_civil_id).nombre
-      %p
-        %b Dirección:
-        = @prospecto.direccion
-      %p
-        %b Fecha de Nacimiento:
-        = @prospecto.fecha_nacimiento.strftime("%d/%m/%Y")
-        (
-        = Date.today.year - @prospecto.fecha_nacimiento.year
-        )
-      %p
-        %b Licencia de Conducir:
-        Tipo
-        = Licencia.find(@prospecto.licencia_id).tipo
-      %p
-        %b Nacionalidad:
-        = @prospecto.nacionalidad
-      %p
-        %b Aspiración Salarial:
-        %b.text-success
-          = number_to_currency(@prospecto.aspiracion_salario)
-      %p
-        %b Disponible:
-        - if @prospecto.disponible
-          %i.fa.fa-check.text-success
-        - else
-          %i.fa.fa-times.text-danger
-    %br
-    %fieldset
-      %legend
-        %i.fa.fa-briefcase
-        Experiencias Laborales
-      - @prospecto.prospecto_experiencias.each do |experiencia|
-        .panel.panel-info
-          .panel-heading
-            %h4.panel-title
-              = experiencia.cargo
-          .panel-body
-            %h4
-              %b Empresa:
-              = experiencia.empresa
-            %p.text-primary
-              = experiencia.fecha_ingreso.strftime("%d/%m/%Y")
-              \-
-              - if experiencia.actual
-                Actualmente
-              - else
-                - if experiencia.fecha_salida
-                  = experiencia.fecha_salida.strftime("%d/%m/%Y")
-            %br
-            %p
-              %b Último Salario:
-              - if experiencia.ultimo_salario
-                = number_to_currency(experiencia.ultimo_salario)
-              - else
-                No Disponible
-            %br
-            %h4
-              %b Descripción de Funciones
-            %p
-              = h(experiencia.descripcion_cargo).gsub(/\n/, '<br>').html_safe
-    %fieldset
-      %legend
-        %i.fa.fa-book
-        Estudios
-      - @prospecto.prospecto_estudios.each do |estudio|
-        .panel.panel-success
-          .panel-heading
-            %h4.panel-title
-              = estudio.nombre_titulo
-          .panel-body
-            %h4
-              %b Institución:
-              = estudio.institucion
-            %p.text-primary
-              = estudio.fecha_inicio
-              \-
-              = estudio.fecha_fin
-            %br
-            %p
-              %b Nivel:
+  .col-sm-8
+    .panel.panel-black
+      .panel-body
+        %h2
+          = @prospecto.nombres
+          = @prospecto.apellidos
+        %h4.text-muted
+          %i.fa.fa-sitemap
+          = AreaProfesional.find(@prospecto.area_profesional_id).nombre
+        %h5.text-primary
+          %i.fa.fa-phone
+          - @prospecto.prospecto_telefonos.each_with_index do |telefono, index|
+            = telefono.telefono
+            - if index + 1 < @prospecto.prospecto_telefonos.count
+              \/
+        %h5.text-primary
+          %i.fa.fa-envelope
+          = @prospecto.email
+        .actions
+          = link_to edit_prospecto_path(@prospecto), :class=> "btn btn-primary btn-sm" do
+            %i.fa.fa-pencil
+            Editar
+          = link_to prospectos_path, :class=> "btn btn-primary btn-sm" do
+            %i.fa.fa-check.text-success
+            Aceptar
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-user
+          Datos Personales
+      .panel-body
+        %p
+          %b Cédula:
+          = @prospecto.cedula
+        %p
+          %b Seguro Social:
+          = @prospecto.seguro_social
+        %p
+          %b Sexo:
+          = Sexo.find(@prospecto.sexo_id).nombre
+        %p
+          %b Estado Civil:
+          = EstadoCivil.find(@prospecto.estado_civil_id).nombre
+        %p
+          %b Dirección:
+          = @prospecto.direccion
+        %p
+          %b Fecha de Nacimiento:
+          = @prospecto.fecha_nacimiento.strftime("%d/%m/%Y")
+          (
+          = Date.today.year - @prospecto.fecha_nacimiento.year
+          )
+        %p
+          %b Licencia de Conducir:
+          Tipo
+          = Licencia.find(@prospecto.licencia_id).tipo
+        %p
+          %b Nacionalidad:
+          = @prospecto.nacionalidad
+        %p
+          %b Aspiración Salarial:
+          %b.text-success
+            = number_to_currency(@prospecto.aspiracion_salario)
+        %p
+          %b Disponible:
+          - if @prospecto.disponible
+            %i.fa.fa-check.text-success
+          - else
+            %i.fa.fa-times.text-danger
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-suitcase
+          Experiencia
+      .panel-body
+        - @prospecto.prospecto_experiencias.sort{|a, b| b.fecha_ingreso <=> a.fecha_ingreso}.each_with_index do |experiencia, index|
+          %b
+            = experiencia.cargo
+          \/
+          = experiencia.empresa
+          %p.text-muted
+            = experiencia.fecha_ingreso.strftime("%d/%m/%Y")
+            \-
+            - if experiencia.actual
+              Actualmente
+            - else
+              - if experiencia.fecha_salida
+                = experiencia.fecha_salida.strftime("%d/%m/%Y")
+          %b Último Salario:
+          - if experiencia.ultimo_salario
+            = number_to_currency(experiencia.ultimo_salario)
+          - else
+            No Disponible
+          %p
+            %b Descripción de Funciones
+          %p
+            = h(experiencia.descripcion_cargo).gsub(/\n/, '<br>').html_safe
+          - if index + 1 < @prospecto.prospecto_experiencias.count
+            %hr
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-graduation-cap
+          Educación
+      .panel-body
+        - @prospecto.prospecto_estudios.each_with_index do |estudio, index|
+          %b
+            =estudio.nombre_titulo
+          \/
+          = estudio.institucion
+          %p.text-muted
+            = estudio.fecha_inicio
+            \-
+            = estudio.fecha_fin
+          %p
+            %em
               = NivelEstudio.find(estudio.nivel_estudio_id).nombre
-            %p
-              %b Estatus:
-              = StatusEstudio.find(estudio.status_estudio_id).nombre
-    %fieldset
-      %legend
-        %i.fa.fa-building
-        Cursos y Seminarios
-      - @prospecto.prospecto_cursos.each do |curso|
-        .panel.panel-primary
-          .panel-heading
-            %h4.panel-title
-              = curso.titulo_curso
-          .panel-body
-            %h4
-              %b Institución:
-              = curso.institucion
-            %p.text-primary
-              = curso.anio_curso
-            %br
-            %h4
-              %b Descripción del Curso
-            %p= h(curso.descripcion_curso).gsub(/\n/, '<br>').html_safe
+          %p
+            = StatusEstudio.find(estudio.status_estudio_id).nombre
+          - if index + 1 < @prospecto.prospecto_estudios.count
+            %hr
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-book
+          Cursos y Seminarios
+      .panel-body
+        - @prospecto.prospecto_cursos.each_with_index do |curso, index|
+          %b
+            = curso.titulo_curso
+          \/
+          = curso.institucion
+          %p.text-muted
+            = curso.anio_curso
+          %b Descripción del Curso
+          %p= h(curso.descripcion_curso).gsub(/\n/, '<br>').html_safe
+          - if index + 1 < @prospecto.prospecto_cursos.count
+            %hr
 
-    %fieldset
-      %legend
-        %i.fa.fa-language
-        Idiomas
-      - @prospecto.prospecto_idiomas.each do |idioma|
-        .panel.panel-warning
-          .panel-heading
-            %h4.panel-title
-              = Idioma.find(idioma.idioma_id).nombre
-          .panel-body
-            %p
-              %b Nivel Oral:
-              = NivelIdioma.find(idioma.nivel_oral_id).nombre
-            %p
-              %b Nivel Escrito:
-              = NivelIdioma.find(idioma.nivel_escrito_id).nombre
-
-= link_to 'Editar', edit_prospecto_path(@prospecto)
-\|
-= link_to 'Volver', prospectos_path
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-language
+          Idiomas
+      .panel-body
+        - @prospecto.prospecto_idiomas.each_with_index do |idioma, index|
+          %b
+            = Idioma.find(idioma.idioma_id).nombre
+          %p
+            Nivel Oral:
+            = NivelIdioma.find(idioma.nivel_oral_id).nombre
+            \/
+            Nivel Escrito:
+            = NivelIdioma.find(idioma.nivel_escrito_id).nombre
+          - if index + 1 < @prospecto.prospecto_idiomas.count
+            %hr

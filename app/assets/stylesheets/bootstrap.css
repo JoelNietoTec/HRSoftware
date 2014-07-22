@@ -1632,6 +1632,7 @@ table th[class*="col-"] {
 fieldset {
   padding: 0;
   margin: 0;
+  margin-top: 10px;
   border: 0;
   min-width: 0;
 }
@@ -1639,8 +1640,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 20px;
+  -webkit-margin-top-collapse: separate;
   font-size: 22.5px;
   line-height: inherit;
   color: #333333;
@@ -4976,6 +4977,23 @@ a.list-group-item-danger.active:focus {
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #008cba;
 }
+.panel-black {
+  border-color: #c9c9c9;
+}
+.panel-black > .panel-heading {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #c9c9c9;
+  font-weight: bolder;
+}
+.panel-black > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #c9c9c9;
+}
+.panel-black > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #c9c9c9;
+}
+
+
 .panel-success {
   border-color: #3c9a5f;
 }

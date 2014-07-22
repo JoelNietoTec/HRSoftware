@@ -8,8 +8,13 @@
             - @prospecto.errors.full_messages.each do |message|
               %li= message
   .row
-    .col-sm-8
+    .col-sm-4
+      = f.label :area_profesional_id, "Área Profesional", :class=> "control-label"
+      %br
+      = f.collection_select :area_profesional_id, AreaProfesional.order("nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+    .col-sm-4
       .actions
+        %br
         = f.button(type: "submit", class: "btn btn-sm btn-primary") do
           Guardar
           %i.fa.fa-save
@@ -35,89 +40,90 @@
             Cursos y Seminarios
       #myTabContent.tab-content
         .tab-pane.fade.in.active#Personal
-          .form-horizontal.fields
-            .form-group.col-sm-6
-              = f.label :nombres, :class=> "control-label"
-              %br
-              = f.text_field :nombres, :class=> "form-control input-sm"
-            .form-group.col-sm-6
-              = f.label :apellidos, :class=> "control-label"
-              %br
-              = f.text_field :apellidos, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :cedula, :class=> "control-label"
-              %br
-              = f.text_field :cedula, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :seguro_social, "Seguro Social", :class=> "control-label"
-              %br
-              = f.text_field :seguro_social, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :sexo_id, :class=> "control-label"
-              %br
-              = f.collection_select :sexo_id, Sexo.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :aspiracion_salario, "Aspiración Salarial", :class=> "control-label"
-              %br
-              .input-group
-                .input-group-addon.input-sm
-                  %i.fa.fa-usd
-                = f.number_field :aspiracion_salario, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :estado_civil_id, "Estado Civil", :class=> "control-label"
-              %br
-              = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :fecha_nacimiento, "Fecha de Nacimiento", :class=> "control-label"
-              %br
-              = f.text_field :fecha_nacimiento, :class=> "datepicker form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :licencia_id, :class=> "control-label"
-              %br
-              = f.collection_select :licencia_id, Licencia.select("id, tipo").all, :id, :tipo, {}, :class=> "form-control input-sm"
-            .form-group.col-sm-3
-              = f.label :nacionalidad, :class=> "control-label"
-              %br
-              = f.country_select :nacionalidad, ["Panamá"], {:locale => "es"}, :class=> "form-control input-sm"
-            .form-group.col-sm-5
-              = f.label :direccion, "Dirección", :class=> "control-label"
-              %br
-              = f.text_field :direccion, :class=> "form-control input-sm"
-            .form-group.col-sm-5
-              =f.label :email, :class=> "control-label"
-              %br
-              =f.email_field :email, :class=> "form-control input-sm"
-            .form-group.col-sm-2
-              = f.label :disponible, :class=> "control-label"
-              %br
-              = f.check_box :disponible
-            %br
-            %fieldset
-              %legend
-                %i.fa.fa-phone
-                Teléfonos
-              %br
-              .col-sm-8
-                %table.table.table-hover.table-bordered#telefonos
-                  %thead
-                    %th Tipo Teléfono
-                    %th Teléfono
-                    %th Eliminar
-                  = f.fields_for :prospecto_telefonos, :wrapper=> false do |telefonos_form|
-                    %tr.fields.centered
-                      %td= telefonos_form.collection_select :tipos_telefono_id, TiposTelefono.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
-                      %td= telefonos_form.phone_field :telefono, :class=> "form-control input-sm"
-                      %td
-                        = telefonos_form.link_to_remove do
-                          %i.fa.fa-minus.text-danger
-              = f.link_to_add :prospecto_telefonos, :class=> "btn btn-sm btn-primary", :data => { :target => "#telefonos" } do
-                %i.fa.fa-plus.text-success
-                Nuevo Teléfono
+          %fieldset
+            %legend Datos Personales
+            .form-horizontal.fields
+              .form-group.col-sm-6
+                = f.label :nombres, :class=> "control-label"
+                %br
+                = f.text_field :nombres, :class=> "form-control input-sm"
+              .form-group.col-sm-6
+                = f.label :apellidos, :class=> "control-label"
+                %br
+                = f.text_field :apellidos, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :cedula, :class=> "control-label"
+                %br
+                = f.text_field :cedula, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :seguro_social, "Seguro Social", :class=> "control-label"
+                %br
+                = f.text_field :seguro_social, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :sexo_id, :class=> "control-label"
+                %br
+                = f.collection_select :sexo_id, Sexo.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :aspiracion_salario, "Aspiración Salarial", :class=> "control-label"
+                %br
+                .input-group
+                  .input-group-addon.input-sm
+                    %i.fa.fa-usd
+                  = f.number_field :aspiracion_salario, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :estado_civil_id, "Estado Civil", :class=> "control-label"
+                %br
+                = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre"), :id, :nombre, {}, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :fecha_nacimiento, "Fecha de Nacimiento", :class=> "control-label"
+                %br
+                = f.text_field :fecha_nacimiento, :class=> "datepicker form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :licencia_id, :class=> "control-label"
+                %br
+                = f.collection_select :licencia_id, Licencia.select("id, tipo").all, :id, :tipo, {}, :class=> "form-control input-sm"
+              .form-group.col-sm-3
+                = f.label :nacionalidad, :class=> "control-label"
+                %br
+                = f.country_select :nacionalidad, ["Panamá"], {:locale => "es"}, :class=> "form-control input-sm"
+              .form-group.col-sm-5
+                = f.label :direccion, "Dirección", :class=> "control-label"
+                %br
+                = f.text_field :direccion, :class=> "form-control input-sm"
+              .form-group.col-sm-5
+                =f.label :email, :class=> "control-label"
+                %br
+                =f.email_field :email, :class=> "form-control input-sm"
+              .form-group.col-sm-2
+                = f.label :disponible, :class=> "control-label"
+                %br
+                = f.check_box :disponible
+          %br
+          %fieldset
+            %legend
+              %i.fa.fa-phone
+              Teléfonos
+            .col-sm-8
+              %table.table.table-hover.table-bordered#telefonos
+                %thead
+                  %th Tipo Teléfono
+                  %th Teléfono
+                  %th Eliminar
+                = f.fields_for :prospecto_telefonos, :wrapper=> false do |telefonos_form|
+                  %tr.fields.centered
+                    %td= telefonos_form.collection_select :tipos_telefono_id, TiposTelefono.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
+                    %td= telefonos_form.phone_field :telefono, :class=> "form-control input-sm"
+                    %td
+                      = telefonos_form.link_to_remove do
+                        %i.fa.fa-minus.text-danger
+            = f.link_to_add :prospecto_telefonos, :class=> "btn btn-sm btn-primary", :data => { :target => "#telefonos" } do
+              %i.fa.fa-plus.text-success
+              Nuevo Teléfono
         .tab-pane.fade#Laboral
           = f.fields_for :prospecto_experiencias do |experiencias_form|
-            .fields#experiencia
-              %fieldset
-                %legend Experiencia
+            %fieldset
+              %legend Experiencia
+              .fields#experiencia
                 .form-group.col-sm-6
                   = experiencias_form.label :empresa, :class=> "control-label"
                   %br
@@ -151,10 +157,10 @@
                   = experiencias_form.text_area :descripcion_cargo, :class=> "form-control input-sm"
                 .form-group.col-sm-12
                   = experiencias_form.link_to_remove "Eliminar Experiencia"
-            %p
-              = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
-                %i.fa.fa-plus.text-success
-                Nueva Experiencia
+          %p
+            = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
+              %i.fa.fa-plus.text-success
+              Nueva Experiencia
         .tab-pane.fade#Estudios
           = f.fields_for :prospecto_estudios do |estudios_form|
             %fieldset
@@ -222,7 +228,6 @@
             %legend
               %i.fa.fa-language
               Idiomas
-            %br
             .col-sm-8
               %table.table.table-hover.table-bordered#idiomas
                 %thead
