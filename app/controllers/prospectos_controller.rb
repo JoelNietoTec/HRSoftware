@@ -88,6 +88,9 @@ LEFT JOIN prospecto_experiencia on prospecto_experiencia.prospecto_id = prospect
         ],
       prospecto_cursos_attributes: [
         :id, :institucion, :titulo_curso, :descripcion_curso, :anio_curso, :_destroy
+        ],
+      prospecto_conocimientos_attributes: [
+        :id, :nombre, :descripcion, :_destroy
         ])
   end
 end

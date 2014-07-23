@@ -6,6 +6,7 @@
       %th Nombres
       %th Aspiración Salarial
       %th Edad
+      %th Área
       %th Nivel Académico
       %th Último Cargo
       %th Acciones
@@ -17,6 +18,7 @@
         = prospecto.apellidos
       %td.centered= number_to_currency(prospecto.aspiracion_salario)
       %td.centered= Date.today.year - prospecto.fecha_nacimiento.year
+      %td= AreaProfesional.find(prospecto.area_profesional_id).nombre
       %td.centered= NivelEstudio.find(prospecto.nivel_estudio_id).nombre
       %td.centered= prospecto.cargo
       %td.centered

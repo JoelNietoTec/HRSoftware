@@ -20,7 +20,7 @@
           %i.fa.fa-save
   %br
   .row
-    .col-sm-10
+    .col-sm-11
       %ul.nav.nav-tabs
         %li.active
           %a{'href' => "#Personal", 'data-toggle' => "tab"}
@@ -38,6 +38,10 @@
           %a{'href' => "#Cursos", 'data-toggle' => "tab"}
             %i.fa.fa-certificate
             Cursos y Seminarios
+        %li
+          %a{'href' => "#Conocimientos", 'data-toggle' => "tab"}
+            %i.fa.fa-bolt
+            Conocimientos
       #myTabContent.tab-content
         .tab-pane.fade.in.active#Personal
           %fieldset
@@ -115,15 +119,25 @@
                     %td= telefonos_form.phone_field :telefono, :class=> "form-control input-sm"
                     %td
                       = telefonos_form.link_to_remove do
-                        %i.fa.fa-minus.text-danger
+                        .btn.btn-xs.btn-danger
+                          %i.fa.fa-minus
             = f.link_to_add :prospecto_telefonos, :class=> "btn btn-sm btn-primary", :data => { :target => "#telefonos" } do
               %i.fa.fa-plus.text-success
               Nuevo Teléfono
         .tab-pane.fade#Laboral
-          = f.fields_for :prospecto_experiencias do |experiencias_form|
-            %fieldset
-              %legend Experiencia
-              .fields#experiencia
+          %br
+          = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary", :data => { :target => "#experiencia" } do
+            %i.fa.fa-plus.text-success
+            Nueva Experiencia
+          .fields#experiencia
+            = f.fields_for :prospecto_experiencias do |experiencias_form|
+              %fieldset
+                %legend
+                  Experiencia
+                  = experiencias_form.link_to_remove do
+                    .btn.btn-xs.btn-danger.elimina
+                      %i.fa.fa-minus
+                      Eliminar
                 .form-group.col-sm-6
                   = experiencias_form.label :empresa, :class=> "control-label"
                   %br
@@ -155,17 +169,21 @@
                   = experiencias_form.label :descripcion_cargo, "Descripción del Cargo", :class=> "control-label"
                   %br
                   = experiencias_form.text_area :descripcion_cargo, :class=> "form-control input-sm"
-                .form-group.col-sm-12
-                  = experiencias_form.link_to_remove "Eliminar Experiencia"
-          %p
-            = f.link_to_add :prospecto_experiencias, :class=> "btn btn-sm btn-primary" do
-              %i.fa.fa-plus.text-success
-              Nueva Experiencia
         .tab-pane.fade#Estudios
-          = f.fields_for :prospecto_estudios do |estudios_form|
-            %fieldset
-              %legend Estudio
-              .form-horizontal.fields#estudios
+          %br
+          %p
+            = f.link_to_add :prospecto_estudios, :class=> "btn btn-sm btn-primary", :data => { :target => "#estudios" } do
+              %i.fa.fa-plus.text-success
+              Nuevo Estudio
+          .fields#estudios
+            = f.fields_for :prospecto_estudios do |estudios_form|
+              %fieldset
+                %legend
+                  Estudio
+                  = estudios_form.link_to_remove do
+                    .btn.btn-xs.btn-danger.elimina
+                      %i.fa.fa-minus
+                      Eliminar
                 .form-group.col-sm-3
                   = estudios_form.label :nivel_estudio_id, "Nivel", :class=> "control-label"
                   %br
@@ -190,17 +208,21 @@
                   = estudios_form.label :fecha_fin, "Año Salida", :class=> "control-label"
                   %br
                   = estudios_form.select :fecha_fin, (Time.zone.now.year - 50)..(Time.zone.now.year), {include_blank: true}, :class=> "form-control input-sm"
-                .form-group.col-sm-12
-                  = estudios_form.link_to_remove "Eliminar Estudio"
-          %p
-            = f.link_to_add :prospecto_estudios, :class=> "btn btn-sm btn-primary" do
-              %i.fa.fa-plus.text-success
-              Nuevo Estudio
         .tab-pane.fade#Cursos
-          = f.fields_for :prospecto_cursos, :wrapper => false do |cursos_form|
-            .fields#cursos
+          %br
+          %p
+            = f.link_to_add :prospecto_cursos, :class=> "btn btn-sm btn-primary", :data => { :target => "#cursos" } do
+              %i.fa.fa-plus.text-success
+              Nuevo Curso
+          .fields#cursos
+            = f.fields_for :prospecto_cursos do |cursos_form|
               %fieldset
-                %legend Curso
+                %legend
+                  Curso
+                  = cursos_form.link_to_remove do
+                    .btn.btn-xs.btn-danger.elimina
+                      %i.fa.fa-minus
+                      Eliminar
                 .form-group.col-sm-6
                   = cursos_form.label :titulo_curso, "Nombre del Curso", :class=> "control-label"
                   %br
@@ -217,12 +239,6 @@
                   = cursos_form.label :descripcion_curso, "Descripción del Curso", :class=> "control-label"
                   %br
                   = cursos_form.text_area :descripcion_curso, :class=> "form-control input-sm"
-                .form-group.col-sm-12
-                  = cursos_form.link_to_remove "Eliminar Curso"
-          %p
-            = f.link_to_add :prospecto_cursos, :class=> "btn btn-sm btn-primary" do
-              %i.fa.fa-plus.text-success
-              Nuevo Curso
           %br
           %fieldset
             %legend
@@ -246,5 +262,26 @@
             = f.link_to_add :prospecto_idiomas, :class=> "btn btn-sm btn-primary", :data => { :target => "#idiomas" } do
               %i.fa.fa-plus.text-success
               Nuevo Idioma
-
-
+        .tab-pane.fade#Conocimientos
+          %br
+          %p
+            = f.link_to_add :prospecto_conocimientos, :class=> "btn btn-sm btn-primary", :data => { :target => "#conocimientos" } do
+              %i.fa.fa-plus.text-success
+              Nuevo Conocimiento
+          .fields#conocimientos
+            = f.fields_for :prospecto_conocimientos do |conocimiento_form|
+              %fieldset
+                %legend
+                  Conocimiento
+                  = conocimiento_form.link_to_remove do
+                    .btn.btn-xs.btn-danger.elimina
+                      %i.fa.fa-minus
+                      Eliminar
+                .form-group.col-sm-6
+                  = conocimiento_form.label :nombre, "Nombre", :class=> "control-label"
+                  %br
+                  = conocimiento_form.text_field :nombre, :class=> "form-control input-sm"
+                .form-group.col-sm-12
+                  = conocimiento_form.label :descripcion, "Descripción", :class=> "control-label"
+                  %br
+                  = conocimiento_form.text_area :descripcion,:class=> "form-control input-sm"

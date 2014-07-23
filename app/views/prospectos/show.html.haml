@@ -5,7 +5,7 @@
         %h2
           = @prospecto.nombres
           = @prospecto.apellidos
-        %h4.text-muted
+        %h4.text-info
           %i.fa.fa-sitemap
           = AreaProfesional.find(@prospecto.area_profesional_id).nombre
         %h5.text-primary
@@ -14,7 +14,7 @@
             = telefono.telefono
             - if index + 1 < @prospecto.prospecto_telefonos.count
               \/
-        %h5.text-primary
+        %h5.text-warning
           %i.fa.fa-envelope
           = @prospecto.email
         .actions
@@ -138,7 +138,6 @@
           %p= h(curso.descripcion_curso).gsub(/\n/, '<br>').html_safe
           - if index + 1 < @prospecto.prospecto_cursos.count
             %hr
-
     .panel.panel-primary
       .panel-heading
         %h4.panel-title
@@ -155,4 +154,17 @@
             Nivel Escrito:
             = NivelIdioma.find(idioma.nivel_escrito_id).nombre
           - if index + 1 < @prospecto.prospecto_idiomas.count
+            %hr
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title
+          %i.fa.fa-bolt
+          Conocimientos
+      .panel-body
+        - @prospecto.prospecto_conocimientos.each_with_index do |conocimiento, index|
+          %p
+            %b
+              = conocimiento.nombre
+          %p= h(conocimiento.descripcion).gsub(/\n/, '<br>').html_safe
+          - if index + 1 < @prospecto.prospecto_conocimientos.count
             %hr
