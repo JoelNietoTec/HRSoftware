@@ -4,6 +4,7 @@
     %table#datagrid.table.table-hover.table-striped
       %thead
         %tr.info
+          %th #
           %th Codigo
           %th Nombres
           %th Cédula
@@ -15,6 +16,7 @@
       %tbody
         - @empleados.each do |empleado|
           %tr
+            %td= empleado.id
             %td= empleado.codigo
             %td
               = empleado.nombres
@@ -26,7 +28,7 @@
             %td= number_to_phone(empleado.telefono)
             %td.centered
               = link_to empleado do
-                %i.fa.fa-list-alt.text-info{'title' => "Detalles"}
+                %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
               \|
               = link_to edit_empleado_path(empleado) do
                 %i.fa.fa-pencil.text-primary{'title' => "Editar"}

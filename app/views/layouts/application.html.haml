@@ -51,9 +51,9 @@
             %nav#accordion.well{'role' => "navigation"}
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href' => "#collapseOne"}
-                  %i.fa.fa-chevron-down
-                  Empleados
                   %i.fa.fa-users
+                  Empleados
+                  %i.fa.fa-chevron-down.pull-right
               .panel-collapse.collapse#collapseOne
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Listar", empleados_path
@@ -61,9 +61,9 @@
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseTwo"}
-                  %i.fa.fa-chevron-down
-                  Reclutamiento
                   %i.fa.fa-bullhorn
+                  Reclutamiento
+                  %i.fa.fa-chevron-down.pull-right
               .panel-collapse.collapse#collapseTwo
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Prospectos", prospectos_path
@@ -75,9 +75,9 @@
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseThree"}
-                  %i.fa.fa-chevron-down
-                  Mantenimiento
                   %i.fa.fa-database
+                  Mantenimiento
+                  %i.fa.fa-chevron-down.pull-right
               .panel-collapse.collapse#collapseThree
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Sucursales", sucursals_path
@@ -120,12 +120,12 @@
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-envelope
+                      %i.fa.fa-envelope.fa-fw
                     = f.email_field :email, {:class=> "form-control input-lg", :placeholder=>"Email"}
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-key
+                      %i.fa.fa-key.fa-fw
                     = f.password_field :password, {:class=> "form-control input-lg", :placeholder=>"Password"}
                 .form-group
                   = button_tag(type: 'submit', class: "btn btn-primary btn-block") do
@@ -144,22 +144,22 @@
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-user.text-primary
+                      %i.fa.fa-user.text-primary.fa-fw
                     = f.text_field :username, {:class=> "form-control input-lg", :placeholder=>"Nombre de Usuario"}
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-envelope
+                      %i.fa.fa-envelope.fa-fw
                     = f.email_field :email, {:class=> "form-control input-lg", :placeholder=>"Email"}
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-key
+                      %i.fa.fa-key.fa-fw
                     = f.password_field :password, {:class=> "form-control input-lg", :placeholder=>"Contraseña"}
                 .form-group
                   .input-group
                     %span.input-group-addon
-                      %i.fa.fa-lock
+                      %i.fa.fa-lock.fa-fw
                     = f.password_field :password_confirmation, {:class=> "form-control input-lg", :placeholder=>"Confirmación Contraseña"}
                 .form-group
                   = button_tag(type: 'submit', class: "btn btn-primary btn-block") do

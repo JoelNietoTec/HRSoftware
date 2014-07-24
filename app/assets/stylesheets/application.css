@@ -71,6 +71,7 @@ thead > tr > th {
 .aside-title {
   margin-left: 10px;
   font-weight: 500;
+  margin-right: 10px;
 }
 
 .panel-collapse {

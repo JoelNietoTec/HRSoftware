@@ -147,7 +147,7 @@
         - @prospecto.prospecto_idiomas.each_with_index do |idioma, index|
           %b
             = Idioma.find(idioma.idioma_id).nombre
-          %p
+          %p.text-muted
             Nivel Oral:
             = NivelIdioma.find(idioma.nivel_oral_id).nombre
             \/
@@ -158,13 +158,14 @@
     .panel.panel-primary
       .panel-heading
         %h4.panel-title
-          %i.fa.fa-bolt
+          %i.fa.fa-list-alt
           Conocimientos
       .panel-body
         - @prospecto.prospecto_conocimientos.each_with_index do |conocimiento, index|
           %p
             %b
               = conocimiento.nombre
-          %p= h(conocimiento.descripcion).gsub(/\n/, '<br>').html_safe
+          %p.text-muted
+            = h(conocimiento.descripcion).gsub(/\n/, '<br>').html_safe
           - if index + 1 < @prospecto.prospecto_conocimientos.count
             %hr
