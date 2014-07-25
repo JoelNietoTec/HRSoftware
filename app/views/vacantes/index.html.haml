@@ -34,6 +34,8 @@
           %p
             %b.text-primary Tipo Puesto:
             = TipoPuesto.find(vacante.tipo_puesto_id).nombre
+          %p.actions.text-muted
+            = pasado_palabras vacante.created_at
         .panel-footer
           .actions
             = link_to vacante do

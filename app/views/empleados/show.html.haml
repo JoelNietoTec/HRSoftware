@@ -37,7 +37,7 @@
             %strong
               Fecha de Nacimiento
             %br
-            = @empleado.fecha_nacimiento.strftime("%d/%m/%Y")
+            = fecha_espanol @empleado.fecha_nacimiento
           .field.form-show.col-sm-4
             %strong
               Edad
@@ -95,13 +95,13 @@
               %strong
                 Fecha de Ingreso
               %br
-              = @empleado.fecha_ingreso.strftime("%d/%m/%Y")
+              = fecha_espanol @empleado.fecha_ingreso
             - if @empleado.fecha_liquidacion
               .form-show.col-sm-4
                 %strong
                   Fecha Liquidación
                 %br
-                = @empleado.fecha_liquidacion.strftime("%d/%m/%Y")
+                = fecha_espanol @empleado.fecha_liquidacion
             .form-show.col-sm-4
               %strong
                 Centro de Costo
