@@ -47,7 +47,7 @@
           = @prospecto.direccion
         %p
           %b Fecha de Nacimiento:
-          = @prospecto.fecha_nacimiento.strftime("%d/%m/%Y")
+          = fecha_espanol @prospecto.fecha_nacimiento
           (
           = Date.today.year - @prospecto.fecha_nacimiento.year
           años
