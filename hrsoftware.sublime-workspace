@@ -252,11 +252,23 @@
 	},
 	"file_history":
 	[
+		"/C/Sites/HRSoftware/db/seeds.rb",
+		"/C/Users/Yanaris/Desktop/seeds - copia.rb",
+		"/C/Sites/HRSoftware/db/schema.rb",
+		"/C/Sites/HRSoftware/app/views/layouts/application.html.haml",
+		"/C/Sites/HRSoftware/app/views/vacantes/_form.html.haml",
+		"/C/Sites/HRSoftware/app/views/vacantes/index.html.haml",
+		"/C/Sites/HRSoftware/app/views/vacantes/new.html.haml",
+		"/C/Sites/HRSoftware/app/views/vacantes/edit.html.haml",
+		"/C/Sites/HRSoftware/db/migrate/20140715194121_add_otros_requisitos_from_vacantes.rb",
+		"/C/Sites/HRSoftware/app/assets/javascripts/application.js",
+		"/C/Sites/HRSoftware/app/assets/stylesheets/application.css",
+		"/C/Sites/HRSoftware/Gemfile",
+		"/C/Sites/HRSoftware/app/views/empleados/index.html.haml",
 		"/C/Sites/agenda/app/views/clientes/index.html.erb",
 		"/C/Sites/agenda/app/views/clientes/_form.html.erb",
 		"/C/Sites/agenda/app/views/welcome/index.html.erb",
 		"/C/Sites/agenda/config/routes.rb",
-		"/C/Sites/HRSoftware/Gemfile",
 		"/C/Sites/HRSoftware/app/views/empleados/index.html.erb",
 		"/C/Sites/HRSoftware/app/assets/stylesheets/dataTables.bootstrap.css",
 		"/C/Sites/HRSoftware/app/assets/javascripts/bootstrap.js",
@@ -272,7 +284,6 @@
 		"/C/Sites/agenda/app/views/clientes/edit.html.erb",
 		"/C/Sites/agenda/Gemfile",
 		"/C/Sites/agenda/app/assets/javascripts/application.js",
-		"/C/Sites/HRSoftware/app/assets/javascripts/application.js",
 		"/C/Sites/agenda/app/models/cliente.rb",
 		"/C/Sites/HRSoftware/app/models/estatus.rb",
 		"/C/Sites/HRSoftware/app/models/forma_pago.rb",
@@ -286,7 +297,6 @@
 		"/C/Sites/HRSoftware/app/assets/javascripts/departamentos.js.coffee",
 		"/C/Sites/HRSoftware/app/assets/javascripts/centro_costos.js.coffee",
 		"/C/Sites/HRSoftware/app/assets/javascripts/cargos.js.coffee",
-		"/C/Sites/HRSoftware/app/assets/stylesheets/application.css",
 		"/C/Sites/HRSoftware/app/controllers/cargos_controller.rb",
 		"/C/Sites/HRSoftware/app/controllers/application_controller.rb",
 		"/C/Sites/HRSoftware/app/views/cargos/index.html.erb",
@@ -369,17 +379,7 @@
 		"/C/Sites/rhsoft/app/assets/javascripts/application.js",
 		"/C/Sites/rhsoft/app/views/empleados/new.html.erb",
 		"/C/Sites/rhsoft/db/migrate/20140429024745_create_empleados.rb",
-		"/C/Sites/rhsoft/config/initializers/setup_mail.rb",
-		"/C/Sites/rhsoft/app/mailers/user_mailer.rb",
-		"/C/Sites/rhsoft/app/views/user_mailer/registration_conirmation.text.erb",
-		"/C/Sites/rhsoft/app/controllers/users_controller.rb",
-		"/C/Sites/rhsoft/config/environment.rb",
-		"/C/Sites/rhsoft/config/environments/test.rb",
-		"/C/Sites/rhsoft/config/environments/production.rb",
-		"/C/Sites/rhsoft/config/environments/development.rb",
-		"/C/Sites/mailit/app/controllers/users_controller.rb",
-		"/C/Sites/mailit/db/migrate/20140415033407_create_users.rb",
-		"/C/Sites/mailit/config/routes.rb"
+		"/C/Sites/rhsoft/config/initializers/setup_mail.rb"
 	],
 	"find":
 	{
@@ -398,6 +398,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"corre",
 			"datagrid",
 			"data",
 			"rake",
@@ -501,6 +502,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 233.0,
+	"side_bar_width": 171.0,
 	"status_bar_visible": true
 }

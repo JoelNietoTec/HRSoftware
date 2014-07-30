@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723203206) do
+ActiveRecord::Schema.define(version: 20140730041806) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20140723203206) do
     t.string   "codigo"
     t.string   "nombre"
     t.boolean  "activo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "corregimientos", force: true do |t|
+    t.integer  "provincia_id"
+    t.integer  "distrito_id"
+    t.string   "nombre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
