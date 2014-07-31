@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :percargos
+
+  resources :reqcargos
+
   resources :vacantes
 
   resources :prospectos

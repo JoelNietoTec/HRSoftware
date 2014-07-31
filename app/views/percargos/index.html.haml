@@ -1,0 +1,29 @@
+%h3 Perfil del Cargo
+
+%table#datagrid.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th Cargo
+      %th Edadmax
+      %th Acciones
+
+  %tbody
+    - @percargos.each do |percargo|
+      %tr
+        %td= percargo.cargo_id
+        %td= Cargo.find(empleado.cargo_id).nombre
+        %td.centered
+          = link_to percargo do
+            %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
+          \|
+          = link_to edit_percargo_path(empleado) do
+            %i.fa.fa-pencil.text-primary{'title' => "Editar"}
+          \|
+          = link_to percargo, method: :delete, data: { confirm: '¿Está Seguro?' } do
+            %i.fa.fa-trash-o.text-danger{'title' => "Borrar"}
+
+%br
+
+= link_to new_percargo_path, :class=> "btn btn-primary btn-sm" do
+  %i.fa.fa-plus.text-success
+  Nuevo

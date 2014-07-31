@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Cargo:
+  = @reqcargo.cargo_id
+%p
+  %b Nomrequis:
+  = @reqcargo.nomrequis
+%p
+  %b Lactivo:
+  = @reqcargo.lactivo
+
+= link_to 'Edit', edit_reqcargo_path(@reqcargo)
+\|
+= link_to 'Back', reqcargos_path

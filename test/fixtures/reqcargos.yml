@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cargo_id: 1
+  nomrequis: MyString
+  lactivo: false
+
+two:
+  cargo_id: 1
+  nomrequis: MyString
+  lactivo: false

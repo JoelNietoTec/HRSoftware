@@ -1,0 +1,35 @@
+%h3 Requisitos del Cargo
+
+%table#datagrid.table.table-hover.table-condensed.table-responsive
+  %thead
+    %tr
+      %th Cargo
+      %th Nomrequis
+      %th Lactivo
+      %th Acciones
+
+  %tbody
+    - @reqcargos.each do |reqcargo|
+      %tr
+        %td= reqcargo.cargo_id
+        %td= reqcargo.nomrequis
+        %td.centered
+          - if reqcargo.lactivo
+            %i.fa.fa-check.text-success
+          - else
+            %i.fa.fa-times.text-danger
+        %td.centered
+          = link_to reqcargo do
+            %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
+          \|
+          = link_to edit_reqcargo_path(empleado) do
+            %i.fa.fa-pencil.text-primary{'title' => "Editar"}
+          \|
+          = link_to reqcargo, method: :delete, data: { confirm: '¿Está Seguro?' } do
+            %i.fa.fa-trash-o.text-danger{'title' => "Borrar"}
+
+%br
+
+= link_to new_reqcargo_path, :class=> "btn btn-primary btn-sm" do
+  %i.fa.fa-plus.text-success
+  Nuevo

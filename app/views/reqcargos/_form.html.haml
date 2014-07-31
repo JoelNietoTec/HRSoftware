@@ -1,0 +1,19 @@
+= form_for @reqcargo do |f|
+  - if @reqcargo.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@reqcargo.errors.count, "error")} prohibited this reqcargo from being saved:"
+      %ul
+        - @reqcargo.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :cargo_id
+    = f.number_field :cargo_id
+  .field
+    = f.label :nomrequis
+    = f.text_field :nomrequis
+  .field
+    = f.label :lactivo
+    = f.check_box :lactivo
+  .actions
+    = f.submit 'Save'

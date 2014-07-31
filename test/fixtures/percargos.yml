@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cargo_id: 1
+  edadmax: 1
+  edadmin: 1
+  estcivil: MyString
+  vehicprop: MyString
+  nivelesc: MyString
+  especesc: MyString
+  sexopref: MyString
+  tipoliccond: MyString
+  habilidad: MyText
+  comenta: MyText
+
+two:
+  cargo_id: 1
+  edadmax: 1
+  edadmin: 1
+  estcivil: MyString
+  vehicprop: MyString
+  nivelesc: MyString
+  especesc: MyString
+  sexopref: MyString
+  tipoliccond: MyString
+  habilidad: MyText
+  comenta: MyText

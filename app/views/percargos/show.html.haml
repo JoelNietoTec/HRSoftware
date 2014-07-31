@@ -1,0 +1,39 @@
+%p#notice= notice
+
+%p
+  %b Cargo:
+  = @percargo.cargo_id
+%p
+  %b Edadmax:
+  = @percargo.edadmax
+%p
+  %b Edadmin:
+  = @percargo.edadmin
+%p
+  %b Estcivil:
+  = @percargo.estcivil
+%p
+  %b Vehicprop:
+  = @percargo.vehicprop
+%p
+  %b Nivelesc:
+  = @percargo.nivelesc
+%p
+  %b Especesc:
+  = @percargo.especesc
+%p
+  %b Sexopref:
+  = @percargo.sexopref
+%p
+  %b Tipoliccond:
+  = @percargo.tipoliccond
+%p
+  %b Habilidad:
+  = @percargo.habilidad
+%p
+  %b Comenta:
+  = @percargo.comenta
+
+= link_to 'Edit', edit_percargo_path(@percargo)
+\|
+= link_to 'Back', percargos_path
