@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730041806) do
+ActiveRecord::Schema.define(version: 20140801191418) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -160,6 +160,22 @@ ActiveRecord::Schema.define(version: 20140730041806) do
     t.datetime "updated_at"
   end
 
+  create_table "percargos", force: true do |t|
+    t.integer  "cargo_id"
+    t.integer  "edadmax"
+    t.integer  "edadmin"
+    t.string   "estcivil"
+    t.string   "vehicprop"
+    t.string   "nivelesc"
+    t.string   "especesc"
+    t.string   "sexopref"
+    t.string   "tipoliccond"
+    t.text     "habilidad"
+    t.text     "comenta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "prospecto_cargos", force: true do |t|
     t.integer  "prospecto_id"
     t.integer  "cargo_id"
@@ -281,6 +297,15 @@ ActiveRecord::Schema.define(version: 20140730041806) do
     t.datetime "updated_at"
   end
 
+  create_table "reqcargos", force: true do |t|
+    t.integer  "cargo_id"
+    t.string   "nomrequis"
+    t.boolean  "lactivo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "requerido"
+  end
+
   create_table "seccions", force: true do |t|
     t.string   "codigo"
     t.string   "nombre"
@@ -388,6 +413,12 @@ ActiveRecord::Schema.define(version: 20140730041806) do
     t.integer  "tipo_puesto_id"
     t.integer  "grupo_pago_id"
     t.text     "otros_requisitos"
+  end
+
+  create_table "vehiculos", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

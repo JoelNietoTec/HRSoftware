@@ -6,14 +6,27 @@
         - @reqcargo.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :cargo_id
-    = f.number_field :cargo_id
-  .field
-    = f.label :nomrequis
-    = f.text_field :nomrequis
-  .field
-    = f.label :lactivo
-    = f.check_box :lactivo
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-sm-11
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Datos
+        .panel-body.form-horizontal
+          .field.form-group.col-sm-4
+            = f.label :Cargo, :class=> "control-label"
+            = f.collection_select :cargo_id, Cargo.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-4
+            = f.label :Requisito, :class=> "control-label"
+            = f.text_field :nomrequis, :class=> "form-control input-sm"
+          .field.form-group.col-sm-1
+            = f.label :Requerido?, :class=> "control-label"
+            = f.check_box :requerido, :class=> "form-control input-sm"
+          .field.form-group.col-sm-1
+            = f.label :Activo?, :class=> "control-label"
+            = f.check_box :lactivo, :class=> "form-control input-sm"
+        .panel-footer
+          .actions
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              Guardar
+              %i.fa.fa-save
+

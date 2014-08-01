@@ -6,38 +6,47 @@
         - @percargo.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :cargo_id
-    = f.number_field :cargo_id
-  .field
-    = f.label :edadmax
-    = f.number_field :edadmax
-  .field
-    = f.label :edadmin
-    = f.number_field :edadmin
-  .field
-    = f.label :estcivil
-    = f.text_field :estcivil
-  .field
-    = f.label :vehicprop
-    = f.text_field :vehicprop
-  .field
-    = f.label :nivelesc
-    = f.text_field :nivelesc
-  .field
-    = f.label :especesc
-    = f.text_field :especesc
-  .field
-    = f.label :sexopref
-    = f.text_field :sexopref
-  .field
-    = f.label :tipoliccond
-    = f.text_field :tipoliccond
-  .field
-    = f.label :habilidad
-    = f.text_area :habilidad
-  .field
-    = f.label :comenta
-    = f.text_area :comenta
-  .actions
-    = f.submit 'Save'
+  .row
+    .col-sm-11
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title Datos
+        .panel-body.form-horizontal
+          .field.form-group.col-sm-4
+            = f.label :Cargo, :class=> "control-label"
+            = f.collection_select :cargo_id, Cargo.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-1
+            = f.label :Edad_Máx, :class=> "control-label"
+            = f.number_field :edadmax, :class=> "form-control input-sm"
+          .field.form-group.col-sm-1
+            = f.label :Edad_Mín, :class=> "control-label"
+            = f.number_field :edadmin, :class=> "form-control input-sm"
+          .field.form-group.col-sm-2
+            = f.label :Estado_Civil, :class=> "control-label"
+            = f.collection_select :estcivil, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-2
+            = f.label :Tipo_de_Vehículo, :class=> "control-label"
+            = f.collection_select :vehicprop, Vehiculo.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-2
+            = f.label :Nivel_Escolar, :class=> "control-label"
+            = f.collection_select :nivelesc, NivelEstudio.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-2
+            = f.label :Especialdad, :class=> "control-label"
+            = f.text_field :especesc, :class=> "form-control input-sm"
+          .field.form-group.col-sm-2
+            = f.label :Sexo_Preferido, :class=> "control-label"
+            = f.collection_select :sexopref, Sexo.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-2
+            = f.label :Tipo_de_Licencia, :class=> "control-label"
+            = f.collection_select :tipoliccond, Licencia.select("id, vehiculo").all, :id, :vehiculo, {}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-12
+            = f.label :Habilidades, :class=> "control-label"
+            = f.text_area :habilidad, :class=> "form-control input-sm"
+          .field.form-group.col-sm-12
+            = f.label :Comentarios, :class=> "control-label"
+            = f.text_area :comenta, :class=> "form-control input-sm"
+        .panel-footer
+          .actions
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              Guardar
+              %i.fa.fa-save

@@ -1,15 +1,34 @@
 %p#notice= notice
 
-%p
-  %b Cargo:
-  = @reqcargo.cargo_id
-%p
-  %b Nomrequis:
-  = @reqcargo.nomrequis
-%p
-  %b Lactivo:
-  = @reqcargo.lactivo
-
-= link_to 'Edit', edit_reqcargo_path(@reqcargo)
-\|
-= link_to 'Back', reqcargos_path
+.row
+  .col-sm-11
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Requisitos del Cargo
+    .panel-body.form-horizontal
+    .field.form-show.col-sm-4
+      %Strong
+        Cargo:
+      %br
+        = Cargo.find(@reqcargo.cargo_id).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Nombre:
+      %br
+        = @reqcargo.nomrequis
+    .field.form-show.col-sm-2
+      %Strong
+        Requerido:
+      %br
+        = @reqcargo.requerido
+    .field.form-show.col-sm-2
+      %Strong
+        Activo:
+      %br
+        = @reqcargo.lactivo
+    .col-sm-3
+      %br
+      %br
+      = link_to 'Editar', edit_reqcargo_path(@reqcargo)
+      |
+      = link_to 'Regresar', reqcargos_path

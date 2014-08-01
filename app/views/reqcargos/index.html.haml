@@ -4,15 +4,21 @@
   %thead
     %tr
       %th Cargo
-      %th Nomrequis
-      %th Lactivo
+      %th Requisito
+      %th Requerido?
+      %th Activo?
       %th Acciones
 
   %tbody
     - @reqcargos.each do |reqcargo|
       %tr
-        %td= reqcargo.cargo_id
+        %td= Cargo.find(reqcargo.cargo_id).nombre
         %td= reqcargo.nomrequis
+        %td.centered
+          - if reqcargo.requerido
+            %i.fa.fa-check.text-success
+          - else
+            %i.fa.fa-times.text-danger
         %td.centered
           - if reqcargo.lactivo
             %i.fa.fa-check.text-success
@@ -22,7 +28,7 @@
           = link_to reqcargo do
             %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
           \|
-          = link_to edit_reqcargo_path(empleado) do
+          = link_to edit_reqcargo_path(reqcargo) do
             %i.fa.fa-pencil.text-primary{'title' => "Editar"}
           \|
           = link_to reqcargo, method: :delete, data: { confirm: '¿Está Seguro?' } do

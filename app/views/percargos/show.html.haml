@@ -1,39 +1,69 @@
 %p#notice= notice
 
-%p
-  %b Cargo:
-  = @percargo.cargo_id
-%p
-  %b Edadmax:
-  = @percargo.edadmax
-%p
-  %b Edadmin:
-  = @percargo.edadmin
-%p
-  %b Estcivil:
-  = @percargo.estcivil
-%p
-  %b Vehicprop:
-  = @percargo.vehicprop
-%p
-  %b Nivelesc:
-  = @percargo.nivelesc
-%p
-  %b Especesc:
-  = @percargo.especesc
-%p
-  %b Sexopref:
-  = @percargo.sexopref
-%p
-  %b Tipoliccond:
-  = @percargo.tipoliccond
-%p
-  %b Habilidad:
-  = @percargo.habilidad
-%p
-  %b Comenta:
-  = @percargo.comenta
-
-= link_to 'Edit', edit_percargo_path(@percargo)
-\|
-= link_to 'Back', percargos_path
+.row
+  .col-sm-11
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Perfil del Cargo
+    .panel-body.form-horizontal
+    .field.form-show.col-sm-4
+      %Strong
+        Cargo:
+      %br
+        = Cargo.find(@percargo.cargo_id).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Edad Max:
+      %br
+        = @percargo.edadmax
+    .field.form-show.col-sm-4
+      %Strong
+        Edad Min:
+      %br
+        = @percargo.edadmin
+    .field.form-show.col-sm-4
+      %Strong
+        Estado Civil:
+      %br
+        = EstadoCivil.find(@percargo.estcivil).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Vehiculo Prop:
+      %br
+        = Vehiculo.find(@percargo.vehicprop).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Nivel Escolar:
+      %br
+        = NivelEstudio.find(@percargo.nivelesc).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Especialidad Esc:
+      %br
+        = @percargo.especesc
+    .field.form-show.col-sm-4
+      %Strong
+        Sexo Preferido:
+      %br
+        = Sexo.find(@percargo.sexopref).nombre
+    .field.form-show.col-sm-4
+      %Strong
+        Tipo de licencia:
+      %br
+        = Licencia.find(@percargo.tipoliccond).vehiculo
+    .field.form-show.col-sm-4
+      %Strong
+        Habilidadades Requeridas:
+      %br
+        = @percargo.habilidad
+    .field.form-show.col-sm-4
+      %Strong
+        Comentarios:
+      %br
+        = @percargo.comenta
+    .col-sm-3
+      %br
+      %br
+      = link_to 'Editar', edit_percargo_path(@percargo)
+      |
+      = link_to 'Regresar', percargos_path

@@ -10,6 +10,7 @@ class ReqcargosController < ApplicationController
   # GET /reqcargos/1
   # GET /reqcargos/1.json
   def show
+    add_breadcrumb "Detalles", @reqcargos
   end
 
   # GET /reqcargos/new
