@@ -4,8 +4,12 @@
 		"selected_items":
 		[
 			[
+				"Per",
+				"percargo"
+			],
+			[
 				"req",
-				"require"
+				"reqcargo"
 			],
 			[
 				"wor",
@@ -252,6 +256,31 @@
 	},
 	"file_history":
 	[
+		"/E/Sites/rhsoftware/app/views/reqcargos/show.html.haml",
+		"/E/Sites/rhsoftware/app/views/percargos/index.html.haml",
+		"/E/Sites/rhsoftware/db/seeds.rb",
+		"/E/Sites/rhsoftware/app/views/layouts/application.html.haml",
+		"/E/Sites/rhsoftware/app/views/percargos/show.html.haml",
+		"/E/Sites/rhsoftware/app/views/reqcargos/index.html.haml",
+		"/E/Sites/rhsoftware/app/views/empleados/index.html.haml",
+		"/E/Sites/rhsoftware/app/views/empleados/show.html.haml",
+		"/E/Sites/rhsoftware/app/views/reqcargos/_form.html.haml",
+		"/E/Sites/rhsoftware/app/views/empleados/show.json.jbuilder",
+		"/E/Sites/rhsoftware/app/views/percargos/_form.html.haml",
+		"/E/Sites/rhsoftware/app/views/departamentos/show.json.jbuilder",
+		"/E/Sites/rhsoftware/app/controllers/reqcargos_controller.rb",
+		"/E/Sites/rhsoftware/app/controllers/departamentos_controller.rb",
+		"/E/Sites/rhsoftware/app/helpers/departamentos_helper.rb",
+		"/E/Sites/rhsoftware/app/models/departamento.rb",
+		"/E/Sites/rhsoftware/app/views/seccions/show.json.jbuilder",
+		"/E/Sites/rhsoftware/app/views/sucursals/show.json.jbuilder",
+		"/E/Sites/rhsoftware/app/views/vacantes/show.html.haml",
+		"/E/Sites/rhsoftware/db/migrate/20140801191204_add.rb",
+		"/E/Sites/rhsoftware/app/views/empleados/_form.html.haml",
+		"/E/Sites/rhsoftware/app/views/vacantes/_form.html.haml",
+		"/E/Sites/rhsoftware/app/views/welcome/index.html.haml",
+		"/E/Sites/rhsoftware/app/views/sucursals/index.html.haml",
+		"/E/Sites/rhsoftware/app/views/turnos/index.html.haml",
 		"/C/Sites/HRSoftware/db/seeds.rb",
 		"/C/Users/Yanaris/Desktop/seeds - copia.rb",
 		"/C/Sites/HRSoftware/db/schema.rb",
@@ -354,32 +383,7 @@
 		"/C/Sites/rhsoft/app/views/turnos/show.html.erb",
 		"/C/Sites/rhsoft/app/views/turnos/new.html.erb",
 		"/C/Sites/rhsoft/app/views/turnos/edit.html.erb",
-		"/C/Sites/rhsoft/app/views/turnos/index.html.erb",
-		"/C/Sites/payday/app/views/clientes/index.html.erb",
-		"/C/Sites/rhsoft/app/views/sub_proys/index.html.erb",
-		"/C/Sites/rhsoft/app/views/sucursals/index.html.erb",
-		"/C/Sites/rhsoft/config/application.rb",
-		"/C/Sites/rhsoft/app/views/contacto/index.html.erb",
-		"/C/Sites/rhsoft/app/views/acercade/index.html.erb",
-		"/C/Sites/rhsoft/app/views/empleados/edit.html.erb",
-		"/C/Sites/rhsoft/app/views/proyectos/index.html.erb",
-		"/C/Sites/rhsoft/app/views/deptos/index.html.erb",
-		"/C/Sites/rhsoft/app/views/ctro_ctos/index.html.erb",
-		"/C/Sites/rhsoft/config/routes.rb",
-		"/C/Sites/rhsoft/app/views/seccions/index.html.erb",
-		"/C/Sites/rhsoft/app/views/cargos/index.html.erb",
-		"/C/Sites/rhsoft/app/assets/stylesheets/seccions.css.scss",
-		"/C/Sites/payday/app/views/clientes/_form.html.erb",
-		"/C/Sites/rhsoft/app/views/empleados/show.html.erb",
-		"/C/Sites/rhsoft/app/views/ctro_ctos/_form.html.erb",
-		"/C/Sites/rhsoft/app/views/ctro_ctos/show.html.erb",
-		"/C/Sites/rhsoft/app/views/ctro_ctos/new.html.erb",
-		"/C/Sites/rhsoft/app/views/ctro_ctos/edit.html.erb",
-		"/C/Sites/rhsoft/app/views/layouts/application.html.erb",
-		"/C/Sites/rhsoft/app/assets/javascripts/application.js",
-		"/C/Sites/rhsoft/app/views/empleados/new.html.erb",
-		"/C/Sites/rhsoft/db/migrate/20140429024745_create_empleados.rb",
-		"/C/Sites/rhsoft/config/initializers/setup_mail.rb"
+		"/C/Sites/rhsoft/app/views/turnos/index.html.erb"
 	],
 	"find":
 	{
@@ -444,6 +448,11 @@
 			"sheets":
 			[
 			]
+		},
+		{
+			"sheets":
+			[
+			]
 		}
 	],
 	"incremental_find":
@@ -463,11 +472,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -502,6 +518,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 171.0,
+	"side_bar_width": 208.0,
 	"status_bar_visible": true
 }
