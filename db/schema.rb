@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801191418) do
+ActiveRecord::Schema.define(version: 20140813203524) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140801191418) do
     t.integer  "departamento_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "edad_minima"
+    t.integer  "edad_maxima"
+    t.integer  "estado_civil_id"
+    t.integer  "area_profesional_id"
+    t.integer  "vehiculo_id"
+    t.integer  "sexo_id"
+    t.integer  "nivel_estudio_id"
+    t.integer  "licencia_id"
+    t.text     "habilidades"
+    t.text     "comentarios"
   end
 
   add_index "cargos", ["departamento_id"], name: "index_cargos_on_departamento_id"
@@ -156,22 +166,6 @@ ActiveRecord::Schema.define(version: 20140801191418) do
 
   create_table "nivel_idiomas", force: true do |t|
     t.string   "nombre"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "percargos", force: true do |t|
-    t.integer  "cargo_id"
-    t.integer  "edadmax"
-    t.integer  "edadmin"
-    t.string   "estcivil"
-    t.string   "vehicprop"
-    t.string   "nivelesc"
-    t.string   "especesc"
-    t.string   "sexopref"
-    t.string   "tipoliccond"
-    t.text     "habilidad"
-    t.text     "comenta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
