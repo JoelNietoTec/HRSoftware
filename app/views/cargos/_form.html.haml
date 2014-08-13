@@ -8,24 +8,28 @@
             - @cargo.errors.full_messages.each do |message|
               %li= message
   .row
-    .col-md-6
+    .col-md-10
       .panel.panel-primary
         .panel-heading
           %h4.panel-title
             Datos
         .panel-body.form-horizontal
-          .field.form-group
-            =f.label :codigo, :class=> "control-label col-sm-3"
-            .col-sm-6
-              = f.text_field :codigo, :class=> "form-control input-sm upper"
-          .field.form-group
-            = f.label :departamento_id, :class=> "control-label col-sm-3"
-            .col-sm-8
-              = f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"}
-          .field.form-group
-            = f.label :nombre, :class=> "control-label col-sm-3"
-            .col-sm-8
-              = f.text_field :nombre, :class=> "form-control input-sm"
+          .field.form-group.col-sm-4
+            = f.label :nombre, :class=> "control-label"
+            %br
+            = f.text_field :nombre, :class=> "form-control input-sm"
+          .field.form-group.col-sm-4
+            =f.label :codigo, :class=> "control-label"
+            %br
+            = f.text_field :codigo, :class=> "form-control input-sm upper"
+          .field.form-group.col-sm-4
+            = f.label :departamento_id, :class=> "control-label"
+            %br
+            = f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"}
+          .field.form-group.col-sm-4
+            = f.label :area_profesional_id, :class=> "control-label"
+            %br
+            = f.collection_select :area_profesional_id, AreaProfesional.select("id, nombre").all, :id, :nombre,{:prompt=> true}, {:class=> "form-control input-sm"}
           .field.form-group
             .col-sm-2
             .field.checkbox.col-sm-10
@@ -36,6 +40,3 @@
             = f.button(type: "submit", class: "btn btn-sm btn-primary") do
               Guardar
               %i.fa.fa-save
-
-
-
