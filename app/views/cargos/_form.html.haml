@@ -19,7 +19,7 @@
             %br
             = f.text_field :nombre, :class=> "form-control input-sm"
           .field.form-group.col-sm-4
-            =f.label :codigo, :class=> "control-label"
+            =f.label :codigo, "Código", :class=> "control-label"
             %br
             = f.text_field :codigo, :class=> "form-control input-sm upper"
           .field.form-group.col-sm-4
@@ -27,9 +27,16 @@
             %br
             = f.collection_select :departamento_id, Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"}
           .field.form-group.col-sm-4
-            = f.label :area_profesional_id, :class=> "control-label"
+            = f.label :area_profesional_id, "Área Profesional", :class=> "control-label"
             %br
-            = f.collection_select :area_profesional_id, AreaProfesional.select("id, nombre").all, :id, :nombre,{:prompt=> true}, {:class=> "form-control input-sm"}
+            = f.collection_select :area_profesional_id, AreaProfesional.select("id, nombre").all, :id, :nombre,{:prompt=> "***Favor Seleccionar***"}, {:class=> "form-control input-sm"}
+
+          %fieldset.col-sm-12
+            %legend Requisitos
+            .field.form-group.col-sm-4
+              = f.label :estado_civil_id, :class=> "control-label"
+              %br
+              = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
           .field.form-group
             .col-sm-2
             .field.checkbox.col-sm-10
