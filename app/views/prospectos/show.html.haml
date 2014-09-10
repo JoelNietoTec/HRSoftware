@@ -3,8 +3,8 @@
     .panel.panel-black
       .panel-body
         %h2
-          = @prospecto.nombres
-          = @prospecto.apellidos
+          = @prospecto.nombres.upcase
+          = @prospecto.apellidos.upcase
         %h4.text-info
           %i.fa.fa-sitemap
           = AreaProfesional.find(@prospecto.area_profesional_id).nombre
@@ -20,15 +20,15 @@
         .actions
           = link_to edit_prospecto_path(@prospecto), :class=> "btn btn-primary btn-sm" do
             %i.fa.fa-pencil
-            Editar
+            EDITAR
           = link_to prospectos_path, :class=> "btn btn-primary btn-sm" do
             %i.fa.fa-check.text-success
-            Aceptar
+            ACEPTAR
     .panel.panel-primary
       .panel-heading
         %h4.panel-title
           %i.fa.fa-user
-          Datos Personales
+          DATOS PERSONALES
       .panel-body
         %p
           %b Cédula:
@@ -73,7 +73,7 @@
       .panel-heading
         %h4.panel-title
           %i.fa.fa-suitcase
-          Experiencia
+          EXPERIENCIA LABORAL
       .panel-body
         - @prospecto.prospecto_experiencias.sort{|a, b| b.fecha_ingreso <=> a.fecha_ingreso}.each_with_index do |experiencia, index|
           %b
@@ -103,7 +103,7 @@
       .panel-heading
         %h4.panel-title
           %i.fa.fa-graduation-cap
-          Educación
+          EDUCACIÓN
       .panel-body
         - @prospecto.prospecto_estudios.sort{|a, b| b.fecha_inicio <=> a.fecha_inicio}.each_with_index do |estudio, index|
           %b
@@ -125,7 +125,7 @@
       .panel-heading
         %h4.panel-title
           %i.fa.fa-book
-          Cursos y Seminarios
+          CURSOS Y SEMINARIOS
       .panel-body
         - @prospecto.prospecto_cursos.sort{|a, b| b.anio_curso <=> a.anio_curso}.each_with_index do |curso, index|
           %b
@@ -142,7 +142,7 @@
       .panel-heading
         %h4.panel-title
           %i.fa.fa-language
-          Idiomas
+          IDIOMAS
       .panel-body
         - @prospecto.prospecto_idiomas.each_with_index do |idioma, index|
           %b
@@ -159,7 +159,7 @@
       .panel-heading
         %h4.panel-title
           %i.fa.fa-list-alt
-          Conocimientos
+          CONOCIMIENTOS Y HABILIDADES
       .panel-body
         - @prospecto.prospecto_conocimientos.each_with_index do |conocimiento, index|
           %p

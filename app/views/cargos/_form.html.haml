@@ -12,7 +12,7 @@
       .panel.panel-primary
         .panel-heading
           %h4.panel-title
-            Datos
+            DATOS
         .panel-body.form-horizontal
           .field.form-group.col-sm-4
             = f.label :nombre, :class=> "control-label"
@@ -30,20 +30,32 @@
             = f.label :area_profesional_id, "Área Profesional", :class=> "control-label"
             %br
             = f.collection_select :area_profesional_id, AreaProfesional.select("id, nombre").all, :id, :nombre,{:prompt=> "***Favor Seleccionar***"}, {:class=> "form-control input-sm"}
-
           %fieldset.col-sm-12
             %legend Requisitos
-            .field.form-group.col-sm-4
-              = f.label :estado_civil_id, :class=> "control-label"
-              %br
-              = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
-          .field.form-group
-            .col-sm-2
-            .field.checkbox.col-sm-10
-              = f.label :activo
-              = f.check_box :activo
+            .form-horizontal
+              .field.form-group.col-sm-4
+                = f.label :estado_civil_id, "Estado Civil",  :class=> "control-label"
+                %br
+                = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
+              .field.form-group.col-sm-4
+                = f.label :vehiculo_id, "Vehículo",  :class=> "control-label"
+                %br
+                = f.collection_select :vehiculo_id, Vehiculo.select("id, nombre").all, :id, :nombre, {:prompt=> "***No requerido***"}, {:class=> "form-control input-sm"}
+              .field.form-group.col-sm-4
+                = f.label :licencia_id, "Licencia",  :class=> "control-label"
+                %br
+                = f.collection_select :licencia_id, Licencia.select("id, tipo").all, :id, :tipo, {:prompt=> "***No requerida***"}, {:class=> "form-control input-sm"}
+              .field.form-group.col-sm-4
+                = f.label :sexo_id, "Sexo",  :class=> "control-label"
+                %br
+                = f.collection_select :sexo_id, Sexo.select("id, nombre").all, :id, :nombre, {:prompt=> "***No especificado***"}, {:class=> "form-control input-sm"}
+            .field.form-group
+              .col-sm-2
+              .field.checkbox.col-sm-10
+                = f.label :activo
+                = f.check_box :activo
         .panel-footer
           .actions
             = f.button(type: "submit", class: "btn btn-sm btn-primary") do
-              Guardar
+              GUARDAR
               %i.fa.fa-save

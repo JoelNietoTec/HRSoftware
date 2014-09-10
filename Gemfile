@@ -48,7 +48,7 @@ gem 'jquery-turbolinks'
 
 gem 'country_select'
 
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'sorcery'
 
