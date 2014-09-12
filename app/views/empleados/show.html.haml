@@ -1,8 +1,8 @@
 .row
   .col-sm-9
     %h2.text-primary
-      = @empleado.nombres
-      = @empleado.apellidos
+      = @empleado.nombres.titleize
+      = @empleado.apellidos.titleize
     %ul.nav.nav-tabs
       %li.active
         %a{'href' => "#Personal", 'data-toggle' => "tab"}

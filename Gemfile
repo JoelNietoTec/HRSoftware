@@ -38,7 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
-gem 'paperclip', '~> 4.1'
+gem "paperclip", "~> 4.2"
 
 gem 'nested_form'
 
@@ -60,4 +60,5 @@ gem 'will_paginate-bootstrap'
 
 #Excel
 gem 'roo'
+
 
