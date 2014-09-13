@@ -6,10 +6,10 @@
     %ul.nav.nav-tabs
       %li.active
         %a{'href' => "#Personal", 'data-toggle' => "tab"}
-          Datos Personales
+          DATOS PERSONALES
       %li
         %a{'href' => "#Laboral", 'data-toggle' => "tab"}
-          Datos Laborales
+          DATOS LABORALES
     #myTabContent.tab-content.container-show
       .tab-pane.fade.in.active#Personal
         .form-horizontal
@@ -57,7 +57,7 @@
             %strong
               País de Origen
             %br
-            = @empleado.nacionalidad_id
+            = @empleado.country_name
           .field.form-show.col-sm-4
             %strong
               Email

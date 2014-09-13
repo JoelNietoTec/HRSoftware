@@ -246,7 +246,7 @@ th {
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
   }
-  .label {
+  .lRoboto+Condensed {
     border: 1px solid #000;
   }
   .table {
@@ -1648,7 +1648,7 @@ legend {
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
-label {
+lRoboto+Condensed {
   display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
@@ -1751,8 +1751,8 @@ input[type="date"] {
   margin-bottom: 10px;
   padding-left: 20px;
 }
-.radio label,
-.checkbox label {
+.radio lRoboto+Condensed,
+.checkbox lRoboto+Condensed {
   display: inline;
   font-weight: normal;
   cursor: pointer;
@@ -1839,7 +1839,7 @@ select[multiple].input-lg {
   text-align: center;
 }
 .has-success .help-block,
-.has-success .control-label,
+.has-success .control-lRoboto+Condensed,
 .has-success .radio,
 .has-success .checkbox,
 .has-success .radio-inline,
@@ -1865,7 +1865,7 @@ select[multiple].input-lg {
   color: #43ac6a;
 }
 .has-warning .help-block,
-.has-warning .control-label,
+.has-warning .control-lRoboto+Condensed,
 .has-warning .radio,
 .has-warning .checkbox,
 .has-warning .radio-inline,
@@ -1891,7 +1891,7 @@ select[multiple].input-lg {
   color: #e99002;
 }
 .has-error .help-block,
-.has-error .control-label,
+.has-error .control-lRoboto+Condensed,
 .has-error .radio,
 .has-error .checkbox,
 .has-error .radio-inline,
@@ -1939,7 +1939,7 @@ select[multiple].input-lg {
   .form-inline .input-group > .form-control {
     width: 100%;
   }
-  .form-inline .control-label {
+  .form-inline .control-lRoboto+Condensed {
     margin-bottom: 0;
     vertical-align: middle;
   }
@@ -1960,7 +1960,7 @@ select[multiple].input-lg {
     top: 0;
   }
 }
-.form-horizontal .control-label,
+.form-horizontal .control-lRoboto+Condensed,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
@@ -1981,7 +1981,7 @@ select[multiple].input-lg {
   padding-top: 7px;
 }
 @media (min-width: 768px) {
-  .form-horizontal .control-label {
+  .form-horizontal .control-lRoboto+Condensed {
     text-align: right;
   }
 }
@@ -3856,7 +3856,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-form .input-group > .form-control {
     width: 100%;
   }
-  .navbar-form .control-label {
+  .navbar-form .control-lRoboto+Condensed {
     margin-bottom: 0;
     vertical-align: middle;
   }
@@ -4256,7 +4256,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
   cursor: not-allowed;
 }
-.label {
+.lRoboto+Condensed {
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -4268,59 +4268,59 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   vertical-align: baseline;
   border-radius: .25em;
 }
-.label[href]:hover,
-.label[href]:focus {
+.lRoboto+Condensed[href]:hover,
+.lRoboto+Condensed[href]:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
-.label:empty {
+.lRoboto+Condensed:empty {
   display: none;
 }
-.btn .label {
+.btn .lRoboto+Condensed {
   position: relative;
   top: -1px;
 }
-.label-default {
+.lRoboto+Condensed-default {
   background-color: #999999;
 }
-.label-default[href]:hover,
-.label-default[href]:focus {
+.lRoboto+Condensed-default[href]:hover,
+.lRoboto+Condensed-default[href]:focus {
   background-color: #808080;
 }
-.label-primary {
+.lRoboto+Condensed-primary {
   background-color: #008cba;
 }
-.label-primary[href]:hover,
-.label-primary[href]:focus {
+.lRoboto+Condensed-primary[href]:hover,
+.lRoboto+Condensed-primary[href]:focus {
   background-color: #006687;
 }
-.label-success {
+.lRoboto+Condensed-success {
   background-color: #43ac6a;
 }
-.label-success[href]:hover,
-.label-success[href]:focus {
+.lRoboto+Condensed-success[href]:hover,
+.lRoboto+Condensed-success[href]:focus {
   background-color: #358753;
 }
-.label-info {
+.lRoboto+Condensed-info {
   background-color: #5bc0de;
 }
-.label-info[href]:hover,
-.label-info[href]:focus {
+.lRoboto+Condensed-info[href]:hover,
+.lRoboto+Condensed-info[href]:focus {
   background-color: #31b0d5;
 }
-.label-warning {
+.lRoboto+Condensed-warning {
   background-color: #e99002;
 }
-.label-warning[href]:hover,
-.label-warning[href]:focus {
+.lRoboto+Condensed-warning[href]:hover,
+.lRoboto+Condensed-warning[href]:focus {
   background-color: #b67102;
 }
-.label-danger {
+.lRoboto+Condensed-danger {
   background-color: #f04124;
 }
-.label-danger[href]:hover,
-.label-danger[href]:focus {
+.lRoboto+Condensed-danger[href]:hover,
+.lRoboto+Condensed-danger[href]:focus {
   background-color: #d32a0e;
 }
 .badge {
@@ -5982,8 +5982,8 @@ padding-bottom: 0px;
 padding-left: 7px;
 padding-right: 7px;
 }*/
-label,
-.control-label,
+lRoboto+Condensed,
+.control-lRoboto+Condensed,
 .help-block,
 .checkbox,
 .radio {
@@ -6079,13 +6079,13 @@ label,
 .alert .close:focus {
   color: #fff;
 }
-.label {
+.lRoboto+Condensed {
   padding-left: 1em;
   padding-right: 1em;
   border-radius: 0;
   font-weight: 300;
 }
-.label-default {
+.lRoboto+Condensed-default {
   background-color: #e7e7e7;
   color: #333333;
 }

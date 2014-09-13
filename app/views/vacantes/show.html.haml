@@ -30,9 +30,9 @@
       %br
       .panel.panel-primary
         .panel-heading
-          %h4.panel-title Descripción del Cargo
+          %h4.panel-title DESCRIPCIÓN DEL CARGO
         .panel-body
           = h(@vacante.descripcion_cargo).gsub(/\n/, '<br>').html_safe
-= link_to 'Editar', edit_vacante_path(@vacante)
+= link_to 'EDITAR', edit_vacante_path(@vacante)
 \|
 = link_to 'VOLVER', vacantes_path

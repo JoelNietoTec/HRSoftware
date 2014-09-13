@@ -66,7 +66,7 @@
               %br
               = f.collection_select :estado_civil_id, EstadoCivil.select("id, nombre").all, :id, :nombre, {}, {:class=> "form-control input-sm"}
             .field.form-group.col-sm-3
-              = f.label :nacionalidad_id, :class=> "control-label"
+              = f.label :nacionalidad_id, "País de Origen", :class=> "control-label"
               %br
               = f.country_select :nacionalidad_id, ["Panamá"], {:locale => "es"}, :class=> "form-control input-sm"
             .field.form-group.col-sm-4.col-sm-4

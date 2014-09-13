@@ -3,8 +3,8 @@
     .panel.panel-black
       .panel-body
         %h2
-          = @prospecto.nombres.upcase
-          = @prospecto.apellidos.upcase
+          = @prospecto.nombres.titleize
+          = @prospecto.apellidos.titleize
         %h4.text-info
           %i.fa.fa-sitemap
           = AreaProfesional.find(@prospecto.area_profesional_id).nombre
@@ -58,7 +58,7 @@
           = Licencia.find(@prospecto.licencia_id).tipo
         %p
           %b País de Origen:
-          = @prospecto.nacionalidad
+          = @prospecto.country_name
         %p
           %b Aspiración Salarial:
           %b.text-success

@@ -1,4 +1,10 @@
 class Prospecto < ActiveRecord::Base
+
+  def country_name
+    country = ISO3166::Country[nacionalidad]
+    country.translations['es'] || country.name
+  end
+
   has_many :prospecto_telefonos
   has_many :prospecto_estudios
   has_many :prospecto_experiencias

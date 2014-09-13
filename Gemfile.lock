@@ -175,6 +175,7 @@ PLATFORMS
 DEPENDENCIES
   breadcrumbs_on_rails
   coffee-rails (~> 4.0.0)
+  countries
   country_select
   font-awesome-sass (~> 4.2.0)
   haml-rails (~> 0.5.3)

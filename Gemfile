@@ -48,6 +48,8 @@ gem 'jquery-turbolinks'
 
 gem 'country_select'
 
+gem 'countries'
+
 gem 'font-awesome-sass', '~> 4.2.0'
 
 gem 'sorcery'
@@ -60,5 +62,3 @@ gem 'will_paginate-bootstrap'
 
 #Excel
 gem 'roo'
-
-
