@@ -258,7 +258,8 @@
                     %td= idiomas_form.collection_select :nivel_escrito_id, NivelIdioma.select("id, nombre").all, :id, :nombre, {}, :class=> "form-control input-sm"
                     %td
                       = idiomas_form.link_to_remove do
-                        %i.fa.fa-minus.text-danger
+                        .btn.btn-xs.btn-danger
+                          %i.fa.fa-minus
             = f.link_to_add :prospecto_idiomas, :class=> "btn btn-sm btn-primary", :data => { :target => "#idiomas" } do
               %i.fa.fa-plus.text-success
               NUEVO IDIOMA

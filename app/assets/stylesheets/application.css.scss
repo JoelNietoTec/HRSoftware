@@ -75,7 +75,16 @@ thead > tr > th {
   margin-left: 10px;
   font-weight: 500;
   margin-right: 10px;
-  text-transform: uppercase;
+}
+
+.aside-header {
+  background-color: #008CBA;
+  color: #fff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  margin: -5px;
+  min-height: 40px;
 }
 
 .panel-collapse {

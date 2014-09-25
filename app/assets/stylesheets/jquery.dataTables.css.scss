@@ -37,21 +37,21 @@ table.dataTable thead .sorting {
   cursor: pointer;
   *cursor: hand;
 }
-table.dataTable thead .sorting {
-  background: image-url('sort_both.png') no-repeat center right;
-}
-table.dataTable thead .sorting_asc {
-  background: image-url('sort_asc.png') no-repeat center right;
-}
-table.dataTable thead .sorting_desc {
-  background: image-url('sort_desc.png') no-repeat center right;
-}
-table.dataTable thead .sorting_asc_disabled {
-  background: image-url('sort_asc_disabled.png') no-repeat center right;
-}
-table.dataTable thead .sorting_desc_disabled {
-  background: image-url('sort_desc_disabled.png') no-repeat center right;
-}
+//table.dataTable thead .sorting {
+//  background: image-url('sort_both.png') no-repeat center right;
+//}
+//table.dataTable thead .sorting_asc {
+//  background: image-url('sort_asc.png') no-repeat center right;
+//}
+//table.dataTable thead .sorting_desc {
+//  background: image-url('sort_desc.png') no-repeat center right;
+//}
+//table.dataTable thead .sorting_asc_disabled {
+//  background: image-url('sort_asc_disabled.png') no-repeat center right;
+//}
+//table.dataTable thead .sorting_desc_disabled {
+//  background: image-url('sort_desc_disabled.png') no-repeat center right;
+//}
 table.dataTable tbody tr {
   background-color: white;
 }
@@ -346,6 +346,7 @@ table.dataTable td {
 }
 .dataTables_wrapper .dataTables_scroll {
   clear: both;
+  margin-top: 10px;
 }
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
   *margin-top: -1px;

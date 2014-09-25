@@ -7,29 +7,23 @@
       %th Aspiración Salarial
       %th Edad
       %th Área
-      %th Nivel Académico
-      %th Último Cargo
       %th Acciones
 
   - @prospectos.each do |prospecto|
     %tr
-      %td
+      %td.centered
         = prospecto.nombres
         = prospecto.apellidos
       %td.centered= number_to_currency(prospecto.aspiracion_salario)
       %td.centered= Date.today.year - prospecto.fecha_nacimiento.year
-      %td= AreaProfesional.find(prospecto.area_profesional_id).nombre
-      %td.centered= NivelEstudio.find(prospecto.nivel_estudio_id).nombre
-      %td.centered= prospecto.cargo
+      %td.centered= AreaProfesional.find(prospecto.area_profesional_id).nombre
       %td.centered
         = link_to prospecto do
-          %i.fa.fa-search-plus.text-success{'title' => "Detalles"}
-        \|
+          %i.fa.fa-search-plus.btn.btn-xs.btn-success{'title' => "Detalles"}
         = link_to edit_prospecto_path(prospecto) do
-          %i.fa.fa-pencil.text-primary{'title' => "Editar"}
-        \|
+          %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
         = link_to prospecto, method: :delete, data: { confirm: '¿Está Seguro?' } do
-          %i.fa.fa-trash-o.text-danger{'title' => "Borrar"}
+          %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => "Borrar"}
 
 %br
 = link_to  new_prospecto_path, :class=> "btn btn-primary btn-sm" do
