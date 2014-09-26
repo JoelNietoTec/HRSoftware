@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'marcacion/index'
+
   resources :reqcargos
 
   resources :vacantes

@@ -112,13 +112,14 @@
             background-image: url('/assets/BackgroundHR.jpg');
             }
         .row
-          .jumbotron#home
-            %h1.text-info RH Software
-            %p.text-primary Sistema de Gestión de Recursos Humanos
-            %p
-              = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-primary" do
-                Abrir Sesión
-                %i.fa.fa-sign-in
+          .home-panel.col-sm-6.center-block
+            .jumbotron#home
+              %h1.text-info RH Software
+              %p Sistema de Gestión de Recursos Humanos
+              %p
+                = link_to "#modal_login", "data-toggle" => "modal", "data-target" => "#modal_login", :class=> "btn btn-success" do
+                  Abrir Sesión
+                  %i.fa.fa-sign-in
     .modal.fade#modal_login
       .modal-dialog.modal-sm
         .modal-content
