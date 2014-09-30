@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departament: MyString
+  name: MyString
+  'no': MyString
+  date: 2014-09-29 18:55:24
+  location: MyString
+  id_number: MyString
+  verify_code: MyString
+  card_no: MyString
+
+two:
+  departament: MyString
+  name: MyString
+  'no': MyString
+  date: 2014-09-29 18:55:24
+  location: MyString
+  id_number: MyString
+  verify_code: MyString
+  card_no: MyString

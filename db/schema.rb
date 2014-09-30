@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813203524) do
+ActiveRecord::Schema.define(version: 20140929235524) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -154,6 +154,19 @@ ActiveRecord::Schema.define(version: 20140813203524) do
   create_table "licencia", force: true do |t|
     t.string   "tipo"
     t.string   "vehiculo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "marcacions", force: true do |t|
+    t.string   "departament"
+    t.string   "name"
+    t.string   "no"
+    t.datetime "date"
+    t.string   "location"
+    t.string   "id_number"
+    t.string   "verify_code"
+    t.string   "card_no"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
