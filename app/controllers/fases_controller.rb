@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class FasesController < ApplicationController
   before_action :set_fase, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Fases", :fases_path
@@ -31,7 +32,7 @@ class FasesController < ApplicationController
 
     respond_to do |format|
       if @fase.save
-        format.html { redirect_to fases_path, notice: 'Fase creada exitosamente' }
+        format.html { redirect_to fases_path, notice: 'Fase creada' }
         format.json { render :show, status: :created, location: @fase }
       else
         format.html { render :new }
@@ -45,7 +46,7 @@ class FasesController < ApplicationController
   def update
     respond_to do |format|
       if @fase.update(fase_params)
-        format.html { redirect_to fases_path, notice: 'Fase actualizada exitosamente' }
+        format.html { redirect_to fases_path, notice: 'Fase actualizada' }
         format.json { render :show, status: :ok, location: @fase }
       else
         format.html { render :edit }

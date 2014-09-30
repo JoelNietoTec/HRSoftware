@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class ProspectosController < ApplicationController
   before_action :set_prospecto, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Prospectos", :prospectos_path

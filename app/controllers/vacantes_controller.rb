@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class VacantesController < ApplicationController
   before_action :set_vacante, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Vacantes", :vacantes_path

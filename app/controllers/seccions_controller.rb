@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class SeccionsController < ApplicationController
   before_action :set_seccion, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Secciones", :seccions_path
@@ -30,7 +31,7 @@ class SeccionsController < ApplicationController
 
     respond_to do |format|
       if @seccion.save
-        format.html { redirect_to seccions_path, notice: 'Seccion was successfully created.' }
+        format.html { redirect_to seccions_path, notice: 'Sección creada' }
         format.json { render :show, status: :created, location: @seccion }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class SeccionsController < ApplicationController
   def update
     respond_to do |format|
       if @seccion.update(seccion_params)
-        format.html { redirect_to seccions_path, notice: 'Seccion was successfully updated.' }
+        format.html { redirect_to seccions_path, notice: 'Sección editada' }
         format.json { render :show, status: :ok, location: @seccion }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class SeccionsController < ApplicationController
   def destroy
     @seccion.destroy
     respond_to do |format|
-      format.html { redirect_to seccions_url, notice: 'Seccion was successfully destroyed.' }
+      format.html { redirect_to seccions_url, notice: 'Sección eliminada' }
       format.json { head :no_content }
     end
   end

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class TurnosController < ApplicationController
   before_action :set_turno, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Turnos", :turnos_path

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class DepartamentosController < ApplicationController
   before_action :set_departamento, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Departamentos", :departamentos_path
@@ -32,7 +33,7 @@ class DepartamentosController < ApplicationController
 
     respond_to do |format|
       if @departamento.save
-        format.html { redirect_to departamentos_path, notice: 'Departamento creado exitosamente' }
+        format.html { redirect_to departamentos_path, notice: 'Departamento creado' }
         format.json { render :show, status: :created, location: @departamento }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class DepartamentosController < ApplicationController
   def update
     respond_to do |format|
       if @departamento.update(departamento_params)
-        format.html { redirect_to departamentos_path, notice: 'Departamento actualizado exitosamente' }
+        format.html { redirect_to departamentos_path, notice: 'Departamento actualizado' }
         format.json { render :show, status: :ok, location: @departamento }
       else
         format.html { render :edit }

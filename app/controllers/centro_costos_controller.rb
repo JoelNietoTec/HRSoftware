@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class CentroCostosController < ApplicationController
   before_action :set_centro_costo, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Centros de Costo", :centro_costos_path

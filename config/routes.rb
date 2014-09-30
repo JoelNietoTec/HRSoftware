@@ -31,6 +31,10 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  resources :marcacions do
+    collection { post :import }
+  end
+
   get 'login' => 'sessions#create', as: :login
 
   get 'logout' => 'sessions#destroy', as: :logout

@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class CargosController < ApplicationController
   before_action :set_cargo, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Cargos", :cargos_path
@@ -31,7 +32,7 @@ class CargosController < ApplicationController
 
     respond_to do |format|
       if @cargo.save
-        format.html { redirect_to cargos_path, notice: 'Cargo creado exitosamente' }
+        format.html { redirect_to cargos_path, notice: 'Cargo creado' }
         format.json { render :show, status: :created, location: @cargo }
       else
         format.html { render :new }
@@ -45,7 +46,7 @@ class CargosController < ApplicationController
   def update
     respond_to do |format|
       if @cargo.update(cargo_params)
-        format.html { redirect_to cargos_path, notice: 'Cargo actualizado exitosamente' }
+        format.html { redirect_to cargos_path, notice: 'Cargo actualizado' }
         format.json { render :show, status: :ok, location: @cargo }
       else
         format.html { render :edit }

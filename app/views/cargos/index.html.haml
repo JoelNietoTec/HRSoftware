@@ -22,10 +22,9 @@
                 %i.fa.fa-times.text-danger
             %td.centered
               = link_to edit_cargo_path(cargo) do
-                %i.fa.fa-pencil.text-primary{'title' => 'Editar'}
-              \|
+                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
               = link_to cargo, method: :delete, data: { confirm: 'Estás seguro?' } do
-                %i.fa.fa-trash-o.text-danger{'title' => 'Borrar'}
+                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
 %br
 = link_to new_cargo_path, :class=> "btn btn-sm btn-primary" do
   %i.fa.fa-plus.text-success

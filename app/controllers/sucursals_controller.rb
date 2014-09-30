@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class SucursalsController < ApplicationController
   before_action :set_sucursal, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Sucursales", :sucursals_path
@@ -30,7 +31,7 @@ class SucursalsController < ApplicationController
 
     respond_to do |format|
       if @sucursal.save
-        format.html { redirect_to sucursals_path, notice: 'Sucursal was successfully created.' }
+        format.html { redirect_to sucursals_path, notice: 'Sucursal creada' }
         format.json { render :show, status: :created, location: @sucursal }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class SucursalsController < ApplicationController
   def update
     respond_to do |format|
       if @sucursal.update(sucursal_params)
-        format.html { redirect_to sucursals_path, notice: 'Sucursal was successfully updated.' }
+        format.html { redirect_to sucursals_path, notice: 'Sucursal actualizada' }
         format.json { render :show, status: :ok, location: @sucursal }
       else
         format.html { render :edit }
@@ -58,7 +59,7 @@ class SucursalsController < ApplicationController
   def destroy
     @sucursal.destroy
     respond_to do |format|
-      format.html { redirect_to sucursals_url, notice: 'Sucursal was successfully destroyed.' }
+      format.html { redirect_to sucursals_url, notice: 'Sucursal eliminada' }
       format.json { head :no_content }
     end
   end

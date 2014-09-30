@@ -1,3 +1,4 @@
+#encoding: UTF-8
 class EmpleadosController < ApplicationController
   before_action :set_empleado, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Empleados", :empleados_path
@@ -33,7 +34,7 @@ class EmpleadosController < ApplicationController
 
     respond_to do |format|
       if @empleado.save
-        format.html { redirect_to @empleado, notice: 'Empleado creado correctamente' }
+        format.html { redirect_to @empleado, notice: 'Empleado creado' }
         format.json { render :show, status: :created, location: @empleado }
       else
         format.html { render :new }
@@ -47,7 +48,7 @@ class EmpleadosController < ApplicationController
   def update
     respond_to do |format|
       if @empleado.update(empleado_params)
-        format.html { redirect_to @empleado, notice: 'Empleado actualizado correctamente' }
+        format.html { redirect_to @empleado, notice: 'Empleado actualizado' }
         format.json { render :show, status: :ok, location: @empleado }
       else
         format.html { render :edit }
