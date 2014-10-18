@@ -48,10 +48,10 @@ GEM
       countries (~> 0.9, >= 0.9.3)
     currencies (0.4.2)
     erubis (2.7.0)
-    execjs (2.2.1)
+    execjs (2.2.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    font-awesome-sass (4.2.0)
+    font-awesome-sass (4.2.1)
       sass (~> 3.2)
     haml (4.0.5)
       tilt
