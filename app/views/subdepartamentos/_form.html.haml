@@ -1,0 +1,38 @@
+= form_for @subdepartamento do |f|
+  - if @subdepartamento.errors.any?
+    .row
+      .col-sm-6
+        .alert.alert-danger
+          %strong= "Sub-Departamento no puede guardarese. #{pluralize(@subdepartamento.errors.count, "error")}"
+          %ul
+            - @subdepartamento.errors.full_messages.each do |msg|
+              %li= msg
+  .row
+    .col-md-6
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title
+            DATOS
+        .panel-body.form-horizontal
+          .field.form-group
+            = f.label :departamento, :class=> "control-label col-sm-3"
+            .col-sm-6
+              = f.collection_select :departamento_id,  Departamento.select("id, nombre").where(:activo=> true), :id, :nombre,{}, {:class=> "form-control input-sm"}
+          .field.form-group
+            = f.label :codigo, :class=> "control-label col-sm-3"
+            .col-sm-6
+              = f.text_field :codigo, :class=> "form-control input-sm upper"
+          .field.form-group
+            = f.label :nombre, :class=> "control-label col-sm-3"
+            .col-sm-8
+              = f.text_field :nombre, :class=> "form-control input-sm"
+          .field.form-group
+            .col-sm-3
+            .field.checkbox.col-sm-9
+              = f.label :activo
+              = f.check_box :activo
+        .panel-footer
+          .actions
+            = f.button(type: "submit", class: "btn btn-sm btn-primary") do
+              GUARDAR
+              %i.fa.fa-save

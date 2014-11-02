@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929235524) do
+ActiveRecord::Schema.define(version: 20141101222002) do
 
   create_table "area_profesionals", force: true do |t|
     t.string   "nombre"
@@ -339,6 +339,17 @@ ActiveRecord::Schema.define(version: 20140929235524) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "subdepartamentos", force: true do |t|
+    t.integer  "departamento_id"
+    t.string   "codigo"
+    t.string   "nombre"
+    t.boolean  "activo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subdepartamentos", ["departamento_id"], name: "index_subdepartamentos_on_departamento_id"
 
   create_table "sucursals", force: true do |t|
     t.string   "codigo"

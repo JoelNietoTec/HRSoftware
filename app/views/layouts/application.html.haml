@@ -75,18 +75,19 @@
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseThree"}
-                  = icon('database')
-                  Mantenimiento
+                  = icon('table')
+                  Tablas
                   %i.fa.fa-chevron-down.pull-right
               .panel-collapse.collapse#collapseThree
                 %ul.nav.nav-pills.nav-stacked
                   %li= link_to "Sucursales", sucursals_path
                   %li= link_to "Departamentos", departamentos_path
+                  %li= link_to "Sub-Departamentos", subdepartamentos_path
                   %li= link_to "Centros De Costo", centro_costos_path
-                  %hr
+                  //%hr
                   %li= link_to "Cargos", cargos_path
-                  %li= link_to "Requisitos del Cargo", reqcargos_path
-                  %hr
+                  //%li= link_to "Requisitos del Cargo", reqcargos_path
+                  //%hr
                   %li= link_to "Secciones", seccions_path
                   %li= link_to "Proyectos", proyectos_path
                   %li= link_to "Fases", fases_path
@@ -94,7 +95,7 @@
               %hr
               %h5.aside-title
                 %a{'data-toggle' => "collapse", 'data-parent' => "#accordion", 'href'=> "#collapseFour"}
-                  = icon('bullhorn')
+                  = icon('clock-o')
                   Asistencia
                   %i.fa.fa-chevron-down.pull-right
               .panel-collapse.collapse#collapseFour

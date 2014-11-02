@@ -31,13 +31,13 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  /* swap open/close side menu icons */
-  $('[data-toggle=collapse]').click(function(){
-    // toggle icon
-    $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
-  });
-});
+//$(document).ready(function() {
+//  /* swap open/close side menu icons */
+//  $('[data-toggle=collapse]').click(function(){
+//    // toggle icon
+//    $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
+//  });
+//});
 
 $(function() {
   $(".datepicker" ).datepicker({

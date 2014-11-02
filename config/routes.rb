@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :subdepartamentos
+
   get 'marcacion/index'
 
   resources :reqcargos

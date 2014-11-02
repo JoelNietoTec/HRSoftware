@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departamento_id:
+  codigo: MyString
+  nombre: MyString
+  activo: false
+
+two:
+  departamento_id:
+  codigo: MyString
+  nombre: MyString
+  activo: false

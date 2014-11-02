@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Departamento:
+  = @subdepartamento.departamento
+%p
+  %b Codigo:
+  = @subdepartamento.codigo
+%p
+  %b Nombre:
+  = @subdepartamento.nombre
+%p
+  %b Activo:
+  = @subdepartamento.activo
+
+= link_to 'Edit', edit_subdepartamento_path(@subdepartamento)
+\|
+= link_to 'Back', subdepartamentos_path

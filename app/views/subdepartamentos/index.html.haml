@@ -1,0 +1,32 @@
+%h3.form-title Sub-Departamentos
+
+.row
+  .col-sm-10
+    %table#datagrid.table.table-condensed.table-hover
+      %thead
+        %tr.info
+          %th Departamento
+          %th Código
+          %th Nombre
+          %th Activo
+          %th Acciones
+      %tbody
+        - @subdepartamentos.each do |subdepartamento|
+          %tr.centered
+            %td= Departamento.find(subdepartamento.departamento).nombre
+            %td= subdepartamento.codigo
+            %td= subdepartamento.nombre
+            %td.centered
+              - if subdepartamento.activo
+                %i.fa.fa-check.text-success
+              - else
+                %i.fa.fa-times.text-danger
+            %td.centered
+              = link_to edit_subdepartamento_path(subdepartamento) do
+                %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
+              = link_to subdepartamento, :method => :delete, :data => { :confirm => 'Está seguro?' } do
+                %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
+%br
+= link_to new_subdepartamento_path, :class=> "btn btn-primary btn-sm" do
+  %i.fa.fa-plus.text-success
+  NUEVO SUB-DEPARTAMENTO

@@ -21,11 +21,10 @@
             %td.centered
               = link_to edit_departamento_path(departamento) do
                 %i.fa.fa-pencil.btn.btn-xs.btn-primary{'title' => 'Editar'}
-              \|
               = link_to departamento, method: :delete, data: { confirm: 'Está seguro?' } do
                 %i.fa.fa-trash-o.btn.btn-xs.btn-danger{'title' => 'Borrar'}
 %br
-=link_to  new_departamento_path, :class=> "btn btn-primary btn-sm" do
+=link_to new_departamento_path, :class=> "btn btn-primary btn-sm" do
   %i.fa.fa-plus.text-success
   NUEVO DEPARTAMENTO
 
